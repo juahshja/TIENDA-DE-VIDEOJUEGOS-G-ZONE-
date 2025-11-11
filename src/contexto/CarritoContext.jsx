@@ -1,4 +1,5 @@
-import React, { createContext, useContext, useState } from "react";
+import React, { createContext, useContext } from "react";
+import { useLocalStorage } from "../hooks/useLocalStorage"; // ← NUEVA LÍNEA
 
 const CarritoContext = createContext();
 
@@ -11,8 +12,9 @@ export const useCarrito = () => {
 };
 
 export const CarritoProvider = ({ children }) => {
-  const [carrito, setCarrito] = useState([]);
+  const [carrito, setCarrito] = useLocalStorage('carrito-gzone', []); // ← LÍNEA CAMBIADA
 
+  // EL RESTO DEL CÓDIGO SE MANTIENE IGUAL
   const agregarAlCarrito = (juego) => {
     const existe = carrito.find((item) => item.id === juego.id);
     if (existe) {

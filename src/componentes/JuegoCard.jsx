@@ -1,5 +1,5 @@
 import { useCarrito } from "../contexto/CarritoContext";
-import { Link } from "react-router-dom"; // ← NUEVO IMPORT
+import { Link } from "react-router-dom"; 
 
 function JuegoCard({ juego }) {
   const { agregarAlCarrito } = useCarrito();
@@ -12,7 +12,7 @@ function JuegoCard({ juego }) {
 
   return (
     <div className="col-md-6 col-lg-4 mb-4">
-      {/* NUEVO: ENVOLVER TODA LA CARD CON LINK */}
+      {}
       <Link 
         to={`/producto/${juego.id}`} 
         className="text-decoration-none text-dark"
