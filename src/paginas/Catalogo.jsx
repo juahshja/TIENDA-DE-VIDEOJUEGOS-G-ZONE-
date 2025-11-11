@@ -25,11 +25,16 @@ function Catalogo() {
 
   if (cargando) {
     return (
-      <div className="container text-center mt-5">
-        <div className="spinner-border text-primary" role="status">
-          <span className="visually-hidden">Cargando...</span>
+      <div className="container text-center mt-5 py-4">
+        <div className="row justify-content-center">
+          <div className="col-md-6">
+            <div className="spinner-border text-primary mb-3" style={{width: '3rem', height: '3rem'}} role="status">
+              <span className="visually-hidden">Cargando...</span>
+            </div>
+            <h5 className="text-primary mb-2">Cargando catálogo</h5>
+            <p className="text-muted">Buscando los mejores juegos para ti...</p>
+          </div>
         </div>
-        <p className="mt-2">Cargando catálogo...</p>
       </div>
     );
   }
