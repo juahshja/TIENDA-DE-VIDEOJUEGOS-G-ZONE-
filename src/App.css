@@ -1678,3 +1678,102 @@ body {
     opacity: 1;
   }
 }
+/* === ESTILOS PARA EL MINI CARRUSEL === */
+.mini-carrusel {
+  position: relative;
+}
+
+.mini-carrusel .imagen-principal {
+  border: 1px solid #dee2e6;
+  border-radius: 12px;
+  background: #f8f9fa;
+  padding: 1.5rem;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Botones de navegación */
+.mini-carrusel .btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  background: white !important;
+  transition: all 0.3s ease;
+}
+
+.mini-carrusel .btn:hover {
+  background: #f8f9fa !important;
+  transform: scale(1.1);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15) !important;
+}
+
+/* Miniaturas */
+.mini-carrusel .img-thumbnail {
+  transition: all 0.3s ease;
+  border-width: 2px !important;
+}
+
+.mini-carrusel .img-thumbnail:hover {
+  transform: scale(1.08);
+  opacity: 0.9 !important;
+}
+
+.mini-carrusel .miniatura-activa .img-thumbnail {
+  border-color: #0d6efd !important;
+  opacity: 1 !important;
+  box-shadow: 0 2px 8px rgba(13, 110, 253, 0.3);
+}
+
+/* Indicador de posición */
+.mini-carrusel .badge {
+  font-size: 0.8rem;
+  font-weight: 600;
+  backdrop-filter: blur(10px);
+}
+
+/* Efectos de hover para miniaturas */
+.mini-carrusel .img-thumbnail {
+  cursor: pointer;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .mini-carrusel .imagen-principal {
+    padding: 1rem;
+  }
+  
+  .mini-carrusel .btn {
+    width: 40px !important;
+    height: 40px !important;
+  }
+  
+  .mini-carrusel .img-thumbnail {
+    width: 60px !important;
+    height: 60px !important;
+  }
+}
+.nav-tabs .nav-link {
+  color: #575f65;
+  font-weight: 600;
+  border: none;
+  padding: 0.75rem 1.5rem;
+}
+.nav-tabs .nav-link.active {
+  color: #34383d;
+  background: none;
+  border-bottom: 3px solid #24262a;
+}
+.nav-tabs .nav-link:hover {
+  color: #33373d;
+  border: none;
+  border-bottom: 3px solid #9cabb8;
+}
+.tab-content {
+  min-height: 300px;
+}
+/* Mejora para iframe de YouTube */
+.ratio-16x9 {
+  border-radius: 8px;
+  overflow: hidden;
+}

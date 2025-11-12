@@ -36,7 +36,7 @@ function JuegoCard({ juego }) {
                 <span className="h5 text-primary mb-0">${juego.precio}</span>
                 <button
                   className="btn btn-primary btn-sm"
-                  onClick={handleAgregarCarrito} // ← NUEVO: MANEJADOR ACTUALIZADO
+                  onClick={handleAgregarCarrito} 
                 >
                   Agregar 🛒
                 </button>

@@ -4,11 +4,18 @@ const juegos = [
     id: 1,
     nombre: "God of War Ragnarök",
     precio: 59.99,
+    // IMÁGENES MÚLTIPLES - ARRAY NUEVO
+    imagenes: [
+      "https://image.api.playstation.com/vulcan/ap/rnd/202207/1210/4xJ8XB3bi888QTLZYdl7Oi0s.png",
+      "https://example.com/gow-2.jpg",
+      "https://example.com/gow-3.jpg",
+      "https://example.com/gow-4.jpg"
+    ],
     imagen: "https://image.api.playstation.com/vulcan/ap/rnd/202207/1210/4xJ8XB3bi888QTLZYdl7Oi0s.png",
     categoria: "Acción-Aventura",
     plataforma: "PS5",
     descripcion: "Una épica aventura nórdica con Kratos y Atreus",
-    descripcionCompleta: "Kratos y Atreus se embarcan en un viaje mítico a través de los Nueve Reinos nórdicos en búsqueda de respuestas, mientras las fuerzas de Asgard se preparan para una batalla profetizada que terminará con el mundo.",
+    descripcionCompleta: "En God of War Ragnarök, acompaña a Kratos y Atreus en una épica travesía por los Nueve Reinos mientras el fin del mundo se aproxima. La relación entre padre e hijo se verá puesta a prueba frente a poderosos dioses, criaturas legendarias y decisiones que marcarán su destino. Con un apartado visual impresionante, combates más feroces y escenarios llenos de misterios, esta secuela eleva la saga a nuevas alturas de emoción y profundidad. A medida que el Ragnarök se acerca, Kratos deberá elegir entre romper el ciclo de la violencia o aceptar su legado de guerra, mientras Atreus busca comprender quién es y cuál es su verdadero propósito. Cada batalla, cada decisión y cada paso los acercan al desenlace de una historia donde el honor, el sacrificio y la familia lo significan todo.",
     plataformas: ["PS5", "PS4"],
     calificacion: 4.8,
     reseñas: 1250,
