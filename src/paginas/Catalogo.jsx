@@ -55,7 +55,8 @@ function Catalogo() {
         <div className="col">
           <h2 className="text-center mb-3">🎯 Catálogo de Juegos</h2>
           <p className="text-center text-muted">
-            Descubre nuestra colección de {juegos.length} juegos
+           Explora nuestra amplia selección de videojuegos para todas las plataformas. 
+Encuentra desde los últimos lanzamientos hasta clásicos imprescindibles.
           </p>
         </div>
       </div>

@@ -13,6 +13,11 @@ function Carrito() {
   } = useCarrito();
   
   const [mostrarConfirmacion, setMostrarConfirmacion] = useState(false);
+  const [mostrarConfirmacionEliminar, setMostrarConfirmacionEliminar] = useState(false);
+  const [mostrarConfirmacionVaciar, setMostrarConfirmacionVaciar] = useState(false);
+  const [mostrarAlerta, setMostrarAlerta] = useState(false);
+  const [mensajeAlerta, setMensajeAlerta] = useState('');
+  const [productoAEliminar, setProductoAEliminar] = useState(null);
 
   const lanzarConfeti = () => {
     // Confeti inicial EXPLOSIVO - toda la pantalla
@@ -58,6 +63,14 @@ function Carrito() {
     }, 600);
   };
 
+  const mostrarAlertaTemporal = (mensaje) => {
+    setMensajeAlerta(mensaje);
+    setMostrarAlerta(true);
+    setTimeout(() => {
+      setMostrarAlerta(false);
+    }, 3000);
+  };
+
   const handleProcederPago = () => {
     setMostrarConfirmacion(true);
     lanzarConfeti();
@@ -66,6 +79,30 @@ function Carrito() {
   const handleCerrarConfirmacion = () => {
     setMostrarConfirmacion(false);
     vaciarCarrito();
+  };
+
+  const handleEliminarProducto = (producto) => {
+    setProductoAEliminar(producto);
+    setMostrarConfirmacionEliminar(true);
+  };
+
+  const confirmarEliminarProducto = () => {
+    if (productoAEliminar) {
+      eliminarDelCarrito(productoAEliminar.id);
+      mostrarAlertaTemporal(`"${productoAEliminar.nombre}" fue eliminado del carrito`);
+    }
+    setMostrarConfirmacionEliminar(false);
+    setProductoAEliminar(null);
+  };
+
+  const handleVaciarCarrito = () => {
+    setMostrarConfirmacionVaciar(true);
+  };
+
+  const confirmarVaciarCarrito = () => {
+    vaciarCarrito();
+    setMostrarConfirmacionVaciar(false);
+    mostrarAlertaTemporal('Carrito vaciado correctamente');
   };
 
   if (carrito.length === 0) {
@@ -83,123 +120,120 @@ function Carrito() {
 
   return (
     <div className="container mt-4">
-      {/* MODAL DE CONFIRMACIÓN ÉPICO MEJORADO */}
+ 
+      {/* MODAL DE CONFIRMACIÓN COMPRA EXITOSA */}
       {mostrarConfirmacion && (
-        <>
-          {/* Fondo oscuro para mejor contraste */}
-          <div 
-            className="position-fixed top-0 start-0 w-100 h-100 d-flex align-items-center justify-content-center"
-            style={{
-              backgroundColor: 'rgba(0, 0, 0, 0.95)',
-              zIndex: 9998
-            }}
-          >
-            {/* Modal mejorado */}
-            <div 
-              className="modal-content border-0 shadow-lg rounded-3 position-relative"
-              style={{
-                background: 'linear-gradient(135deg, #1a1a1a 0%, #2d3436 100%)',
-                border: '2px solid #667eea',
-                zIndex: 9999,
-                maxWidth: '500px',
-                width: '90%'
-              }}
-            >
-              {/* Header con glow effect */}
-              <div 
-                className="modal-header border-0 text-white text-center position-relative"
-                style={{
-                  background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
-                  borderRadius: '10px 10px 0 0'
-                }}
-              >
-                <h3 className="modal-title fw-bold w-100" style={{ textShadow: '0 2px 10px rgba(0,0,0,0.5)' }}>
-                  🎮 ¡FELICIDADES! 🎮
-                </h3>
+        <div className="modal fade show d-block" style={{backgroundColor: 'rgba(0,0,0,0.6)'}} tabIndex="-1">
+          <div className="modal-dialog modal-dialog-centered">
+            <div className="modal-content">
+              <div className="modal-header bg-success text-white">
+                <h5 className="modal-title">
+                  <i className="bi bi-check-circle-fill me-2"></i>
+                  Compra Exitosa
+                </h5>
               </div>
               
-              {/* Body con mejor diseño */}
-              <div className="modal-body text-center py-4 px-3" style={{background: '#1a1a1a', color: 'white'}}>
-                <div className="mb-3">
-                  <div 
-                    style={{
-                      fontSize: '4rem',
-                      filter: 'drop-shadow(0 0 10px #667eea)'
-                    }}
-                  >
-                    🎉
+              <div className="modal-body">
+                <div className="text-center mb-3">
+                  <i className="bi bi-check2-circle text-success" style={{fontSize: '3rem'}}></i>
+                  <h6 className="text-dark mt-2">¡Bienvenido a la familia G-Zone!</h6>
+                </div>
+                
+                <div className="alert alert-light border mb-3">
+                  <p className="mb-1">Tu pedido está siendo procesado</p>
+                  <p className="mb-0 fw-bold">Total: ${totalCarrito.toFixed(2)}</p>
+                </div>
+
+                <div className="card border-0 bg-light">
+                  <div className="card-body py-2">
+                    <h6 className="card-title mb-2">
+                      <i className="bi bi-box-seam me-1"></i>
+                      Detalles del envío:
+                    </h6>
+                    <ul className="list-unstyled small mb-0">
+                      <li><i className="bi bi-clock me-1"></i> Tu pedido llegará en 2-3 días</li>
+                      <li><i className="bi bi-envelope me-1"></i> Recibirás tracking por email</li>
+                    </ul>
                   </div>
-                </div>
-                
-                <h2 
-                  className="fw-bold mb-3"
-                  style={{
-                    background: 'linear-gradient(45deg, #ff6b6b, #f9ca24, #a29bfe)',
-                    WebkitBackgroundClip: 'text',
-                    WebkitTextFillColor: 'transparent',
-                    textShadow: '0 2px 20px rgba(255,255,255,0.3)'
-                  }}
-                >
-                  ¡Compra Exitosa!
-                </h2>
-                
-                <div 
-                  className="rounded p-3 mb-3 mx-auto"
-                  style={{
-                    background: 'rgba(255,255,255,0.1)',
-                    backdropFilter: 'blur(10px)',
-                    border: '1px solid rgba(255,255,255,0.2)',
-                    maxWidth: '400px'
-                  }}
-                >
-                  <h4 className="text-white mb-2">¡Bienvenido a la familia G-Zone!</h4>
-                  <p className="mb-1 text-light">Tu pedido está siendo procesado</p>
-                  <p className="mb-0 h5 text-warning">
-                    <strong>Total: ${totalCarrito.toFixed(2)}</strong>
-                  </p>
-                </div>
-
-                <div 
-                  className="rounded p-3 mb-3 mx-auto"
-                  style={{
-                    background: 'linear-gradient(135deg, #667eea20, #764ba220)',
-                    border: '1px solid #667eea',
-                    maxWidth: '400px'
-                  }}
-                >
-                  <h5 className="text-info mb-2">📦 Detalles del envío:</h5>
-                  <p className="mb-1 small text-light">• Tu pedido llegará en 2-3 días</p>
-                  <p className="mb-0 small text-light">• Recibirás tracking por email</p>
-                </div>
-
-                <div className="text-muted small">
-                  <p className="mb-0">¡Prepara tu consola! La aventura está por comenzar 🚀</p>
                 </div>
               </div>
 
-              {/* Footer */}
-              <div 
-                className="modal-footer border-0 justify-content-center"
-                style={{
-                  background: 'linear-gradient(135deg, #2d3436 0%, #1a1a1a 100%)',
-                  borderRadius: '0 0 10px 10px'
-                }}
-              >
+              <div className="modal-footer">
                 <button 
-                  className="btn btn-primary btn-lg px-4 fw-bold"
+                  className="btn btn-primary"
                   onClick={handleCerrarConfirmacion}
-                  style={{
-                    background: 'linear-gradient(135deg, #667eea, #764ba2)',
-                    border: 'none',
-                    boxShadow: '0 4px 15px rgba(102, 126, 234, 0.4)'
-                  }}
                 >
-                  🎯 Seguir Comprando
+                  <i className="bi bi-cart-plus me-1"></i>
+                  Seguir Comprando
                 </button>
               </div>
             </div>
           </div>
-        </>
+        </div>
+      )}
+
+      {/* MODAL DE CONFIRMACIÓN ELIMINAR PRODUCTO - FONDO ESTÁTICO */}
+      {mostrarConfirmacionEliminar && productoAEliminar && (
+        <div className="modal fade show d-block" data-bs-backdrop="static" data-bs-keyboard="false" style={{backgroundColor: 'rgba(0,0,0,0.5)'}} tabIndex="-1">
+          <div className="modal-dialog modal-dialog-centered">
+            <div className="modal-content">
+              <div className="modal-header">
+                <h5 className="modal-title">Confirmar eliminación</h5>
+              </div>
+              <div className="modal-body">
+                <p>¿Estás seguro de que quieres eliminar <strong>"{productoAEliminar.nombre}"</strong> del carrito?</p>
+              </div>
+              <div className="modal-footer">
+                <button 
+                  type="button" 
+                  className="btn btn-secondary" 
+                  onClick={() => setMostrarConfirmacionEliminar(false)}
+                >
+                  Cancelar
+                </button>
+                <button 
+                  type="button" 
+                  className="btn btn-danger" 
+                  onClick={confirmarEliminarProducto}
+                >
+                  Sí, eliminar
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* MODAL DE CONFIRMACIÓN VACIAR CARRITO - FONDO ESTÁTICO */}
+      {mostrarConfirmacionVaciar && (
+        <div className="modal fade show d-block" data-bs-backdrop="static" data-bs-keyboard="false" style={{backgroundColor: 'rgba(0,0,0,0.5)'}} tabIndex="-1">
+          <div className="modal-dialog modal-dialog-centered">
+            <div className="modal-content">
+              <div className="modal-header">
+                <h5 className="modal-title">Vaciar carrito</h5>
+              </div>
+              <div className="modal-body">
+                <p>¿Estás seguro de que quieres vaciar todo el carrito? Se eliminarán <strong>{carrito.length}</strong> producto(s).</p>
+              </div>
+              <div className="modal-footer">
+                <button 
+                  type="button" 
+                  className="btn btn-secondary" 
+                  onClick={() => setMostrarConfirmacionVaciar(false)}
+                >
+                  Cancelar
+                </button>
+                <button 
+                  type="button" 
+                  className="btn btn-danger" 
+                  onClick={confirmarVaciarCarrito}
+                >
+                  Sí, vaciar carrito
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
       )}
 
       {/* CONTENIDO NORMAL DEL CARRITO */}
@@ -207,7 +241,7 @@ function Carrito() {
         <h2>🛒 Carrito de Compras</h2>
         <button 
           className="btn btn-outline-danger btn-sm"
-          onClick={vaciarCarrito}
+          onClick={handleVaciarCarrito}
         >
           Vaciar Carrito
         </button>
@@ -270,7 +304,7 @@ function Carrito() {
                 <td className="align-middle">
                   <button 
                     className="btn btn-danger btn-sm"
-                    onClick={() => eliminarDelCarrito(item.id)}
+                    onClick={() => handleEliminarProducto(item)}
                   >
                     ❌ Eliminar
                   </button>

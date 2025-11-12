@@ -10,6 +10,7 @@ function DetalleProducto() {
   const [juego, setJuego] = useState(null);
   const [cargando, setCargando] = useState(true);
   const [error, setError] = useState(null);
+  const [cantidad, setCantidad] = useState(1);
 
   useEffect(() => {
     const cargarProducto = async () => {
@@ -33,9 +34,24 @@ function DetalleProducto() {
 
   const handleAgregarCarrito = () => {
     if (juego) {
-      agregarAlCarrito(juego);
-      alert(`¡${juego.nombre} agregado al carrito!`);
+      for (let i = 0; i < cantidad; i++) {
+        agregarAlCarrito(juego);
+      }
     }
+  };
+
+  const renderEstrellas = (calificacion) => {
+    const estrellas = [];
+    for (let i = 1; i <= 5; i++) {
+      if (i <= Math.floor(calificacion)) {
+        estrellas.push(<span key={i} className="text-warning">⭐</span>);
+      } else if (i === Math.ceil(calificacion) && !Number.isInteger(calificacion)) {
+        estrellas.push(<span key={i} className="text-warning">⭐</span>);
+      } else {
+        estrellas.push(<span key={i} className="text-secondary">☆</span>);
+      }
+    }
+    return estrellas;
   };
 
   if (cargando) {
@@ -65,6 +81,7 @@ function DetalleProducto() {
 
   return (
     <div className="container mt-4">
+      {/* Migas de pan */}
       <nav aria-label="breadcrumb" className="mb-4">
         <ol className="breadcrumb">
           <li className="breadcrumb-item">
@@ -78,50 +95,142 @@ function DetalleProducto() {
       </nav>
 
       <div className="row">
+        {/* Columna Imagen */}
         <div className="col-md-6 mb-4">
-          <div className="product-image-detalle text-center">
+          <div className="card">
             <img 
               src={juego.imagen} 
               alt={juego.nombre}
-              className="img-fluid rounded shadow"
-              style={{ maxHeight: '500px', objectFit: 'contain' }}
+              className="card-img-top"
+              style={{ height: '400px', objectFit: 'contain', padding: '1rem' }}
             />
           </div>
         </div>
 
+        {/* Columna Información */}
         <div className="col-md-6">
-          <div className="product-info">
-            <div className="d-flex justify-content-between align-items-start mb-3">
-              <span className="badge bg-primary fs-6">{juego.categoria}</span>
-              <span className="badge bg-secondary fs-6">{juego.plataforma}</span>
-            </div>
-            
-            <h1 className="product-title-detalle mb-3">{juego.nombre}</h1>
-            
-            <div className="product-description-detalle mb-4">
-              <h5 className="text-dark mb-3">Descripción</h5>
-              <p className="fs-6 text-muted">{juego.descripcion}</p>
-            </div>
-
-            <div className="product-pricing bg-light rounded p-4 mb-4">
-              <div className="price-section text-center mb-4">
-                <span className="display-4 text-primary fw-bold">${juego.precio}</span>
+          <div className="card">
+            <div className="card-body">
+              {/* Categoría y Plataformas */}
+              <div className="d-flex justify-content-between align-items-start mb-3">
+                <span className="badge bg-primary">{juego.categoria}</span>
+                <div>
+                  {juego.plataformas && juego.plataformas.map((plat, index) => (
+                    <span key={index} className="badge bg-secondary me-1">{plat}</span>
+                  ))}
+                </div>
+              </div>
+              
+              {/* Título */}
+              <h1 className="card-title h3 mb-3">{juego.nombre}</h1>
+              
+              {/* Calificación */}
+              <div className="mb-3">
+                <div className="d-flex align-items-center">
+                  {renderEstrellas(juego.calificacion || 4)}
+                  <span className="ms-2 text-muted">
+                    ({juego.calificacion || 4}/5) - {juego.reseñas || 0} reseñas
+                  </span>
+                </div>
               </div>
 
-              <div className="product-actions-detalle d-grid gap-2">
+              {/* Precio */}
+              <div className="mb-4">
+                <h2 className="text-primary mb-0">${juego.precio}</h2>
+                <small className="text-muted">Precio final</small>
+              </div>
+
+              {/* Disponibilidad */}
+              <div className="mb-3">
+                <span className={`badge ${juego.disponibilidad === 'En stock' ? 'bg-success' : 'bg-danger'}`}>
+                  {juego.disponibilidad || 'En stock'}
+                </span>
+                {juego.stock && (
+                  <small className="text-muted ms-2">
+                    {juego.stock} unidades disponibles
+                  </small>
+                )}
+              </div>
+
+              {/* Selector de Cantidad */}
+              <div className="mb-4">
+                <label htmlFor="cantidad" className="form-label">Cantidad:</label>
+                <div className="d-flex align-items-center">
+                  <select 
+                    id="cantidad"
+                    className="form-select me-3" 
+                    style={{ width: '80px' }}
+                    value={cantidad}
+                    onChange={(e) => setCantidad(parseInt(e.target.value))}
+                  >
+                    {[1, 2, 3, 4, 5].map(num => (
+                      <option key={num} value={num}>{num}</option>
+                    ))}
+                  </select>
+                  <span className="text-muted small">
+                    Máximo 5 unidades por pedido
+                  </span>
+                </div>
+              </div>
+
+              {/* Botones de Acción */}
+              <div className="d-grid gap-2 mb-4">
                 <button 
-                  className="btn btn-primary btn-lg py-3 fw-bold"
+                  className="btn btn-primary btn-lg"
                   onClick={handleAgregarCarrito}
+                  disabled={juego.disponibilidad === 'Agotado'}
                 >
-                  🛒 Agregar al Carrito
+                  {juego.disponibilidad === 'Agotado' ? 'PRODUCTO AGOTADO' : '🛒 Agregar al Carrito'}
                 </button>
                 <button 
-                  className="btn btn-outline-secondary btn-lg py-3"
+                  className="btn btn-outline-secondary"
                   onClick={() => navigate('/catalogo')}
                 >
                   ← Seguir Comprando
                 </button>
               </div>
+
+              {/* Información Adicional */}
+              <div className="border-top pt-3">
+                <div className="row small text-muted">
+                  <div className="col-6">
+                    <strong>Desarrollador:</strong><br />
+                    {juego.desarrollador || 'No especificado'}
+                  </div>
+                  <div className="col-6">
+                    <strong>Lanzamiento:</strong><br />
+                    {juego.lanzamiento || 'No especificado'}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Descripción Completa */}
+      <div className="row mt-4">
+        <div className="col-12">
+          <div className="card">
+            <div className="card-body">
+              <h5 className="card-title">Descripción del Juego</h5>
+              <p className="card-text">
+                {juego.descripcionCompleta || juego.descripcion}
+              </p>
+              
+              {/* Características */}
+              {juego.caracteristicas && juego.caracteristicas.length > 0 && (
+                <>
+                  <h6 className="mt-4">Características Principales</h6>
+                  <div className="row">
+                    {juego.caracteristicas.map((caracteristica, index) => (
+                      <div key={index} className="col-md-6">
+                        <span className="text-primary">•</span> {caracteristica}
+                      </div>
+                    ))}
+                  </div>
+                </>
+              )}
             </div>
           </div>
         </div>

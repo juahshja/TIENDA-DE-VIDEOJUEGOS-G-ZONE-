@@ -1,7 +1,18 @@
-import React, { createContext, useContext } from "react";
-import { useLocalStorage } from "../hooks/useLocalStorage"; // ← NUEVA LÍNEA
+import React, { createContext, useContext, useReducer } from "react";
+import { useLocalStorage } from "../hooks/useLocalStorage";
 
 const CarritoContext = createContext();
+
+const notificacionesReducer = (state, action) => {
+  switch (action.type) {
+    case 'AGREGAR_NOTIFICACION':
+      return [...state, action.payload];
+    case 'ELIMINAR_NOTIFICACION':
+      return state.filter(notif => notif.id !== action.payload);
+    default:
+      return state;
+  }
+};
 
 export const useCarrito = () => {
   const context = useContext(CarritoContext);
@@ -12,9 +23,24 @@ export const useCarrito = () => {
 };
 
 export const CarritoProvider = ({ children }) => {
-  const [carrito, setCarrito] = useLocalStorage('carrito-gzone', []); // ← LÍNEA CAMBIADA
+  const [carrito, setCarrito] = useLocalStorage('carrito-gzone', []);
+  const [notificaciones, dispatchNotificaciones] = useReducer(notificacionesReducer, []);
 
-  // EL RESTO DEL CÓDIGO SE MANTIENE IGUAL
+  const agregarNotificacion = (mensaje, tipo = 'success') => {
+    const id = Date.now();
+    dispatchNotificaciones({
+      type: 'AGREGAR_NOTIFICACION',
+      payload: { id, mensaje, tipo }
+    });
+  };
+
+  const eliminarNotificacion = (id) => {
+    dispatchNotificaciones({
+      type: 'ELIMINAR_NOTIFICACION',
+      payload: id
+    });
+  };
+
   const agregarAlCarrito = (juego) => {
     const existe = carrito.find((item) => item.id === juego.id);
     if (existe) {
@@ -25,8 +51,10 @@ export const CarritoProvider = ({ children }) => {
             : item
         )
       );
+      agregarNotificacion(`"${juego.nombre}" actualizado en el carrito`);
     } else {
       setCarrito([...carrito, { ...juego, cantidad: 1 }]);
+      agregarNotificacion(`${juego.nombre} añadido al carrito`);
     }
   };
 
@@ -42,15 +70,19 @@ export const CarritoProvider = ({ children }) => {
             : item
         )
       );
+      agregarNotificacion(`Cantidad de "${existe.nombre}" disminuida`);
     }
   };
 
   const eliminarDelCarrito = (id) => {
+    const juego = carrito.find(item => item.id === id);
     setCarrito(carrito.filter((item) => item.id !== id));
+   agregarNotificacion(`${juego.nombre} eliminado del carrito`);
   };
 
   const vaciarCarrito = () => {
     setCarrito([]);
+    agregarNotificacion('Carrito vaciado correctamente', 'danger');
   };
 
   const totalCarrito = carrito.reduce((total, item) => total + (item.precio * item.cantidad), 0);
@@ -65,7 +97,9 @@ export const CarritoProvider = ({ children }) => {
         eliminarDelCarrito, 
         vaciarCarrito,
         totalCarrito,
-        cantidadTotal
+        cantidadTotal,
+        notificaciones,
+        eliminarNotificacion
       }}
     >
       {children}
