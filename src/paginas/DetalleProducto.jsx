@@ -223,25 +223,25 @@ function DetalleProducto() {
                     className={`nav-link ${pestañaActiva === 'detalles' ? 'active' : ''}`}
                     onClick={() => setPestañaActiva('detalles')}
                   >
-                    📋 DETALLES
+                    DETALLES
                   </button>
                   <button 
                     className={`nav-link ${pestañaActiva === 'informacion' ? 'active' : ''}`}
                     onClick={() => setPestañaActiva('informacion')}
                   >
-                    ℹ️ MÁS INFORMACIÓN
+                    MÁS INFORMACIÓN
                   </button>
                   <button 
                     className={`nav-link ${pestañaActiva === 'reseñas' ? 'active' : ''}`}
                     onClick={() => setPestañaActiva('reseñas')}
                   >
-                    ⭐ RESEÑAS
+                    RESEÑAS
                   </button>
                   <button 
                     className={`nav-link ${pestañaActiva === 'relacionados' ? 'active' : ''}`}
                     onClick={() => setPestañaActiva('relacionados')}
                   >
-                    🎮 RELATED POSTS
+                   RELATED POSTS
                   </button>
                 </div>
               </nav>
@@ -259,20 +259,34 @@ function DetalleProducto() {
                           {juego.descripcionCompleta || juego.descripcion}
                         </p>
                         
-                        {/* Video de YouTube */}
-                        <div className="mt-4">
-                          <h6>🎥 Mira en YouTube</h6>
-                          <div className="ratio ratio-16x9 mt-2">
-                            <iframe 
-                              src="https://www.youtube.com/embed/dQw4w9WgXcQ" 
-                              title="Gameplay trailer"
-                              allowFullScreen
-                            ></iframe>
-                          </div>
-                          <small className="text-muted">
-                            Corre por tierra, mar, aire y espacio. Teletranspórtate a través de los Rings de travesía a otras dimensiones, donde te esperan sorpresas en cada giro y curva.
-                          </small>
-                        </div>
+                       {/* Video dinámico por juego - VERSIÓN FUNCIONAL */}
+ <div className="mt-4">
+  <h6>🎥 Tráiler Oficial</h6>
+  
+  <div className="ratio ratio-16x9 mt-2">
+    {juego.video ? (
+      <iframe 
+        src={`https://www.youtube-nocookie.com/embed/${juego.video}?rel=0&modestbranding=1`}
+        title={`Tráiler oficial de ${juego.nombre}`}
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowFullScreen
+        style={{ border: 'none', borderRadius: '8px' }}
+      ></iframe>
+    ) : (
+      <div className="bg-light d-flex flex-column justify-content-center align-items-center rounded">
+        <div className="h1 text-muted mb-2">🎮</div>
+        <p className="text-muted text-center mb-0">
+          Tráiler no disponible<br />
+          <small>Próximamente...</small>
+        </p>
+      </div>
+    )}
+  </div>
+  
+  <small className="text-muted">
+    Tráiler oficial de {juego.nombre}
+  </small>
+</div>
                       </div>
                       
                       <div className="col-lg-4">

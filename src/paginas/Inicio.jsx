@@ -68,7 +68,7 @@ function Inicio() {
 
   return (
     <div>
-      {/* NUEVO HERO SECTION MEJORADO */}
+      {/* HERO SECTION */}
       <section className="hero-section-improved">
         <div className="container">
           <div className="row align-items-center">
@@ -113,7 +113,126 @@ function Inicio() {
         </div>
       </section>
 
-      {/* TUS 3 TARJETAS ORIGINALES - SE MANTIENEN */}
+ {/* CARRUSEL PROFESIONAL AL ESTILO STEAM */}
+<div className="container my-5">
+  <div 
+    id="carouselGZone" 
+    className="carousel slide carousel-fade" 
+    data-bs-ride="carousel" 
+    data-bs-interval="4000"
+    data-bs-pause="false"
+  >
+    
+    {/* INDICADORES */}
+    <div className="carousel-indicators">
+      <button 
+        type="button" 
+        data-bs-target="#carouselGZone" 
+        data-bs-slide-to="0" 
+        className="active" 
+        aria-current="true" 
+        aria-label="God of War"
+      ></button>
+      <button 
+        type="button" 
+        data-bs-target="#carouselGZone" 
+        data-bs-slide-to="1" 
+        aria-label="Zelda"
+      ></button>
+      <button 
+        type="button" 
+        data-bs-target="#carouselGZone" 
+        data-bs-slide-to="2" 
+        aria-label="Cyberpunk"
+      ></button>
+      <button 
+        type="button" 
+        data-bs-target="#carouselGZone" 
+        data-bs-slide-to="3" 
+        aria-label="FIFA"
+      ></button>
+    </div>
+
+    {/* SLIDES CON EFECTO STEAM */}
+    <div className="carousel-inner rounded-4 shadow-lg overflow-hidden">
+      
+      {/* SLIDE 1 - GOD OF WAR */}
+      <div className="carousel-item active position-relative">
+        <Link to="/producto/1" className="d-block w-100 h-100">
+          <img 
+            src="https://image.api.playstation.com/vulcan/ap/rnd/202207/1210/4xJ8XB3bi888QTLZYdl7Oi0s.png" 
+            className="d-block w-100" 
+            alt="God of War Ragnarök"
+            style={{ height: '500px', objectFit: 'cover' }}
+          />
+          <div className="carousel-caption d-none d-md-block text-start">
+            <h3 className="fw-bold mb-1">God of War Ragnarök</h3>
+            <p className="mb-0">Aventura épica nórdica</p>
+          </div>
+        </Link>
+      </div>
+
+      {/* SLIDE 2 - ZELDA */}
+      <div className="carousel-item position-relative">
+        <Link to="/producto/2" className="d-block w-100 h-100">
+          <img 
+            src="https://tse4.mm.bing.net/th/id/OIP.N8TsUVXvmdsVfmP8hbmuHQHaG3?rs=1&pid=ImgDetMain&o=7&rm=3" 
+            className="d-block w-100" 
+            alt="The Legend of Zelda: TOTK"
+            style={{ height: '500px', objectFit: 'cover' }}
+          />
+          <div className="carousel-caption d-none d-md-block text-start">
+            <h3 className="fw-bold mb-1">Zelda: Tears of the Kingdom</h3>
+            <p className="mb-0">Explora cielos y profundidades</p>
+          </div>
+        </Link>
+      </div>
+
+      {/* SLIDE 3 - CYBERPUNK */}
+      <div className="carousel-item position-relative">
+        <Link to="/producto/3" className="d-block w-100 h-100">
+          <img 
+            src="https://tse2.mm.bing.net/th/id/OIP.NLzqbgggrOIXEw8fadqLjAHaE6?w=900&h=598&rs=1&pid=ImgDetMain&o=7&rm=3" 
+            className="d-block w-100" 
+            alt="Cyberpunk 2077"
+            style={{ height: '500px', objectFit: 'cover' }}
+          />
+          <div className="carousel-caption d-none d-md-block text-start">
+            <h3 className="fw-bold mb-1">Cyberpunk 2077</h3>
+            <p className="mb-0">RPG futurista en Night City</p>
+          </div>
+        </Link>
+      </div>
+
+      {/* SLIDE 4 - FIFA */}
+      <div className="carousel-item position-relative">
+        <Link to="/producto/4" className="d-block w-100 h-100">
+          <img 
+            src="https://image.api.playstation.com/vulcan/ap/rnd/202406/0500/10f802ee37d38f52d49aff7064fa41739aa0dbb77310a755.png" 
+            className="d-block w-100" 
+            alt="FIFA 24"
+            style={{ height: '500px', objectFit: 'cover' }}
+          />
+          <div className="carousel-caption d-none d-md-block text-start">
+            <h3 className="fw-bold mb-1">FIFA 24</h3>
+            <p className="mb-0">Fútbol de última generación</p>
+          </div>
+        </Link>
+      </div>
+    </div>
+
+    {/* CONTROLES ANTERIOR/SIGUIENTE */}
+    <button className="carousel-control-prev" type="button" data-bs-target="#carouselGZone" data-bs-slide="prev">
+      <span className="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span className="visually-hidden">Anterior</span>
+    </button>
+    <button className="carousel-control-next" type="button" data-bs-target="#carouselGZone" data-bs-slide="next">
+      <span className="carousel-control-next-icon" aria-hidden="true"></span>
+      <span className="visually-hidden">Siguiente</span>
+    </button>
+  </div>
+</div>
+      {/* TUS 3 TARJETAS ORIGINALES */}
       <div className="container mt-4">
         <div className="row text-center mb-5">
           <div className="col-md-4 mb-4">
@@ -146,7 +265,7 @@ function Inicio() {
         </div>
       </div>
 
-      {/* TUS PRODUCTOS DESTACADOS - SE MANTIENEN */}
+      {/* PRODUCTOS DESTACADOS */}
       <section className="featured-products">
         <div className="container">
           <div className="section-header text-center mb-5">

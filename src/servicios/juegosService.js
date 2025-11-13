@@ -4,7 +4,6 @@ const juegos = [
     id: 1,
     nombre: "God of War Ragnarök",
     precio: 59.99,
-    // IMÁGENES MÚLTIPLES - ARRAY NUEVO
     imagenes: [
       "https://image.api.playstation.com/vulcan/ap/rnd/202207/1210/4xJ8XB3bi888QTLZYdl7Oi0s.png",
       "https://example.com/gow-2.jpg",
@@ -30,6 +29,11 @@ const juegos = [
     id: 2,
     nombre: "The Legend of Zelda: TOTK",
     precio: 69.99,
+    video:"sjxLF4IYnJc",
+imagenes: [
+  "https://i.redd.it/4rkflsjclf0b1.png",
+  "https://example.com/gow-3.jpg"
+],
     imagen: "https://i.redd.it/4rkflsjclf0b1.png",
     categoria: "Aventura",
     plataforma: "Nintendo Switch",
@@ -600,6 +604,7 @@ const juegos = [
     id: 32,
     nombre: "Grand Theft Auto: San Andreas",
     precio: 14.99,
+    video:"vvmfbN2KrqI",
     imagen: "https://image.api.playstation.com/vulcan/ap/rnd/202302/2323/6a6a6a6a6a6a6a6a6a6a6a6a6a6a6a6a6a6a6a6a6a.png",
     categoria: "Acción-Aventura",
     plataforma: "Multiplataforma",
@@ -619,6 +624,7 @@ const juegos = [
     id: 33,
     nombre: "Grand Theft Auto IV",
     precio: 19.99,
+    video:"hvoD7ehZPcM",
     imagen: "https://image.api.playstation.com/vulcan/ap/rnd/202302/2323/7b7b7b7b7b7b7b7b7b7b7b7b7b7b7b7b7b7b7b7b7b.png",
     categoria: "Acción-Aventura",
     plataforma: "Multiplataforma",
