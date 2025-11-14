@@ -1954,3 +1954,62 @@ body {
     font-size: 0.8rem;
   }
 }
+/* AGREGAR al final de src/App.css */
+
+/* Estilos para filtros avanzados */
+.form-range::-webkit-slider-thumb {
+  background: #0d6efd;
+  border: none;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.form-range::-moz-range-thumb {
+  background: #0d6efd;
+  border: none;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.form-range::-webkit-slider-track {
+  background: #dee2e6;
+  height: 8px;
+  border-radius: 4px;
+}
+
+.form-check-input:checked {
+  background-color: #0d6efd;
+  border-color: #0d6efd;
+}
+
+/* Mejoras para botones de calificación */
+.btn-group .btn.active {
+  background-color: #0d6efd;
+  color: white;
+  border-color: #0d6efd;
+}
+
+.btn-group .btn:hover {
+  background-color: #e9ecef;
+}
+
+/* Animación suave para mostrar filtros */
+.filtros-container {
+  transition: all 0.3s ease-in-out;
+}
+
+/* Responsive para filtros */
+@media (max-width: 768px) {
+  .btn-group .btn {
+    font-size: 0.75rem;
+    padding: 0.4rem 0.6rem;
+  }
+  
+  .form-check-label {
+    font-size: 0.8rem;
+  }
+}

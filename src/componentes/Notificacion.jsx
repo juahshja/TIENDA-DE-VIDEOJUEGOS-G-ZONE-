@@ -17,7 +17,7 @@ const Notificacion = ({ mensaje, visible, onClose }) => {
     <div 
       className="border-0 rounded p-2 mb-2 d-flex justify-content-between align-items-center shadow-sm animate-slide-up"
       style={{ 
-        backgroundColor: '#9af2a7ff',
+        backgroundColor: '#76df86ff',
         color: '#000000'
       }}
     >

@@ -12,39 +12,66 @@ function JuegoCard({ juego }) {
 
   return (
     <div className="col-md-6 col-lg-4 mb-4">
-      {}
-      <Link 
-        to={`/producto/${juego.id}`} 
-        className="text-decoration-none text-dark"
-      >
-        <div className="card h-100 juego-card shadow-sm">
-          <img
-            src={juego.imagen}
-            className="card-img-top"
-            alt={juego.nombre}
-          />
-          <div className="card-body d-flex flex-column">
-            <h5 className="card-title">{juego.nombre}</h5>
-            <p className="card-text text-muted small mb-2">
-              {juego.categoria} • {juego.plataforma}
-            </p>
-            <p className="card-text small flex-grow-1">
+      <div className="card h-100 juego-card shadow-sm border-0">
+        {/* Link principal para toda la tarjeta EXCEPTO los botones */}
+        <Link 
+          to={`/producto/${juego.id}`} 
+          className="text-decoration-none text-dark"
+          style={{ display: 'block', textDecoration: 'none' }}
+        >
+          {/* Imagen del juego */}
+          <div className="card-img-container position-relative">
+            <img
+              src={juego.imagen}
+              className="card-img-top"
+              alt={juego.nombre}
+              style={{ height: '200px', objectFit: 'cover' }}
+            />
+            {/* Etiqueta de plataforma */}
+            <div className="position-absolute top-0 end-0 m-2">
+              <span className="badge bg-dark bg-opacity-75">
+                {juego.plataforma}
+              </span>
+            </div>
+          </div>
+
+          <div className="card-body d-flex flex-column p-3">
+            {/* Título del juego */}
+            <h5 className="card-title fw-bold mb-2" style={{ fontSize: '1.1rem' }}>
+              {juego.nombre}
+            </h5>
+            
+            {/* Descripción */}
+            <p className="card-text text-muted small mb-3 flex-grow-1">
               {juego.descripcion}
             </p>
-            <div className="mt-auto">
-              <div className="d-flex justify-content-between align-items-center">
-                <span className="h5 text-primary mb-0">${juego.precio}</span>
-                <button
-                  className="btn btn-primary btn-sm"
-                  onClick={handleAgregarCarrito} 
-                >
-                  Agregar 🛒
-                </button>
-              </div>
+          </div>
+        </Link>
+
+        {/* Precio y botones FUERA del Link para evitar conflictos */}
+        <div className="card-footer border-0 bg-white pt-0">
+          <div className="d-flex justify-content-between align-items-center">
+            <div>
+              <span className="h5 text-primary fw-bold mb-0">${juego.precio}</span>
+            </div>
+            <div className="d-flex gap-2">
+              <Link 
+                to={`/producto/${juego.id}`}
+                className="btn btn-outline-primary btn-sm"
+                onClick={(e) => e.stopPropagation()} // Evita conflicto con el Link principal
+              >
+                Ver Detalles
+              </Link>
+              <button
+                className="btn btn-primary btn-sm"
+                onClick={handleAgregarCarrito}
+              >
+                🛒
+              </button>
             </div>
           </div>
         </div>
-      </Link>
+      </div>
     </div>
   );
 }
