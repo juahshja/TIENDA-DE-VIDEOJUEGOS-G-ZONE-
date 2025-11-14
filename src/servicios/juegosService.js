@@ -157,7 +157,7 @@ const juegos = [
     id: 8,
     nombre: "Spider-Man 2",
     precio: 69.99,
-    imagen: "https://image.api.playstation.com/vulcan/ap/rnd/202306/1219/60eca3ac155247e21850c7d075a13d5c0b10ec7f5e15f7e6.png",
+    imagen: "https://i.blogs.es/9cb3ad/marvel-s-spider-man/1366_2000.png",
     categoria: "Acción-Aventura",
     plataforma: "PS5",
     plataformas: ["PS5"],
@@ -575,7 +575,7 @@ const juegos = [
   },
   {
     id: 29,
-    nombre: "Kirby and the Forgotten Land",
+    nombre: "https://i.redd.it/kirby-the-forgotten-land-1st-official-artwork-v0-c41v2e4zj9b81.jpg?width=1920&format=pjpg&auto=webp&s=42b209b677c9ac2d5f21e0ed5402aba79b04413a",
     precio: 54.99,
     imagen: "https://assets.nintendo.com/image/upload/ar_16:9,c_lpad,w_656/b_white/f_auto/q_auto/ncom/software/switch/70010000035867/3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d",
     categoria: "Plataformas",
