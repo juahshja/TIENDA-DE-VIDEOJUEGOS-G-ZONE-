@@ -31,6 +31,12 @@ function Navbar() {
               Catálogo
             </Link>
           </li>
+          {/* AGREGAR ESTE NUEVO ITEM */}
+          <li className="nav-item">
+            <Link className="nav-link" to="/centro-ayuda">
+              Centro de Ayuda
+            </Link>
+          </li>
           <li className="nav-item">
             <Link className="nav-link position-relative" to="/carrito">
               Carrito 🛒

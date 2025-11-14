@@ -186,5 +186,65 @@
   margin: 0;
   padding: 0;
 }
+.centro-ayuda-card {
+  border: none;
+  border-radius: 15px;
+  transition: transform 0.3s ease;
+}
+
+.centro-ayuda-card:hover {
+  transform: translateY(-5px);
+}
+
+.contacto-info-item {
+  padding: 1rem 0;
+  border-bottom: 1px solid #e9ecef;
+}
+
+.contacto-info-item:last-child {
+  border-bottom: none;
+}
+
+.contacto-icon {
+  width: 50px;
+  height: 50px;
+  background: linear-gradient(135deg, #00adee 0%, #007bff 100%);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 1rem;
+}
+
+.social-icon {
+  width: 40px;
+  height: 40px;
+  background: #f8f9fa;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  border: 2px solid #e9ecef;
+}
+
+.social-icon:hover {
+  background: #00adee;
+  color: white;
+  transform: scale(1.1);
+}
+
+.btn-enviar {
+  background: linear-gradient(135deg, #00adee 0%, #007bff 100%);
+  border: none;
+  padding: 12px 30px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.btn-enviar:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0, 173, 238, 0.4);
+}
 
 
