@@ -9,6 +9,7 @@ import DetalleProducto from './paginas/DetalleProducto';
 import ContenedorNotificaciones from './componentes/ContenedorNotificaciones';
 import { useCarrito } from './contexto/CarritoContext';
 import './App.css';
+import './estilos/global.css'; // ← AGREGA ESTA LÍNEA NUEVA
 
 function ContenidoConNotificaciones() {
   const { notificaciones, eliminarNotificacion } = useCarrito();

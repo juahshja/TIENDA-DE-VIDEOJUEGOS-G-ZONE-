@@ -1,0 +1,190 @@
+.carousel-control-prev,
+.carousel-control-next {
+  width: 50px !important;
+  height: 80px !important;
+  background: rgba(0, 0, 0, 0.7) !important;
+  border: none !important;
+  border-radius: 4px !important;
+  top: 50% !important;
+  transform: translateY(-50%) !important;
+  opacity: 0.8 !important;
+  transition: all 0.3s ease !important;
+  margin: 0 10px !important;
+}
+
+.carousel-control-prev {
+  left: 10px !important;
+  border-top-right-radius: 0 !important;
+  border-bottom-right-radius: 0 !important;
+}
+
+.carousel-control-next {
+  right: 10px !important;
+  border-top-left-radius: 0 !important;
+  border-bottom-left-radius: 0 !important;
+}
+
+.carousel-control-prev:hover,
+.carousel-control-next:hover {
+  background: rgba(0, 0, 0, 0.9) !important;
+  opacity: 1 !important;
+  transform: translateY(-50%) scale(1.05) !important;
+  background: linear-gradient(135deg, rgba(63, 89, 98, 0.9) 0%, rgba(71, 83, 96, 0.9) 100%) !important;
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  width: 30px !important;
+  height: 30px !important;
+  background-size: 30px 30px !important;
+  filter: brightness(0) invert(9) !important;
+  /* Para hacerlas más gruesas */
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23fff'%3e%3cpath d='M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z' stroke-width='2' stroke='white'/%3e%3c/svg%3e") !important;
+}
+
+.carousel-control-next-icon {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23fff'%3e%3cpath d='M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z' stroke-width='2' stroke='white'/%3e%3c/svg%3e") !important;
+}
+/* INDICADORES AL ESTILO STEAM (CUADRADITOS) */
+.carousel-indicators {
+  bottom: 30px !important;
+  margin: 0 !important;
+  gap: 6px !important;
+}
+
+.carousel-indicators button {
+  width: 16px !important;
+  height: 9px !important;
+  background-color: rgba(255, 255, 255, 0.4) !important;
+  border: none !important;
+  border-radius: 2px !important;
+  transition: all 0.3s ease !important;
+  margin: 0 !important;
+}
+
+.carousel-indicators button.active {
+  background-color: #00adee !important;
+  transform: scale(1.2) !important;
+  border-radius: 2px !important;
+}
+
+.carousel-indicators button:hover {
+  background-color: rgba(240, 232, 232, 0.7) !important;
+  transform: scale(1.1) !important;
+}
+
+.mini-carrusel .btn-light {
+  width: 40px !important;
+  height: 60px !important;
+  background: rgba(0, 0, 0, 0.7) !important;
+  border: none !important;
+  border-radius: 3px !important;
+  color: rgb(252, 252, 252) !important;
+  opacity: 0.8;
+  transition: all 0.3s ease;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+.mini-carrusel .btn-light:hover {
+  background: rgba(0, 0, 0, 0.9) !important;
+  opacity: 1;
+  transform: scale(1.05);
+  background: linear-gradient(135deg, rgba(0, 173, 238, 0.9) 0%, rgba(0, 123, 255, 0.9) 100%) !important;
+}
+
+/* EFECTO DE OVERLAY EN IMÁGENES DEL CARRUSEL */
+.carousel-item::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    45deg,
+    rgba(0, 0, 0, 0.3) 0%,
+    rgba(0, 0, 0, 0.1) 100%
+  );
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* TEXTO DEL CARRUSEL MEJORADO */
+.carousel-caption {
+  z-index: 2;
+  background: rgba(0, 0, 0, 0.6);
+  border-radius: 10px;
+  padding: 20px;
+  bottom: 40px;
+  left: 40px;
+  right: auto;
+  max-width: 400px;
+  text-align: left;
+}
+
+.carousel-caption h3 {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 10px;
+  color: #ffffff;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+}
+
+.carousel-caption p {
+  font-size: 1.1rem;
+  color: #00adee;
+  font-weight: 500;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .carousel-control-prev,
+  .carousel-control-next {
+    width: 40px !important;
+    height: 60px !important;
+  }
+  
+  .carousel-control-prev {
+    left: 5px !important;
+  }
+  
+  .carousel-control-next {
+    right: 5px !important;
+  }
+  
+  .carousel-caption {
+    left: 20px;
+    right: 20px;
+    bottom: 20px;
+    max-width: none;
+  }
+  
+  .carousel-caption h3 {
+    font-size: 1.5rem;
+  }
+  
+  .mini-carrusel .btn-light {
+    width: 35px !important;
+    height: 50px !important;
+  }
+}
+.titulo-carrusel {
+  margin-bottom: -40px;  
+  position: relative;
+  z-index: 5;
+}
+
+.titulo-carrusel h2 {
+  font-size: 1.6rem;
+  font-weight: 900px; 
+  color: #000000; /* Negro puro */
+  text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.8); 
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  letter-spacing: 1px;
+  margin: 0;
+  padding: 0;
+}
+
+

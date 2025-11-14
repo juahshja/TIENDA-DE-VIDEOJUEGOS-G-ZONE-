@@ -141,7 +141,7 @@ function Catalogo() {
     <div className="container mt-4">
       <div className="row mb-4">
         <div className="col">
-          <h2 className="text-center mb-3">🎮 Catálogo de Juegos</h2>
+        <h2 className="text-center section-title">Catálogo de Juegos</h2>
           <p className="text-center text-muted">
             Explora nuestra amplia selección con filtros
           </p>

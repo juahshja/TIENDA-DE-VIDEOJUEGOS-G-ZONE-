@@ -113,6 +113,19 @@ function Inicio() {
         </div>
       </section>
 
+
+      {/* TITULO DEL CARRUSEL */}
+<div className="container titulo-carrusel">
+  <div className="row">
+    <div className="col-12">
+      <div className="d-flex align-items-center justify-content-between">
+        <h2 className="fw-bold mb-0">
+          DESTACADOS Y RECOMENDADOS
+        </h2>
+      </div>
+    </div>
+  </div>
+</div>
  {/* CARRUSEL PROFESIONAL AL ESTILO STEAM */}
 <div className="container my-5">
   <div 
