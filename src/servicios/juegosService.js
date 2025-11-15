@@ -575,9 +575,9 @@ const juegos = [
   },
   {
     id: 29,
-    nombre: "https://i.redd.it/kirby-the-forgotten-land-1st-official-artwork-v0-c41v2e4zj9b81.jpg?width=1920&format=pjpg&auto=webp&s=42b209b677c9ac2d5f21e0ed5402aba79b04413a",
+    nombre: "Kirby and the Forgotten Land",
     precio: 54.99,
-    imagen: "https://assets.nintendo.com/image/upload/ar_16:9,c_lpad,w_656/b_white/f_auto/q_auto/ncom/software/switch/70010000035867/3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d",
+    imagen: "	https://media.rawg.io/media/resize/1920/-/screenshots/371/371b7bf344d3f2a76f7a7b6a6b4323c8.jpg",
     categoria: "Plataformas",
     plataforma: "Nintendo Switch",
     plataformas: ["Nintendo Switch"],

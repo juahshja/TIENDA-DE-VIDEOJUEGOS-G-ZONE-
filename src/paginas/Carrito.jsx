@@ -110,7 +110,10 @@ function Carrito() {
       <div className="container mt-5">
         <div className="text-center">
           <div className="alert alert-info" role="alert">
-            <h4 className="alert-heading">Tu carrito está vacío</h4>
+            <h4 className="alert-heading">
+              <i className="fas fa-shopping-cart me-2"></i>
+              Tu carrito está vacío
+            </h4>
             <p>¡Explora nuestro catálogo y descubre juegos increíbles!</p>
           </div>
         </div>
@@ -128,14 +131,14 @@ function Carrito() {
             <div className="modal-content">
               <div className="modal-header bg-success text-white">
                 <h5 className="modal-title">
-                  <i className="bi bi-check-circle-fill me-2"></i>
+                  <i className="fas fa-check-circle me-2"></i>
                   Compra Exitosa
                 </h5>
               </div>
               
               <div className="modal-body">
                 <div className="text-center mb-3">
-                  <i className="bi bi-check2-circle text-success" style={{fontSize: '3rem'}}></i>
+                  <i className="fas fa-check-circle text-success" style={{fontSize: '3rem'}}></i>
                   <h6 className="text-dark mt-2">¡Bienvenido a la familia G-Zone!</h6>
                 </div>
                 
@@ -147,12 +150,12 @@ function Carrito() {
                 <div className="card border-0 bg-light">
                   <div className="card-body py-2">
                     <h6 className="card-title mb-2">
-                      <i className="bi bi-box-seam me-1"></i>
+                      <i className="fas fa-box me-1"></i>
                       Detalles del envío:
                     </h6>
                     <ul className="list-unstyled small mb-0">
-                      <li><i className="bi bi-clock me-1"></i> Tu pedido llegará en 2-3 días</li>
-                      <li><i className="bi bi-envelope me-1"></i> Recibirás tracking por email</li>
+                      <li><i className="fas fa-clock me-1"></i> Tu pedido llegará en 2-3 días</li>
+                      <li><i className="fas fa-envelope me-1"></i> Recibirás tracking por email</li>
                     </ul>
                   </div>
                 </div>
@@ -163,7 +166,7 @@ function Carrito() {
                   className="btn btn-primary"
                   onClick={handleCerrarConfirmacion}
                 >
-                  <i className="bi bi-cart-plus me-1"></i>
+                  <i className="fas fa-shopping-cart me-1"></i>
                   Seguir Comprando
                 </button>
               </div>
@@ -178,7 +181,10 @@ function Carrito() {
           <div className="modal-dialog modal-dialog-centered">
             <div className="modal-content">
               <div className="modal-header">
-                <h5 className="modal-title">Confirmar eliminación</h5>
+                <h5 className="modal-title">
+                  <i className="fas fa-exclamation-triangle me-2 text-warning"></i>
+                  Confirmar eliminación
+                </h5>
               </div>
               <div className="modal-body">
                 <p>¿Estás seguro de que quieres eliminar <strong>"{productoAEliminar.nombre}"</strong> del carrito?</p>
@@ -189,6 +195,7 @@ function Carrito() {
                   className="btn btn-secondary" 
                   onClick={() => setMostrarConfirmacionEliminar(false)}
                 >
+                  <i className="fas fa-times me-1"></i>
                   Cancelar
                 </button>
                 <button 
@@ -196,6 +203,7 @@ function Carrito() {
                   className="btn btn-danger" 
                   onClick={confirmarEliminarProducto}
                 >
+                  <i className="fas fa-trash me-1"></i>
                   Sí, eliminar
                 </button>
               </div>
@@ -210,7 +218,10 @@ function Carrito() {
           <div className="modal-dialog modal-dialog-centered">
             <div className="modal-content">
               <div className="modal-header">
-                <h5 className="modal-title">Vaciar carrito</h5>
+                <h5 className="modal-title">
+                  <i className="fas fa-exclamation-triangle me-2 text-warning"></i>
+                  Vaciar carrito
+                </h5>
               </div>
               <div className="modal-body">
                 <p>¿Estás seguro de que quieres vaciar todo el carrito? Se eliminarán <strong>{carrito.length}</strong> producto(s).</p>
@@ -221,6 +232,7 @@ function Carrito() {
                   className="btn btn-secondary" 
                   onClick={() => setMostrarConfirmacionVaciar(false)}
                 >
+                  <i className="fas fa-times me-1"></i>
                   Cancelar
                 </button>
                 <button 
@@ -228,6 +240,7 @@ function Carrito() {
                   className="btn btn-danger" 
                   onClick={confirmarVaciarCarrito}
                 >
+                  <i className="fas fa-broom me-1"></i>
                   Sí, vaciar carrito
                 </button>
               </div>
@@ -238,11 +251,15 @@ function Carrito() {
 
       {/* CONTENIDO NORMAL DEL CARRITO */}
       <div className="d-flex justify-content-between align-items-center mb-4">
-        <h2>🛒 Carrito de Compras</h2>
+        <h2>
+          <i className="fas fa-shopping-cart me-2"></i>
+          Carrito de Compras
+        </h2>
         <button 
           className="btn btn-outline-danger btn-sm"
           onClick={handleVaciarCarrito}
         >
+          <i className="fas fa-broom me-1"></i>
           Vaciar Carrito
         </button>
       </div>
@@ -273,19 +290,23 @@ function Carrito() {
                       <strong>{item.nombre}</strong>
                       <br />
                       <small className="text-muted">
+                        <i className="fas fa-gamepad me-1"></i>
                         {item.plataforma} • {item.categoria}
                       </small>
                     </div>
                   </div>
                 </td>
-                <td className="align-middle">${item.precio}</td>
+                <td className="align-middle">
+                  <i className="fas fa-tag me-1 text-muted"></i>
+                  ${item.precio}
+                </td>
                 <td className="align-middle">
                   <div className="btn-group btn-group-sm" role="group">
                     <button 
                       className="btn btn-outline-secondary"
                       onClick={() => quitarDelCarrito(item.id)}
                     >
-                      -
+                      <i className="fas fa-minus"></i>
                     </button>
                     <span className="btn btn-outline-secondary disabled">
                       {item.cantidad}
@@ -294,19 +315,23 @@ function Carrito() {
                       className="btn btn-outline-secondary"
                       onClick={() => agregarAlCarrito(item)}
                     >
-                      +
+                      <i className="fas fa-plus"></i>
                     </button>
                   </div>
                 </td>
                 <td className="align-middle">
-                  <strong>${(item.precio * item.cantidad).toFixed(2)}</strong>
+                  <strong>
+                    <i className="fas fa-dollar-sign me-1 text-success"></i>
+                    {(item.precio * item.cantidad).toFixed(2)}
+                  </strong>
                 </td>
                 <td className="align-middle">
                   <button 
                     className="btn btn-danger btn-sm"
                     onClick={() => handleEliminarProducto(item)}
                   >
-                    ❌ Eliminar
+                    <i className="fas fa-trash me-1"></i>
+                    Eliminar
                   </button>
                 </td>
               </tr>
@@ -315,11 +340,15 @@ function Carrito() {
           <tfoot className="table-active">
             <tr>
               <td colSpan="3" className="text-end">
-                <strong>Total del Carrito:</strong>
+                <strong>
+                  <i className="fas fa-receipt me-1"></i>
+                  Total del Carrito:
+                </strong>
               </td>
               <td colSpan="2">
                 <strong className="h5 text-success">
-                  ${totalCarrito.toFixed(2)}
+                  <i className="fas fa-dollar-sign me-1"></i>
+                  {totalCarrito.toFixed(2)}
                 </strong>
               </td>
             </tr>
@@ -329,13 +358,16 @@ function Carrito() {
 
       <div className="d-flex justify-content-between mt-4">
         <a href="/catalogo" className="btn btn-outline-primary">
-          ← Seguir Comprando
+          <i className="fas fa-arrow-left me-1"></i>
+          Seguir Comprando
         </a>
         <button 
           className="btn btn-success btn-lg px-4 fw-bold"
           onClick={handleProcederPago}
         >
-          🎉 Proceder al Pago 💳
+          <i className="fas fa-credit-card me-2"></i>
+          Proceder al Pago
+          <i className="fas fa-gift ms-2"></i>
         </button>
       </div>
     </div>

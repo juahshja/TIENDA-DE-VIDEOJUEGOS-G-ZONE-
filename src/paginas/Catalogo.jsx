@@ -10,7 +10,7 @@ function Catalogo() {
   const [error, setError] = useState(null);
 
   const [filtros, setFiltros] = useState({});
-  const [mostrarFiltros, setMostrarFiltros] = useState(true); // Ahora siempre visibles
+  const [mostrarFiltros, setMostrarFiltros] = useState(true);
   const [filtrosActivos, setFiltrosActivos] = useState(0);
   const [orden, setOrden] = useState('relevancia');
 
@@ -121,7 +121,10 @@ function Catalogo() {
         <div className="spinner-border text-primary mb-3" style={{ width: '3rem', height: '3rem' }} role="status">
           <span className="visually-hidden">Cargando...</span>
         </div>
-        <h5 className="text-primary mb-2">Cargando catálogo</h5>
+        <h5 className="text-primary mb-2">
+          <i className="fas fa-spinner fa-spin me-2"></i>
+          Cargando catálogo
+        </h5>
         <p className="text-muted">Buscando los mejores juegos para ti...</p>
       </div>
     );
@@ -131,6 +134,7 @@ function Catalogo() {
     return (
       <div className="container mt-4">
         <div className="alert alert-danger" role="alert">
+          <i className="fas fa-exclamation-triangle me-2"></i>
           {error}
         </div>
       </div>
@@ -141,7 +145,9 @@ function Catalogo() {
     <div className="container mt-4">
       <div className="row mb-4">
         <div className="col">
-        <h2 className="text-center section-title">Catálogo de Juegos</h2>
+          <h2 className="text-center section-title">
+            Catálogo de Juegos
+          </h2>
           <p className="text-center text-muted">
             Explora nuestra amplia selección con filtros
           </p>
@@ -164,22 +170,38 @@ function Catalogo() {
           <div className="d-flex justify-content-between align-items-center mb-4">
             <div className="text-muted">
               <small>
+                <i className="fas fa-gamepad me-1"></i>
                 Mostrando {juegosFiltrados.length} de {juegos.length} juegos
               </small>
             </div>
             
             <div className="d-flex align-items-center gap-3">
-              <span className="text-muted small">Ordenar por:</span>
+              <span className="text-muted small">
+                <i className="fas fa-sort me-1"></i>
+                Ordenar por:
+              </span>
               <select 
                 className="form-select form-select-sm"
                 value={orden}
                 onChange={(e) => setOrden(e.target.value)}
                 style={{ width: 'auto' }}
               >
-                <option value="relevancia">Relevancia</option>
-                <option value="precio-asc">Precio: Menor a Mayor</option>
-                <option value="precio-desc">Precio: Mayor a Menor</option>
-                <option value="nombre">Nombre</option>
+                <option value="relevancia">
+                  <i className="fas fa-star me-1"></i>
+                  Relevancia
+                </option>
+                <option value="precio-asc">
+                  <i className="fas fa-sort-amount-down-alt me-1"></i>
+                  Precio: Menor a Mayor
+                </option>
+                <option value="precio-desc">
+                  <i className="fas fa-sort-amount-down me-1"></i>
+                  Precio: Mayor a Menor
+                </option>
+                <option value="nombre">
+                  <i className="fas fa-sort-alpha-down me-1"></i>
+                  Nombre
+                </option>
               </select>
             </div>
           </div>
@@ -194,9 +216,12 @@ function Catalogo() {
           {juegosFiltrados.length === 0 && (
             <div className="text-center py-5">
               <div className="mb-4">
-                <i className="bi bi-search display-1 text-muted"></i>
+                <i className="fas fa-search display-1 text-muted"></i>
               </div>
-              <h4 className="text-muted">No se encontraron juegos</h4>
+              <h4 className="text-muted">
+                <i className="fas fa-exclamation-circle me-2"></i>
+                No se encontraron juegos
+              </h4>
               <p className="text-muted mb-4">
                 Intenta ajustar los filtros para ver más resultados
               </p>
@@ -204,6 +229,7 @@ function Catalogo() {
                 className="btn btn-primary"
                 onClick={handleLimpiarFiltros}
               >
+                <i className="fas fa-broom me-2"></i>
                 Limpiar Filtros
               </button>
             </div>

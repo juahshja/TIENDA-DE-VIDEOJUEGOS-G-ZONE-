@@ -7,7 +7,8 @@ function Navbar() {
   return (
     <nav className="navbar navbar-expand-lg navbar-dark bg-dark px-4 shadow">
       <Link className="navbar-brand fw-bold fs-3" to="/">
-        🎮 G-Zone
+        <i className="fas fa-gamepad me-2"></i>
+        G-Zone
       </Link>
       
       <button 
@@ -23,23 +24,26 @@ function Navbar() {
         <ul className="navbar-nav ms-auto">
           <li className="nav-item">
             <Link className="nav-link" to="/">
+              <i className="fas fa-home me-1"></i>
               Inicio
             </Link>
           </li>
           <li className="nav-item">
             <Link className="nav-link" to="/catalogo">
+              <i className="fas fa-th-list me-1"></i>
               Catálogo
             </Link>
           </li>
-          {/* AGREGAR ESTE NUEVO ITEM */}
           <li className="nav-item">
             <Link className="nav-link" to="/centro-ayuda">
+              <i className="fas fa-headset me-1"></i>
               Centro de Ayuda
             </Link>
           </li>
           <li className="nav-item">
             <Link className="nav-link position-relative" to="/carrito">
-              Carrito 🛒
+              <i className="fas fa-shopping-cart me-1"></i>
+              Tus Compras
               {cantidadTotal > 0 && (
                 <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
                   {cantidadTotal}
