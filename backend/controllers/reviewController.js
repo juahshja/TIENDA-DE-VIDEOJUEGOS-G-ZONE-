@@ -79,10 +79,38 @@ const eliminarReview = async (req, res) => {
     res.status(500).json({ mensaje: 'Error del servidor' });
   }
 };
+const modificarReview = async (req, res) => {
+  try {
+    const { id } = req.params;
+    const { rating, comentario } = req.body;
+    const usuario = req.userId;
 
+    const review = await Review.findOne({ _id: id, usuario });
+    if (!review) {
+      return res.status(404).json({ mensaje: 'Reseña no encontrada' });
+    }
+
+    review.rating = rating;
+    review.comentario = comentario;
+    await review.save();
+
+    const reviewActualizada = await Review.findById(id)
+      .populate('usuario', 'nombre');
+
+    res.json({
+      mensaje: 'Reseña actualizada exitosamente',
+      review: reviewActualizada
+    });
+  } catch (error) {
+    console.error('Error modificando reseña:', error);
+    res.status(500).json({ mensaje: 'Error del servidor' });
+  }
+};
 
 module.exports = {
   crearReview,
   obtenerReviewsPorJuego,
-  eliminarReview
+  eliminarReview,
+  modificarReview
+
 };

@@ -30,5 +30,13 @@ export const reviewService = {
       throw error.response?.data || { mensaje: 'Error eliminando reseña' };
     }
     
+  },
+modificarReview: async (reviewId, reviewData) => {
+    try {
+      const response = await api.put(`/reviews/${reviewId}`, reviewData);
+      return response.data;
+    } catch (error) {
+      throw error.response?.data || { mensaje: 'Error modificando reseña' };
+    }
   }
 };

@@ -9,6 +9,8 @@ function Reseñas({ juegoId }) {
   const [cargando, setCargando] = useState(true);
   const [mostrarFormulario, setMostrarFormulario] = useState(false);
   const [nuevaReview, setNuevaReview] = useState({ rating: 5, comentario: '' });
+  const [editandoReview, setEditandoReview] = useState(null);
+  const [reviewEditada, setReviewEditada] = useState({ rating: 5, comentario: '' });
   
   const { user } = useAuth();
   const navigate = useNavigate();
@@ -48,6 +50,21 @@ function Reseñas({ juegoId }) {
       cargarReviews();
     } catch (error) {
       alert(error.mensaje || 'Error creando reseña');
+    }
+  };
+  const handleModificarReview = async (e) => {
+    e.preventDefault();
+    try {
+      await reviewService.modificarReview(editandoReview._id, {
+        rating: reviewEditada.rating,
+        comentario: reviewEditada.comentario
+      });
+      
+      setEditandoReview(null);
+      setReviewEditada({ rating: 5, comentario: '' });
+      cargarReviews();
+    } catch (error) {
+      alert(error.mensaje || 'Error modificando reseña');
     }
   };
 
@@ -145,6 +162,49 @@ function Reseñas({ juegoId }) {
           </div>
         </div>
       )}
+       {editandoReview && (
+        <div className="card mt-4 border-warning">
+          <div className="card-body">
+            <h6>✏️ Modificar Reseña</h6>
+            <form onSubmit={handleModificarReview}>
+              <div className="mb-3">
+                <label className="form-label">Calificación:</label>
+                <div>
+                  {renderEstrellas(reviewEditada.rating, true, (rating) => 
+                    setReviewEditada({...reviewEditada, rating})
+                  )}
+                </div>
+              </div>
+              <div className="mb-3">
+                <label className="form-label">Comentario:</label>
+                <textarea
+                  className="form-control"
+                  rows="3"
+                  value={reviewEditada.comentario}
+                  onChange={(e) => setReviewEditada({...reviewEditada, comentario: e.target.value})}
+                  maxLength="500"
+                  required
+                />
+                <small className="text-muted">
+                  {reviewEditada.comentario.length}/500 caracteres
+                </small>
+              </div>
+              <div className="d-flex gap-2">
+                <button type="submit" className="btn btn-warning">
+                  💾 Guardar Cambios
+                </button>
+                <button 
+                  type="button" 
+                  className="btn btn-outline-secondary"
+                  onClick={() => setEditandoReview(null)}
+                >
+                  ❌ Cancelar
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      )}
 
       <div className="mt-4">
         {reviews.length === 0 ? (
@@ -166,9 +226,21 @@ function Reseñas({ juegoId }) {
                     {new Date(review.createdAt).toLocaleDateString()}
                   </small>
                 </div>
-                <p className="mb-0">{review.comentario}</p>
-                {user && user.id === review.usuario._id && (  // ← CAMBIO: user en lugar de usuario
+               <p className="mb-0">{review.comentario}</p>
+                {user && user.id === review.usuario._id && (
                   <div className="mt-2">
+                    <button 
+                      className="btn btn-sm btn-outline-warning me-2"
+                      onClick={() => {
+                        setEditandoReview(review);
+                        setReviewEditada({ 
+                          rating: review.rating, 
+                          comentario: review.comentario 
+                        });
+                      }}
+                    >
+                      ✏️ Modificar
+                    </button>
                     <button 
                       className="btn btn-sm btn-outline-danger"
                       onClick={async () => {
@@ -182,7 +254,7 @@ function Reseñas({ juegoId }) {
                         }
                       }}
                     >
-                      Eliminar
+                      🗑️ Eliminar
                     </button>
                   </div>
                 )}
