@@ -1,14 +1,23 @@
 import { Link } from "react-router-dom";
 import { useCarrito } from "../contexto/CarritoContext";
+import { useAuth } from "../contexto/AuthContext";
+import { useWishlist } from "../contexto/WishlistContext";
 
 function Navbar() {
   const { cantidadTotal } = useCarrito();
+  const { isAuthenticated, user, logout } = useAuth();
+  const { cantidadWishlist } = useWishlist();
+
+  const handleLogout = () => {
+    if (window.confirm('¿Cerrar sesión?')) {
+      logout();
+    }
+  };
 
   return (
     <nav className="navbar navbar-expand-lg navbar-dark bg-dark px-4 shadow">
       <Link className="navbar-brand fw-bold fs-3" to="/">
-        <i className="fas fa-gamepad me-2"></i>
-        G-Zone
+        🎮 G-Zone
       </Link>
       
       <button 
@@ -24,25 +33,35 @@ function Navbar() {
         <ul className="navbar-nav ms-auto">
           <li className="nav-item">
             <Link className="nav-link" to="/">
-              <i className="fas fa-home me-1"></i>
               Inicio
             </Link>
           </li>
           <li className="nav-item">
             <Link className="nav-link" to="/catalogo">
-              <i className="fas fa-th-list me-1"></i>
               Catálogo
             </Link>
           </li>
           <li className="nav-item">
             <Link className="nav-link" to="/centro-ayuda">
-              <i className="fas fa-headset me-1"></i>
               Centro de Ayuda
             </Link>
           </li>
+
+          {isAuthenticated && (
+            <li className="nav-item">
+              <Link className="nav-link position-relative" to="/wishlist">
+                <i className="fas fa-heart text-danger"></i> Lista de Deseos
+                {cantidadWishlist > 0 && (
+                  <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                    {cantidadWishlist}
+                  </span>
+                )}
+              </Link>
+            </li>
+          )}
+
           <li className="nav-item">
             <Link className="nav-link position-relative" to="/carrito">
-              <i className="fas fa-shopping-cart me-1"></i>
               Tus Compras
               {cantidadTotal > 0 && (
                 <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
@@ -51,6 +70,34 @@ function Navbar() {
               )}
             </Link>
           </li>
+
+          {isAuthenticated ? (
+            <>
+              <li className="nav-item">
+                <Link className="nav-link" to="/perfil">
+                  <i className="fas fa-user-circle"></i> {user?.nombre}
+                </Link>
+              </li>
+              <li className="nav-item">
+                <button className="nav-link btn btn-link" onClick={handleLogout}>
+                  <i className="fas fa-sign-out-alt"></i> Salir
+                </button>
+              </li>
+            </>
+          ) : (
+            <>
+              <li className="nav-item">
+                <Link className="nav-link" to="/login">
+                  <i className="fas fa-sign-in-alt"></i> Iniciar Sesión
+                </Link>
+              </li>
+              <li className="nav-item">
+                <Link className="nav-link" to="/registro">
+                  <i className="fas fa-user-plus"></i> Registrarse
+                </Link>
+              </li>
+            </>
+          )}
         </ul>
       </div>
     </nav>

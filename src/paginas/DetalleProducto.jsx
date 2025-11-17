@@ -210,13 +210,13 @@ function DetalleProducto() {
         </div>
       </div>
 
-           {/* SECCIÓN DE PESTAÑAS MEJORADA */}
+           {}
       <div className="row mt-4">
         <div className="col-12">
           <div className="card">
             <div className="card-body">
               
-              {/* NAVEGACIÓN DE PESTAÑAS */}
+              {}
               <nav>
                 <div className="nav nav-tabs mb-4" id="nav-tab" role="tablist">
                   <button 
@@ -381,7 +381,7 @@ function DetalleProducto() {
                   </div>
                 )}
 
-                {/* PESTAÑA RESEÑAS */}
+                {}
                 {pestañaActiva === 'reseñas' && (
                   <div className="tab-pane fade show active">
                     <h5>⭐ Reseñas de Usuarios</h5>
@@ -401,7 +401,7 @@ function DetalleProducto() {
                   </div>
                 )}
 
-                {/* PESTAÑA RELATED POSTS */}
+                {}
                 {pestañaActiva === 'relacionados' && (
                   <div className="tab-pane fade show active">
                     <h5>🎮 Juegos Relacionados</h5>
