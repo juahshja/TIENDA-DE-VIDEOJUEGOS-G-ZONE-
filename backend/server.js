@@ -20,6 +20,8 @@ app.use(express.urlencoded({ extended: true }));
 // Rutas
 app.use('/api/auth', authRoutes);
 app.use('/api/wishlist', wishlistRoutes);
+app.use('/api/reviews', require('./routes/reviewRoutes'));
+
 
 // Ruta de prueba
 app.get('/', (req, res) => {
@@ -29,6 +31,7 @@ app.get('/', (req, res) => {
     endpoints: {
       auth: '/api/auth',
       wishlist: '/api/wishlist'
+      
     }
   });
 });

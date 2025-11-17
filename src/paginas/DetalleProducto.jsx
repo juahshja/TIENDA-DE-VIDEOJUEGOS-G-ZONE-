@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react';
 import { useCarrito } from '../contexto/CarritoContext';
 import { obtenerJuegoPorId } from '../servicios/juegosService';
 import MiniCarrusel from '../componentes/MiniCarrusel';
-
+import Reseñas from '../componentes/Reseñas';
 
 function DetalleProducto() {
   const { id } = useParams();
@@ -13,8 +13,7 @@ function DetalleProducto() {
   const [cargando, setCargando] = useState(true);
   const [error, setError] = useState(null);
   const [cantidad, setCantidad] = useState(1);
-  const [pestañaActiva, setPestañaActiva] = useState('detalles'); // ← AÑADE ESTA LÍNEA
-
+  const [pestañaActiva, setPestañaActiva] = useState('detalles');
 
   useEffect(() => {
     const cargarProducto = async () => {
@@ -85,7 +84,6 @@ function DetalleProducto() {
 
   return (
     <div className="container mt-4">
-      {/* Migas de pan */}
       <nav aria-label="breadcrumb" className="mb-4">
         <ol className="breadcrumb">
           <li className="breadcrumb-item">
@@ -99,7 +97,6 @@ function DetalleProducto() {
       </nav>
 
       <div className="row">
-        {/* Columna Imagen - CON MINI CARRUSEL */}
         <div className="col-md-6 mb-4">
           <div className="card border-0 bg-transparent">
             <div className="card-body p-0">
@@ -109,11 +106,9 @@ function DetalleProducto() {
             </div>
           </div>
         </div>
-        {/* Columna Información */}
         <div className="col-md-6">
           <div className="card">
             <div className="card-body">
-              {/* Categoría y Plataformas */}
               <div className="d-flex justify-content-between align-items-start mb-3">
                 <span className="badge bg-primary">{juego.categoria}</span>
                 <div>
@@ -123,10 +118,8 @@ function DetalleProducto() {
                 </div>
               </div>
               
-              {/* Título */}
               <h1 className="card-title h3 mb-3">{juego.nombre}</h1>
               
-              {/* Calificación */}
               <div className="mb-3">
                 <div className="d-flex align-items-center">
                   {renderEstrellas(juego.calificacion || 4)}
@@ -136,13 +129,11 @@ function DetalleProducto() {
                 </div>
               </div>
 
-              {/* Precio */}
               <div className="mb-4">
                 <h2 className="text-primary mb-0">${juego.precio}</h2>
                 <small className="text-muted">Precio final</small>
               </div>
 
-              {/* Disponibilidad */}
               <div className="mb-3">
                 <span className={`badge ${juego.disponibilidad === 'En stock' ? 'bg-success' : 'bg-danger'}`}>
                   {juego.disponibilidad || 'En stock'}
@@ -154,7 +145,6 @@ function DetalleProducto() {
                 )}
               </div>
 
-              {/* Selector de Cantidad */}
               <div className="mb-4">
                 <label htmlFor="cantidad" className="form-label">Cantidad:</label>
                 <div className="d-flex align-items-center">
@@ -175,7 +165,6 @@ function DetalleProducto() {
                 </div>
               </div>
 
-              {/* Botones de Acción */}
               <div className="d-grid gap-2 mb-4">
                 <button 
                   className="btn btn-primary btn-lg"
@@ -192,7 +181,6 @@ function DetalleProducto() {
                 </button>
               </div>
 
-              {/* Información Adicional */}
               <div className="border-top pt-3">
                 <div className="row small text-muted">
                   <div className="col-6">
@@ -210,13 +198,10 @@ function DetalleProducto() {
         </div>
       </div>
 
-           {}
       <div className="row mt-4">
         <div className="col-12">
           <div className="card">
             <div className="card-body">
-              
-              {}
               <nav>
                 <div className="nav nav-tabs mb-4" id="nav-tab" role="tablist">
                   <button 
@@ -246,10 +231,7 @@ function DetalleProducto() {
                 </div>
               </nav>
 
-              {/* CONTENIDO DE PESTAÑAS */}
               <div className="tab-content">
-                
-                {/* PESTAÑA DETALLES */}
                 {pestañaActiva === 'detalles' && (
                   <div className="tab-pane fade show active">
                     <div className="row">
@@ -259,38 +241,34 @@ function DetalleProducto() {
                           {juego.descripcionCompleta || juego.descripcion}
                         </p>
                         
-                       {/* Video dinámico por juego - VERSIÓN FUNCIONAL */}
- <div className="mt-4">
-  <h6>🎥 Tráiler Oficial</h6>
-  
-  <div className="ratio ratio-16x9 mt-2">
-    {juego.video ? (
-      <iframe 
-        src={`https://www.youtube-nocookie.com/embed/${juego.video}?rel=0&modestbranding=1`}
-        title={`Tráiler oficial de ${juego.nombre}`}
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-        allowFullScreen
-        style={{ border: 'none', borderRadius: '8px' }}
-      ></iframe>
-    ) : (
-      <div className="bg-light d-flex flex-column justify-content-center align-items-center rounded">
-        <div className="h1 text-muted mb-2">🎮</div>
-        <p className="text-muted text-center mb-0">
-          Tráiler no disponible<br />
-          <small>Próximamente...</small>
-        </p>
-      </div>
-    )}
-  </div>
-  
-  <small className="text-muted">
-    Tráiler oficial de {juego.nombre}
-  </small>
-</div>
+                        <div className="mt-4">
+                          <h6>🎥 Tráiler Oficial</h6>
+                          <div className="ratio ratio-16x9 mt-2">
+                            {juego.video ? (
+                              <iframe 
+                                src={`https://www.youtube-nocookie.com/embed/${juego.video}?rel=0&modestbranding=1`}
+                                title={`Tráiler oficial de ${juego.nombre}`}
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                allowFullScreen
+                                style={{ border: 'none', borderRadius: '8px' }}
+                              ></iframe>
+                            ) : (
+                              <div className="bg-light d-flex flex-column justify-content-center align-items-center rounded">
+                                <div className="h1 text-muted mb-2">🎮</div>
+                                <p className="text-muted text-center mb-0">
+                                  Tráiler no disponible<br />
+                                  <small>Próximamente...</small>
+                                </p>
+                              </div>
+                            )}
+                          </div>
+                          <small className="text-muted">
+                            Tráiler oficial de {juego.nombre}
+                          </small>
+                        </div>
                       </div>
                       
                       <div className="col-lg-4">
-                        {/* Información adicional */}
                         <div className="card border-0 bg-light">
                           <div className="card-body">
                             <h6 className="card-title">📦 {juego.nombre} - Launcher</h6>
@@ -328,7 +306,6 @@ function DetalleProducto() {
                   </div>
                 )}
 
-                {/* PESTAÑA MÁS INFORMACIÓN */}
                 {pestañaActiva === 'informacion' && (
                   <div className="tab-pane fade show active">
                     <h5>📊 Información Técnica</h5>
@@ -381,27 +358,12 @@ function DetalleProducto() {
                   </div>
                 )}
 
-                {}
                 {pestañaActiva === 'reseñas' && (
                   <div className="tab-pane fade show active">
-                    <h5>⭐ Reseñas de Usuarios</h5>
-                    <div className="text-center py-4">
-                      <div className="h1 text-warning">{(juego.calificacion || 4).toFixed(1)}</div>
-                      <div className="mb-2">
-                        {renderEstrellas(juego.calificacion || 4)}
-                      </div>
-                      <small className="text-muted">
-                        Basado en {juego.reseñas || 0} reseñas
-                      </small>
-                      <div className="mt-3">
-                        <button className="btn btn-primary me-2">Escribir Reseña</button>
-                        <button className="btn btn-outline-secondary">Ver todas</button>
-                      </div>
-                    </div>
+                    <Reseñas juegoId={juego.id || id} />
                   </div>
                 )}
 
-                {}
                 {pestañaActiva === 'relacionados' && (
                   <div className="tab-pane fade show active">
                     <h5>🎮 Juegos Relacionados</h5>
