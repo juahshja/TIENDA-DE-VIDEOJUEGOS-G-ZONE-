@@ -1,17 +1,17 @@
 const Ticket = require('../models/Ticket');
-const User = require('../models/User'); // ← ✅ AGREGAR ESTA LÍNEA
+const User = require('../models/User'); 
 
 
 exports.crearTicket = async (req, res) => {
   try {
     const { nombre, email, asunto, mensaje, categoria } = req.body;
     
-    // ✅ SOLUCIÓN: Obtener el userId del usuario logueado
+ // Obtener el userId del usuario logueado
     let userId = req.userId;
     
     // Si no hay userId, buscar el usuario por email
     if (!userId) {
-      const User = require('../models/User'); // ← Agregar esto al inicio del archivo
+      const User = require('../models/User'); 
       const usuario = await User.findOne({ email });
       if (usuario) {
         userId = usuario._id;

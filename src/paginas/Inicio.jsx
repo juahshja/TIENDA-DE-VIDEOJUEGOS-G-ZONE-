@@ -1,8 +1,13 @@
 import { Link } from "react-router-dom";
 import { useCarrito } from "../contexto/CarritoContext";
+import { useAuth } from "../contexto/AuthContext";
+import { useState } from "react";
+import ModalLogin from "../componentes/ModalLogin";
 
 function Inicio() {
   const { agregarAlCarrito, cantidadTotal } = useCarrito();
+  const { isAuthenticated } = useAuth();
+  const [showLoginModal, setShowLoginModal] = useState(false);
 
   const productosDestacados = [
     {
@@ -47,10 +52,14 @@ function Inicio() {
     }
   ];
 
-  const handleAgregarCarrito = (producto) => {
+  const handleAgregarCarritoProtegido = (producto) => {
+    if (!isAuthenticated) {
+      setShowLoginModal(true);
+      return;
+    }
+    
     agregarAlCarrito(producto);
     
-    // Efecto visual de confirmación
     const boton = document.getElementById(`boton-carrito-${producto.id}`);
     if (boton) {
       const originalText = boton.innerHTML;
@@ -66,9 +75,20 @@ function Inicio() {
     }
   };
 
+  const handleVerCarritoClick = (e) => {
+    if (!isAuthenticated) {
+      e.preventDefault();
+      setShowLoginModal(true);
+    }
+  };
+
   return (
     <div>
-      {/* HERO SECTION */}
+      <ModalLogin 
+        show={showLoginModal} 
+        onClose={() => setShowLoginModal(false)} 
+      />
+
       <section className="hero-section-improved">
         <div className="container">
           <div className="row align-items-center">
@@ -85,7 +105,11 @@ function Inicio() {
                   <i className="fas fa-rocket me-2"></i>
                   Explorar Catálogo
                 </Link>
-                <Link to="/carrito" className="btn btn-outline-light btn-lg hero-btn-improved position-relative">
+                <Link 
+                  to={isAuthenticated ? "/carrito" : "#"} 
+                  className="btn btn-outline-light btn-lg hero-btn-improved position-relative"
+                  onClick={handleVerCarritoClick}
+                >
                   <i className="fas fa-shopping-cart me-2"></i>
                   Ver Carrito
                   {cantidadTotal > 0 && (
@@ -96,7 +120,6 @@ function Inicio() {
                 </Link>
               </div>
               
-              {/* Stats rápidos */}
               <div className="hero-stats-improved mt-4">
                 <div className="stat-item-improved">
                   <span className="stat-number-improved">500+</span>
@@ -125,7 +148,6 @@ function Inicio() {
         </div>
       </section>
 
-      {/* TITULO DEL CARRUSEL */}
       <div className="container titulo-carrusel">
         <div className="row">
           <div className="col-12">
@@ -138,7 +160,6 @@ function Inicio() {
         </div>
       </div>
 
-      {/* CARRUSEL PROFESIONAL AL ESTILO STEAM */}
       <div className="container my-5">
         <div 
           id="carouselGZone" 
@@ -147,8 +168,6 @@ function Inicio() {
           data-bs-interval="4000"
           data-bs-pause="false"
         >
-          
-          {/* INDICADORES */}
           <div className="carousel-indicators">
             <button 
               type="button" 
@@ -178,10 +197,7 @@ function Inicio() {
             ></button>
           </div>
 
-          {/* SLIDES CON EFECTO STEAM */}
           <div className="carousel-inner rounded-4 shadow-lg overflow-hidden">
-            
-            {/* SLIDE 1 - GOD OF WAR */}
             <div className="carousel-item active position-relative">
               <Link to="/producto/1" className="d-block w-100 h-100">
                 <img 
@@ -197,7 +213,6 @@ function Inicio() {
               </Link>
             </div>
 
-            {/* SLIDE 2 - ZELDA */}
             <div className="carousel-item position-relative">
               <Link to="/producto/2" className="d-block w-100 h-100">
                 <img 
@@ -213,7 +228,6 @@ function Inicio() {
               </Link>
             </div>
 
-            {/* SLIDE 3 - CYBERPUNK */}
             <div className="carousel-item position-relative">
               <Link to="/producto/3" className="d-block w-100 h-100">
                 <img 
@@ -229,7 +243,6 @@ function Inicio() {
               </Link>
             </div>
 
-            {/* SLIDE 4 - FIFA */}
             <div className="carousel-item position-relative">
               <Link to="/producto/4" className="d-block w-100 h-100">
                 <img 
@@ -246,7 +259,6 @@ function Inicio() {
             </div>
           </div>
 
-          {/* CONTROLES ANTERIOR/SIGUIENTE */}
           <button className="carousel-control-prev" type="button" data-bs-target="#carouselGZone" data-bs-slide="prev">
             <span className="carousel-control-prev-icon" aria-hidden="true"></span>
             <span className="visually-hidden">Anterior</span>
@@ -258,7 +270,6 @@ function Inicio() {
         </div>
       </div>
 
-      {/* TUS 3 TARJETAS ORIGINALES */}
       <div className="container mt-4">
         <div className="row text-center mb-5">
           <div className="col-md-4 mb-4">
@@ -297,7 +308,6 @@ function Inicio() {
         </div>
       </div>
 
-      {/* PRODUCTOS DESTACADOS */}
       <section className="featured-products">
         <div className="container">
           <div className="section-header text-center mb-5">
@@ -353,7 +363,7 @@ function Inicio() {
                         <button 
                           id={`boton-carrito-${producto.id}`}
                           className="btn btn-primary btn-sm"
-                          onClick={() => handleAgregarCarrito(producto)}
+                          onClick={() => handleAgregarCarritoProtegido(producto)}
                         >
                           <i className="fas fa-shopping-cart me-1"></i>
                           Agregar
@@ -371,7 +381,11 @@ function Inicio() {
               <i className="fas fa-th-list me-2"></i>
               Ver Todos los Productos
             </Link>
-            <Link to="/carrito" className="btn btn-outline-primary btn-lg">
+            <Link 
+              to={isAuthenticated ? "/carrito" : "#"} 
+              className="btn btn-outline-primary btn-lg"
+              onClick={handleVerCarritoClick}
+            >
               <i className="fas fa-shopping-cart me-2"></i>
               Ir al Carrito ({cantidadTotal})
             </Link>
