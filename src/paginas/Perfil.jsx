@@ -2,12 +2,34 @@ import { useAuth } from '../contexto/AuthContext';
 import { useWishlist } from '../contexto/WishlistContext';
 import { useCarrito } from '../contexto/CarritoContext';
 import { useNavigate, Link } from 'react-router-dom';
+import { orderService } from '../servicios/orderService';
+import { useState, useEffect } from 'react';
 
 function Perfil() {
   const { user, logout, isAuthenticated } = useAuth();
   const { cantidadWishlist } = useWishlist();
   const { cantidadTotal } = useCarrito();
   const navigate = useNavigate();
+  const [totalJuegosComprados, setTotalJuegosComprados] = useState(0);
+  const [cargandoCompras, setCargandoCompras] = useState(true);
+
+  useEffect(() => {
+    const cargarOrders = async () => {
+      try {
+        const data = await orderService.obtenerOrdersUsuario();
+        setTotalJuegosComprados(data.totalJuegosComprados);
+      } catch (error) {
+        console.error('Error cargando órdenes:', error);
+        setTotalJuegosComprados(0);
+      } finally {
+        setCargandoCompras(false);
+      }
+    };
+
+    if (isAuthenticated) {
+      cargarOrders();
+    }
+  }, [isAuthenticated]);
 
   if (!isAuthenticated) {
     return (
@@ -65,7 +87,15 @@ function Perfil() {
                 <div className="col-4">
                   <div className="p-3 bg-light rounded">
                     <i className="fas fa-gamepad text-primary fs-2 mb-2"></i>
-                    <h4 className="mb-0">0</h4>
+                    <h4 className="mb-0">
+                      {cargandoCompras ? (
+                        <div className="spinner-border spinner-border-sm text-primary" role="status">
+                          <span className="visually-hidden">Cargando...</span>
+                        </div>
+                      ) : (
+                        totalJuegosComprados
+                      )}
+                    </h4>
                     <small className="text-muted">Comprados</small>
                   </div>
                 </div>

@@ -239,7 +239,7 @@ function Reseñas({ juegoId }) {
                         });
                       }}
                     >
-                      ✏️ Modificar
+                    Modificar
                     </button>
                     <button 
                       className="btn btn-sm btn-outline-danger"
@@ -254,7 +254,7 @@ function Reseñas({ juegoId }) {
                         }
                       }}
                     >
-                      🗑️ Eliminar
+                      Eliminar
                     </button>
                   </div>
                 )}

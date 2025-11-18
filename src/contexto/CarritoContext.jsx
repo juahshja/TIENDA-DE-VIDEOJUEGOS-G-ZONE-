@@ -1,5 +1,6 @@
 import React, { createContext, useContext, useReducer } from "react";
 import { useLocalStorage } from "../hooks/useLocalStorage";
+import { orderService } from '../servicios/orderService';
 
 const CarritoContext = createContext();
 
@@ -85,8 +86,48 @@ export const CarritoProvider = ({ children }) => {
     agregarNotificacion('Carrito vaciado correctamente', 'danger');
   };
 
-  const totalCarrito = carrito.reduce((total, item) => total + (item.precio * item.cantidad), 0);
-  const cantidadTotal = carrito.reduce((total, item) => total + item.cantidad, 0);
+  // AGREGAR ESTO ANTES de realizarCompra:
+const totalCarrito = carrito.reduce((total, item) => total + (item.precio * item.cantidad), 0);
+const cantidadTotal = carrito.reduce((total, item) => total + item.cantidad, 0);
+
+const realizarCompra = async () => {
+  try {
+    const orderData = {
+      juegos: carrito.map(juego => ({
+        juegoId: juego.id || juego._id,
+        nombre: juego.nombre,
+        precio: juego.precio,
+        cantidad: juego.cantidad || 1,
+        imagen: juego.imagen || juego.imagenes?.[0] || ''
+      })),
+      total: totalCarrito
+    };
+
+    const response = await orderService.crearOrder(orderData);
+    
+    // Limpiar carrito después de compra exitosa
+    setCarrito([]);
+    
+    // ✅ AGREGAR NOTIFICACIÓN DE ÉXITO
+    agregarNotificacion('✅ Compra realizada exitosamente', 'success');
+    
+    return { 
+      success: true, 
+      message: '✅ Compra realizada exitosamente', 
+      order: response.order 
+    };
+  } catch (error) {
+    console.error('Error realizando compra:', error);
+    
+    // ✅ AGREGAR NOTIFICACIÓN DE ERROR
+    agregarNotificacion('❌ Error al realizar la compra', 'danger');
+    
+    return { 
+      success: false, 
+      message: error.message || 'Error al realizar la compra' 
+    };
+  }
+};
 
   return (
     <CarritoContext.Provider
@@ -96,6 +137,7 @@ export const CarritoProvider = ({ children }) => {
         quitarDelCarrito,
         eliminarDelCarrito, 
         vaciarCarrito,
+        realizarCompra,  // ← NUEVA FUNCIÓN
         totalCarrito,
         cantidadTotal,
         notificaciones,

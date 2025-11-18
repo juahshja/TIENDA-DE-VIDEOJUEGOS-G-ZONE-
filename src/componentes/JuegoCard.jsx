@@ -2,6 +2,7 @@ import { useCarrito } from "../contexto/CarritoContext";
 import { Link } from "react-router-dom";
 import BotonWishlist from "./BotonWishlist";
 
+
 function JuegoCard({ juego }) {
   const { agregarAlCarrito } = useCarrito();
 

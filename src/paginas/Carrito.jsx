@@ -1,6 +1,7 @@
 import { useCarrito } from '../contexto/CarritoContext';
-import { useState } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import confetti from 'canvas-confetti';
+
 
 function Carrito() {
   const { 
@@ -9,8 +10,11 @@ function Carrito() {
     quitarDelCarrito, 
     eliminarDelCarrito, 
     vaciarCarrito,
-    totalCarrito 
+    totalCarrito, 
+    realizarCompra
   } = useCarrito();
+
+  
   
   const [mostrarConfirmacion, setMostrarConfirmacion] = useState(false);
   const [mostrarConfirmacionEliminar, setMostrarConfirmacionEliminar] = useState(false);
@@ -18,9 +22,14 @@ function Carrito() {
   const [mostrarAlerta, setMostrarAlerta] = useState(false);
   const [mensajeAlerta, setMensajeAlerta] = useState('');
   const [productoAEliminar, setProductoAEliminar] = useState(null);
+  
+  const mostrarConfirmacionRef = useRef(false);
+
+  useEffect(() => {
+    mostrarConfirmacionRef.current = mostrarConfirmacion;
+  }, [mostrarConfirmacion]);
 
   const lanzarConfeti = () => {
-    // Confeti inicial EXPLOSIVO - toda la pantalla
     confetti({
       particleCount: 400,
       spread: 200,
@@ -29,7 +38,6 @@ function Carrito() {
       zIndex: 10000
     });
 
-    // Explosiones laterales
     setTimeout(() => {
       confetti({
         particleCount: 200,
@@ -50,7 +58,6 @@ function Carrito() {
       });
     }, 300);
 
-    // Explosión desde abajo
     setTimeout(() => {
       confetti({
         particleCount: 150,
@@ -71,14 +78,28 @@ function Carrito() {
     }, 3000);
   };
 
-  const handleProcederPago = () => {
+  const handleProcederPago = async () => {
+  try {
+    // MOSTRAR MODAL INMEDIATAMENTE
     setMostrarConfirmacion(true);
     lanzarConfeti();
-  };
+    
+    // PROCESAR COMPRA EN SEGUNDO PLANO
+    const resultado = await realizarCompra();
+    
+    if (!resultado.success) {
+      // Si hay error, mantener el modal abierto pero mostrar alerta
+      mostrarAlertaTemporal('❌ Error: ' + resultado.message);
+    }
+    // Si es éxito, el modal permanece abierto
+  } catch (error) {
+    console.error('Error en el proceso de compra:', error);
+    mostrarAlertaTemporal('❌ Error al procesar la compra');
+  }
+};
 
   const handleCerrarConfirmacion = () => {
     setMostrarConfirmacion(false);
-    vaciarCarrito();
   };
 
   const handleEliminarProducto = (producto) => {
@@ -121,12 +142,20 @@ function Carrito() {
     );
   }
 
+  const shouldShowModal = mostrarConfirmacion || mostrarConfirmacionRef.current;
+
   return (
     <div className="container mt-4">
- 
-      {/* MODAL DE CONFIRMACIÓN COMPRA EXITOSA */}
-      {mostrarConfirmacion && (
-        <div className="modal fade show d-block" style={{backgroundColor: 'rgba(0,0,0,0.6)'}} tabIndex="-1">
+      {shouldShowModal && (
+        <div className="modal fade show d-block" style={{
+          backgroundColor: 'rgba(0,0,0,0.6)', 
+          position: 'fixed', 
+          top: 0, 
+          left: 0, 
+          right: 0, 
+          bottom: 0, 
+          zIndex: 9999
+        }} tabIndex="-1">
           <div className="modal-dialog modal-dialog-centered">
             <div className="modal-content">
               <div className="modal-header bg-success text-white">
@@ -162,20 +191,19 @@ function Carrito() {
               </div>
 
               <div className="modal-footer">
-                <button 
-                  className="btn btn-primary"
-                  onClick={handleCerrarConfirmacion}
-                >
-                  <i className="fas fa-shopping-cart me-1"></i>
-                  Seguir Comprando
-                </button>
+               <button 
+  className="btn btn-primary"
+  onClick={handleCerrarConfirmacion}
+>
+  <i className="fas fa-check me-1"></i>
+  Cerrar Compra
+</button>
               </div>
             </div>
           </div>
         </div>
       )}
 
-      {/* MODAL DE CONFIRMACIÓN ELIMINAR PRODUCTO - FONDO ESTÁTICO */}
       {mostrarConfirmacionEliminar && productoAEliminar && (
         <div className="modal fade show d-block" data-bs-backdrop="static" data-bs-keyboard="false" style={{backgroundColor: 'rgba(0,0,0,0.5)'}} tabIndex="-1">
           <div className="modal-dialog modal-dialog-centered">
@@ -212,7 +240,6 @@ function Carrito() {
         </div>
       )}
 
-      {/* MODAL DE CONFIRMACIÓN VACIAR CARRITO - FONDO ESTÁTICO */}
       {mostrarConfirmacionVaciar && (
         <div className="modal fade show d-block" data-bs-backdrop="static" data-bs-keyboard="false" style={{backgroundColor: 'rgba(0,0,0,0.5)'}} tabIndex="-1">
           <div className="modal-dialog modal-dialog-centered">
@@ -249,7 +276,6 @@ function Carrito() {
         </div>
       )}
 
-      {/* CONTENIDO NORMAL DEL CARRITO */}
       <div className="d-flex justify-content-between align-items-center mb-4">
         <h2>
           <i className="fas fa-shopping-cart me-2"></i>
