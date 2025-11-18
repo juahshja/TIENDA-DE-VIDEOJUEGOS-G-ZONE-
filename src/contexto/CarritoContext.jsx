@@ -78,7 +78,7 @@ export const CarritoProvider = ({ children }) => {
   const eliminarDelCarrito = (id) => {
     const juego = carrito.find(item => item.id === id);
     setCarrito(carrito.filter((item) => item.id !== id));
-   agregarNotificacion(`${juego.nombre} eliminado del carrito`);
+    agregarNotificacion(`${juego.nombre} eliminado del carrito`);
   };
 
   const vaciarCarrito = () => {
@@ -86,48 +86,48 @@ export const CarritoProvider = ({ children }) => {
     agregarNotificacion('Carrito vaciado correctamente', 'danger');
   };
 
-  // AGREGAR ESTO ANTES de realizarCompra:
-const totalCarrito = carrito.reduce((total, item) => total + (item.precio * item.cantidad), 0);
-const cantidadTotal = carrito.reduce((total, item) => total + item.cantidad, 0);
+  // ✅ ESTO DEBE ESTAR AQUÍ, FUERA DE realizarCompra
+  const totalCarrito = carrito.reduce((total, item) => total + (item.precio * item.cantidad), 0);
+  const cantidadTotal = carrito.reduce((total, item) => total + item.cantidad, 0);
 
-const realizarCompra = async () => {
-  try {
-    const orderData = {
-      juegos: carrito.map(juego => ({
-        juegoId: juego.id || juego._id,
-        nombre: juego.nombre,
-        precio: juego.precio,
-        cantidad: juego.cantidad || 1,
-        imagen: juego.imagen || juego.imagenes?.[0] || ''
-      })),
-      total: totalCarrito
-    };
+  const realizarCompra = async () => {
+    try {
+      const orderData = {
+        juegos: carrito.map(juego => ({
+          juegoId: juego.id || juego._id,
+          nombre: juego.nombre,
+          precio: juego.precio,
+          cantidad: juego.cantidad || 1,
+          imagen: juego.imagen || juego.imagenes?.[0] || ''
+        })),
+        total: totalCarrito
+      };
 
-    const response = await orderService.crearOrder(orderData);
-    
-    // Limpiar carrito después de compra exitosa
-    setCarrito([]);
-    
-    // ✅ AGREGAR NOTIFICACIÓN DE ÉXITO
-    agregarNotificacion('✅ Compra realizada exitosamente', 'success');
-    
-    return { 
-      success: true, 
-      message: '✅ Compra realizada exitosamente', 
-      order: response.order 
-    };
-  } catch (error) {
-    console.error('Error realizando compra:', error);
-    
-    // ✅ AGREGAR NOTIFICACIÓN DE ERROR
-    agregarNotificacion('❌ Error al realizar la compra', 'danger');
-    
-    return { 
-      success: false, 
-      message: error.message || 'Error al realizar la compra' 
-    };
-  }
-};
+      const response = await orderService.crearOrder(orderData);
+      
+      // Limpiar carrito después de compra exitosa
+      setCarrito([]);
+      
+      // ✅ AGREGAR NOTIFICACIÓN DE ÉXITO
+      agregarNotificacion('✅ Compra realizada exitosamente', 'success');
+      
+      return { 
+        success: true, 
+        message: '✅ Compra realizada exitosamente', 
+        order: response.order 
+      };
+    } catch (error) {
+      console.error('Error realizando compra:', error);
+      
+      // ✅ AGREGAR NOTIFICACIÓN DE ERROR
+      agregarNotificacion('❌ Error al realizar la compra', 'danger');
+      
+      return { 
+        success: false, 
+        message: error.message || 'Error al realizar la compra' 
+      };
+    }
+  };
 
   return (
     <CarritoContext.Provider
@@ -137,7 +137,7 @@ const realizarCompra = async () => {
         quitarDelCarrito,
         eliminarDelCarrito, 
         vaciarCarrito,
-        realizarCompra,  // ← NUEVA FUNCIÓN
+        realizarCompra,
         totalCarrito,
         cantidadTotal,
         notificaciones,

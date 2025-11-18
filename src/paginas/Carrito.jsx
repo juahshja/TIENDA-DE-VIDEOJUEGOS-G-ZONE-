@@ -1,5 +1,5 @@
 import { useCarrito } from '../contexto/CarritoContext';
-import { useState, useRef, useEffect } from 'react';
+import { useState } from 'react';
 import confetti from 'canvas-confetti';
 
 
@@ -22,12 +22,8 @@ function Carrito() {
   const [mostrarAlerta, setMostrarAlerta] = useState(false);
   const [mensajeAlerta, setMensajeAlerta] = useState('');
   const [productoAEliminar, setProductoAEliminar] = useState(null);
-  
-  const mostrarConfirmacionRef = useRef(false);
-
-  useEffect(() => {
-    mostrarConfirmacionRef.current = mostrarConfirmacion;
-  }, [mostrarConfirmacion]);
+  const [compraProcesada, setCompraProcesada] = useState(false);
+  const [totalCompra, setTotalCompra] = useState(0); // ✅ GUARDAR TOTAL DE LA COMPRA
 
   const lanzarConfeti = () => {
     confetti({
@@ -78,28 +74,40 @@ function Carrito() {
     }, 3000);
   };
 
+  // ✅ FUNCIÓN CORREGIDA
   const handleProcederPago = async () => {
-  try {
-    // MOSTRAR MODAL INMEDIATAMENTE
-    setMostrarConfirmacion(true);
-    lanzarConfeti();
-    
-    // PROCESAR COMPRA EN SEGUNDO PLANO
-    const resultado = await realizarCompra();
-    
-    if (!resultado.success) {
-      // Si hay error, mantener el modal abierto pero mostrar alerta
-      mostrarAlertaTemporal('❌ Error: ' + resultado.message);
+    try {
+      // GUARDAR EL TOTAL ANTES DE VACIAR EL CARRITO
+      setTotalCompra(totalCarrito);
+      
+      // MOSTRAR MODAL Y CONFETI INMEDIATAMENTE
+      setMostrarConfirmacion(true);
+      lanzarConfeti();
+      
+      // MARCAR COMO PROCESADA INMEDIATAMENTE
+      setCompraProcesada(true);
+      
+      // PROCESAR COMPRA EN SEGUNDO PLANO
+      const resultado = await realizarCompra();
+      
+      if (!resultado.success) {
+        // Si hay error, cerrar modal y mostrar alerta
+        setMostrarConfirmacion(false);
+        setCompraProcesada(false);
+        mostrarAlertaTemporal('❌ Error: ' + resultado.message);
+      }
+    } catch (error) {
+      console.error('Error en el proceso de compra:', error);
+      setMostrarConfirmacion(false);
+      setCompraProcesada(false);
+      mostrarAlertaTemporal('❌ Error al procesar la compra');
     }
-    // Si es éxito, el modal permanece abierto
-  } catch (error) {
-    console.error('Error en el proceso de compra:', error);
-    mostrarAlertaTemporal('❌ Error al procesar la compra');
-  }
-};
+  };
 
   const handleCerrarConfirmacion = () => {
     setMostrarConfirmacion(false);
+    setCompraProcesada(false); // Resetear estado
+    setTotalCompra(0); // Resetear total
   };
 
   const handleEliminarProducto = (producto) => {
@@ -126,7 +134,8 @@ function Carrito() {
     mostrarAlertaTemporal('Carrito vaciado correctamente');
   };
 
-  if (carrito.length === 0) {
+  // ✅ CONDICIÓN CORREGIDA: Solo mostrar "carrito vacío" si NO hay compra procesada
+  if (carrito.length === 0 && !compraProcesada) {
     return (
       <div className="container mt-5">
         <div className="text-center">
@@ -142,11 +151,10 @@ function Carrito() {
     );
   }
 
-  const shouldShowModal = mostrarConfirmacion || mostrarConfirmacionRef.current;
-
   return (
     <div className="container mt-4">
-      {shouldShowModal && (
+      {/* ✅ MODAL DE CONFIRMACIÓN */}
+      {mostrarConfirmacion && (
         <div className="modal fade show d-block" style={{
           backgroundColor: 'rgba(0,0,0,0.6)', 
           position: 'fixed', 
@@ -173,7 +181,7 @@ function Carrito() {
                 
                 <div className="alert alert-light border mb-3">
                   <p className="mb-1">Tu pedido está siendo procesado</p>
-                  <p className="mb-0 fw-bold">Total: ${totalCarrito.toFixed(2)}</p>
+                  <p className="mb-0 fw-bold">Total: ${totalCompra.toFixed(2)}</p>
                 </div>
 
                 <div className="card border-0 bg-light">
@@ -191,13 +199,13 @@ function Carrito() {
               </div>
 
               <div className="modal-footer">
-               <button 
-  className="btn btn-primary"
-  onClick={handleCerrarConfirmacion}
->
-  <i className="fas fa-check me-1"></i>
-  Cerrar Compra
-</button>
+                <button 
+                  className="btn btn-primary"
+                  onClick={handleCerrarConfirmacion}
+                >
+                  <i className="fas fa-check me-1"></i>
+                  Cerrar Compra
+                </button>
               </div>
             </div>
           </div>
