@@ -1,12 +1,41 @@
-import { useState } from 'react';
+import { useState, useContext, useEffect } from 'react'; // ✅ Agregar useContext y useEffect
+import { ticketService } from '../servicios/ticketService';
+import { AuthContext } from '../contexto/AuthContext';
 
 function CentroAyuda() {
+  const { user } = useContext(AuthContext); // ✅ Ahora funciona
   const [formData, setFormData] = useState({
     nombre: '',
     email: '',
     asunto: '',
-    mensaje: ''
+    mensaje: '',
+    categoria: 'general'
   });
+  const [loading, setLoading] = useState(false);
+  const [showSuccess, setShowSuccess] = useState(false);
+  const [misTickets, setMisTickets] = useState([]);
+  const [showTickets, setShowTickets] = useState(false);
+
+  // Cargar datos del usuario si está autenticado
+  useEffect(() => {
+    if (user) {
+      setFormData(prev => ({
+        ...prev,
+        nombre: user.nombre || '',
+        email: user.email || ''
+      }));
+      cargarMisTickets();
+    }
+  }, [user]);
+
+  const cargarMisTickets = async () => {
+    try {
+      const response = await ticketService.obtenerMisTickets();
+      setMisTickets(response.data || []);
+    } catch (error) {
+      console.log('No se pudieron cargar tickets anteriores');
+    }
+  };
 
   const handleChange = (e) => {
     setFormData({
@@ -15,30 +44,153 @@ function CentroAyuda() {
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log('Datos del formulario:', formData);
-    alert('Mensaje enviado correctamente');
+    setLoading(true);
+
+    try {
+      await ticketService.crearTicket(formData);
+      setShowSuccess(true);
+      setFormData({
+        nombre: user?.nombre || '',
+        email: user?.email || '',
+        asunto: '',
+        mensaje: '',
+        categoria: 'general'
+      });
+      
+      if (user) cargarMisTickets();
+      setTimeout(() => setShowSuccess(false), 5000);
+    } catch (error) {
+      alert('Error al enviar el mensaje: ' + error.message);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const getEstadoBadge = (estado) => {
+    const estilos = {
+      abierto: 'bg-success text-white',
+      en_progreso: 'bg-warning text-dark',
+      cerrado: 'bg-secondary text-white'
+    };
+    return (
+      <span className={`badge ${estilos[estado] || 'bg-light text-dark'}`}>
+        {estado?.replace('_', ' ') || 'abierto'}
+      </span>
+    );
   };
 
   return (
     <div className="container mt-4">
+      {/* Alert de éxito */}
+      {showSuccess && (
+        <div className="alert alert-success alert-dismissible fade show" role="alert">
+          <i className="fas fa-check-circle me-2"></i>
+          <strong>¡Éxito!</strong> Tu mensaje ha sido enviado. Te contactaremos pronto.
+          <button type="button" className="btn-close" onClick={() => setShowSuccess(false)}></button>
+        </div>
+      )}
+
       <div className="row">
         <div className="col-12 text-center mb-5">
-          <h1 className="fw-bold">
-            Centro de Ayuda
-          </h1>
+          <h1 className="fw-bold">Centro de Ayuda</h1>
           <p className="lead text-muted">
             ¿Tienes alguna duda? Estamos aquí para ayudarte
           </p>
         </div>
       </div>
 
+      {/* Botón para ver tickets anteriores */}
+      {user && (
+        <div className="row mb-4">
+          <div className="col-12">
+            <button 
+              className="btn btn-outline-primary"
+              onClick={() => setShowTickets(!showTickets)}
+            >
+              <i className={`fas fa-${showTickets ? 'eye-slash' : 'history'} me-2`}></i>
+              {showTickets ? 'Ocultar' : 'Ver'} mis tickets anteriores ({misTickets.length})
+            </button>
+          </div>
+        </div>
+      )}
+
+      {/* Lista de tickets anteriores */}
+      {showTickets && user && (
+        <div className="row mb-4">
+          <div className="col-12">
+            <div className="card shadow-sm">
+              <div className="card-header bg-primary text-white">
+                <h5 className="mb-0">
+                  <i className="fas fa-ticket-alt me-2"></i>
+                  Mis Tickets de Soporte
+                </h5>
+              </div>
+              <div className="card-body">
+                {misTickets.length === 0 ? (
+                  <p className="text-muted text-center mb-0">
+                    No tienes tickets anteriores.
+                  </p>
+                ) : (
+                  <div className="table-responsive">
+                    <table className="table table-hover">
+                      <thead>
+                        <tr>
+                          <th>Asunto</th>
+                          <th>Categoría</th>
+                          <th>Estado</th>
+                          <th>Fecha</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        {misTickets.map((ticket) => (
+                          <tr key={ticket._id}>
+                            <td>
+                              <strong>{ticket.asunto}</strong>
+                              <br />
+                              <small className="text-muted">{ticket.mensaje.substring(0, 50)}...</small>
+                            </td>
+                            <td>
+                              <span className="badge bg-light text-dark">
+                                {ticket.categoria}
+                              </span>
+                            </td>
+                            <td>
+                              {getEstadoBadge(ticket.estado)}
+                            </td>
+                            <td>
+                              <small className="text-muted">
+                                {new Date(ticket.createdAt).toLocaleDateString()}
+                              </small>
+                            </td>
+                          </tr>
+                        ))}
+                      </tbody>
+                    </table>
+                  </div>
+                )}
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+
       <div className="row">
-        {/* Formulario de Contacto */}
+        {/* Formulario de Contacto MEJORADO */}
         <div className="col-lg-8 mb-4">
           <div className="card shadow-sm centro-ayuda-card">
             <div className="card-body p-4">
+              <div className="d-flex align-items-center mb-4">
+                <i className="fas fa-ticket-alt fa-2x text-primary me-3"></i>
+                <div>
+                  <h4 className="fw-bold mb-0">Sistema de Tickets de Soporte</h4>
+                  <p className="text-muted mb-0">
+                    {user ? 'Estás logueado. Tu ticket se vinculará a tu cuenta.' : 'No estás logueado. Tu ticket se gestionará por email.'}
+                  </p>
+                </div>
+              </div>
+
               <form onSubmit={handleSubmit}>
                 {/* Nombre completo */}
                 <div className="mb-4">
@@ -54,6 +206,7 @@ function CentroAyuda() {
                     value={formData.nombre}
                     onChange={handleChange}
                     required
+                    disabled={user}
                   />
                 </div>
 
@@ -71,40 +224,46 @@ function CentroAyuda() {
                     value={formData.email}
                     onChange={handleChange}
                     required
+                    disabled={user}
                   />
                 </div>
 
-                {/* Asunto */}
+                {/* Categoría (NUEVO) */}
                 <div className="mb-4">
                   <label className="form-label fw-bold">
                     <i className="fas fa-tag me-2 text-primary"></i>
-                    Asunto
+                    Categoría
                   </label>
                   <select 
                     className="form-select"
+                    name="categoria"
+                    value={formData.categoria}
+                    onChange={handleChange}
+                    required
+                  >
+                    <option value="general">General</option>
+                    <option value="tecnico">Soporte Técnico</option>
+                    <option value="pago">Problemas de Pago</option>
+                    <option value="cuenta">Cuenta y Perfil</option>
+                    <option value="producto">Información de Productos</option>
+                  </select>
+                </div>
+
+                {/* Asunto (modificado de select a input) */}
+                <div className="mb-4">
+                  <label className="form-label fw-bold">
+                    <i className="fas fa-heading me-2 text-primary"></i>
+                    Asunto
+                  </label>
+                  <input
+                    type="text"
+                    className="form-control"
+                    placeholder="Resumen de tu consulta"
                     name="asunto"
                     value={formData.asunto}
                     onChange={handleChange}
                     required
-                  >
-                    <option value="">Selecciona un asunto</option>
-                    <option value="productos">
-                      <i className="fas fa-gamepad me-2"></i>
-                      Pregunta sobre productos
-                    </option>
-                    <option value="soporte">
-                      <i className="fas fa-tools me-2"></i>
-                      Soporte técnico
-                    </option>
-                    <option value="pedidos">
-                      <i className="fas fa-shipping-fast me-2"></i>
-                      Consulta sobre pedidos
-                    </option>
-                    <option value="otros">
-                      <i className="fas fa-question-circle me-2"></i>
-                      Otros
-                    </option>
-                  </select>
+                  />
                 </div>
 
                 {/* Mensaje */}
@@ -116,7 +275,7 @@ function CentroAyuda() {
                   <textarea
                     className="form-control"
                     rows="5"
-                    placeholder="Escribe tu mensaje aquí..."
+                    placeholder="Describe detalladamente tu consulta o problema..."
                     name="mensaje"
                     value={formData.mensaje}
                     onChange={handleChange}
@@ -126,9 +285,22 @@ function CentroAyuda() {
 
                 {/* Botón Enviar */}
                 <div className="d-grid">
-                  <button type="submit" className="btn btn-primary btn-lg btn-enviar">
-                    <i className="fas fa-paper-plane me-2"></i>
-                    Enviar Mensaje
+                  <button 
+                    type="submit" 
+                    className="btn btn-primary btn-lg btn-enviar"
+                    disabled={loading}
+                  >
+                    {loading ? (
+                      <>
+                        <i className="fas fa-spinner fa-spin me-2"></i>
+                        Enviando...
+                      </>
+                    ) : (
+                      <>
+                        <i className="fas fa-paper-plane me-2"></i>
+                        Enviar Ticket de Soporte
+                      </>
+                    )}
                   </button>
                 </div>
               </form>
@@ -136,7 +308,7 @@ function CentroAyuda() {
           </div>
         </div>
 
-        {/* Información de Contacto */}
+        {/* Información de Contacto - SE MANTIENE IGUAL */}
         <div className="col-lg-4">
           <div className="card shadow-sm centro-ayuda-card">
             <div className="card-body p-4">
@@ -224,7 +396,7 @@ function CentroAyuda() {
         </div>
       </div>
 
-      {/* SECCIÓN DEL MAPA - LIMA, PERÚ */}
+      {/* SECCIÓN DEL MAPA - SE MANTIENE INTACTA */}
       <div className="row mt-5">
         <div className="col-12">
           <div className="card shadow-sm centro-ayuda-card">
