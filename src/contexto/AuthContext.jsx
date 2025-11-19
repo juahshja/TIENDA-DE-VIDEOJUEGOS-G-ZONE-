@@ -14,6 +14,8 @@ export const useAuth = () => {
 export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
+  const [modalLoginOpen, setModalLoginOpen] = useState(false);
+  const [loggingOut, setLoggingOut] = useState(false); // ✅ NUEVO ESTADO
 
   useEffect(() => {
     // Verificar si hay un usuario en localStorage al cargar
@@ -44,9 +46,27 @@ export const AuthProvider = ({ children }) => {
     }
   };
 
-  const logout = () => {
+  // ✅ FUNCIÓN LOGOUT MEJORADA
+  const logout = async () => {
+    setLoggingOut(true); // Activar estado de carga
+    
+    // Simular delay para mostrar el "Cerrando sesión..."
+    await new Promise(resolve => setTimeout(resolve, 800));
+    
     cerrarSesion();
     setUser(null);
+    setLoggingOut(false);
+    
+    // Redirigir al inicio
+    window.location.href = '/';
+  };
+
+  const abrirModalLogin = () => {
+    setModalLoginOpen(true);
+  };
+
+  const cerrarModalLogin = () => {
+    setModalLoginOpen(false);
   };
 
   const isAuthenticated = !!user;
@@ -59,11 +79,16 @@ export const AuthProvider = ({ children }) => {
         register,
         logout,
         isAuthenticated,
-        loading
+        loading,
+        loggingOut, // ✅ EXPORTAR NUEVO ESTADO
+        modalLoginOpen,
+        abrirModalLogin,
+        cerrarModalLogin
       }}
     >
       {children}
     </AuthContext.Provider>
   );
 };
+
 export { AuthContext };

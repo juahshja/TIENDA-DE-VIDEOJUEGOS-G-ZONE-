@@ -1,6 +1,6 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { CarritoProvider } from './contexto/CarritoContext';
-import { AuthProvider } from './contexto/AuthContext';
+import { AuthProvider, useAuth } from './contexto/AuthContext'; 
 import { WishlistProvider } from './contexto/WishlistContext';
 import Navbar from './componentes/Navbar';
 import Footer from './componentes/Footer';
@@ -14,12 +14,14 @@ import Registro from './paginas/Registro';
 import Wishlist from './paginas/Wishlist';
 import Perfil from './paginas/Perfil';
 import ContenedorNotificaciones from './componentes/ContenedorNotificaciones';
+import ModalLogin from './componentes/ModalLogin'; 
 import { useCarrito } from './contexto/CarritoContext';
 import './App.css';
 import './estilos/global.css';
 
 function ContenidoConNotificaciones() {
   const { notificaciones, eliminarNotificacion } = useCarrito();
+  const { modalLoginOpen, cerrarModalLogin } = useAuth(); 
 
   return (
     <>
@@ -27,6 +29,13 @@ function ContenidoConNotificaciones() {
         notificaciones={notificaciones} 
         eliminarNotificacion={eliminarNotificacion} 
       />
+      
+      {/* ModalLogin */}
+      <ModalLogin 
+        show={modalLoginOpen} 
+        onClose={cerrarModalLogin} 
+      />
+      
       <Navbar />
       <main className="flex-grow-1 py-4">
         <Routes>

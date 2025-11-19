@@ -83,31 +83,31 @@ function Inicio() {
   };
 
   return (
-    <div>
+    <div className="inicio-container">
       <ModalLogin 
         show={showLoginModal} 
         onClose={() => setShowLoginModal(false)} 
       />
 
-      <section className="hero-section-improved">
+      <section className="hero-section-inicio">
         <div className="container">
-          <div className="row align-items-center">
-            <div className="col-lg-8 mx-auto text-center">
-              <h1 className="hero-title-improved">
+          <div className="row align-items-center min-vh-50 py-5">
+            <div className="col-12 col-lg-8 mx-auto text-center">
+              <h1 className="hero-title-inicio mb-3">
                 <i className="fas fa-gamepad me-2"></i>
-                Bienvenido a <span style={{color: '#ffd700'}}>G-ZONE</span>
+                Bienvenido a <span className="text-warning">G-ZONE</span>
               </h1>
-              <p className="hero-subtitle-improved">
+              <p className="hero-subtitle-inicio mb-4">
                 Descubre los mejores videojuegos para todas las plataformas
               </p>
-              <div className="hero-buttons-improved">
-                <Link to="/catalogo" className="btn btn-light btn-lg hero-btn-improved me-3">
+              <div className="hero-buttons-inicio d-flex flex-column flex-sm-row justify-content-center gap-3 mb-4">
+                <Link to="/catalogo" className="btn btn-light btn-lg hero-btn-inicio">
                   <i className="fas fa-rocket me-2"></i>
                   Explorar Catálogo
                 </Link>
                 <Link 
                   to={isAuthenticated ? "/carrito" : "#"} 
-                  className="btn btn-outline-light btn-lg hero-btn-improved position-relative"
+                  className="btn btn-outline-light btn-lg hero-btn-inicio position-relative"
                   onClick={handleVerCarritoClick}
                 >
                   <i className="fas fa-shopping-cart me-2"></i>
@@ -120,27 +120,33 @@ function Inicio() {
                 </Link>
               </div>
               
-              <div className="hero-stats-improved mt-4">
-                <div className="stat-item-improved">
-                  <span className="stat-number-improved">500+</span>
-                  <span className="stat-label-improved">
-                    <i className="fas fa-gamepad me-1"></i>
-                    JUEGOS
-                  </span>
+              <div className="hero-stats-inicio row justify-content-center g-4 mt-4">
+                <div className="col-4 col-sm-4 col-md-4">
+                  <div className="stat-item-inicio text-center">
+                    <span className="stat-number-inicio d-block">500+</span>
+                    <span className="stat-label-inicio">
+                      <i className="fas fa-gamepad me-1"></i>
+                      JUEGOS
+                    </span>
+                  </div>
                 </div>
-                <div className="stat-item-improved">
-                  <span className="stat-number-improved">98%</span>
-                  <span className="stat-label-improved">
-                    <i className="fas fa-smile me-1"></i>
-                    SATISFACCIÓN
-                  </span>
+                <div className="col-4 col-sm-4 col-md-4">
+                  <div className="stat-item-inicio text-center">
+                    <span className="stat-number-inicio d-block">98%</span>
+                    <span className="stat-label-inicio">
+                      <i className="fas fa-smile me-1"></i>
+                      SATISFACCIÓN
+                    </span>
+                  </div>
                 </div>
-                <div className="stat-item-improved">
-                  <span className="stat-number-improved">24/7</span>
-                  <span className="stat-label-improved">
-                    <i className="fas fa-headset me-1"></i>
-                    SOPORTE
-                  </span>
+                <div className="col-4 col-sm-4 col-md-4">
+                  <div className="stat-item-inicio text-center">
+                    <span className="stat-number-inicio d-block">24/7</span>
+                    <span className="stat-label-inicio">
+                      <i className="fas fa-headset me-1"></i>
+                      SOPORTE
+                    </span>
+                  </div>
                 </div>
               </div>
             </div>
@@ -148,7 +154,7 @@ function Inicio() {
         </div>
       </section>
 
-      <div className="container titulo-carrusel">
+      <div className="container titulo-carrusel mt-5 pt-4">
         <div className="row">
           <div className="col-12">
             <div className="d-flex align-items-center justify-content-between">
@@ -165,39 +171,23 @@ function Inicio() {
           id="carouselGZone" 
           className="carousel slide carousel-fade" 
           data-bs-ride="carousel" 
-          data-bs-interval="4000"
+          data-bs-interval="5000"
           data-bs-pause="false"
         >
+          
           <div className="carousel-indicators">
-            <button 
-              type="button" 
-              data-bs-target="#carouselGZone" 
-              data-bs-slide-to="0" 
-              className="active" 
-              aria-current="true" 
-              aria-label="God of War"
-            ></button>
-            <button 
-              type="button" 
-              data-bs-target="#carouselGZone" 
-              data-bs-slide-to="1" 
-              aria-label="Zelda"
-            ></button>
-            <button 
-              type="button" 
-              data-bs-target="#carouselGZone" 
-              data-bs-slide-to="2" 
-              aria-label="Cyberpunk"
-            ></button>
-            <button 
-              type="button" 
-              data-bs-target="#carouselGZone" 
-              data-bs-slide-to="3" 
-              aria-label="FIFA"
-            ></button>
+            <button type="button" data-bs-target="#carouselGZone" data-bs-slide-to="0" className="active" aria-label="God of War"></button>
+            <button type="button" data-bs-target="#carouselGZone" data-bs-slide-to="1" aria-label="Zelda"></button>
+            <button type="button" data-bs-target="#carouselGZone" data-bs-slide-to="2" aria-label="Cyberpunk"></button>
+            <button type="button" data-bs-target="#carouselGZone" data-bs-slide-to="3" aria-label="FIFA"></button>
+            <button type="button" data-bs-target="#carouselGZone" data-bs-slide-to="4" aria-label="GTA VI"></button>
+            <button type="button" data-bs-target="#carouselGZone" data-bs-slide-to="5" aria-label="Counter-Strike"></button>
+            <button type="button" data-bs-target="#carouselGZone" data-bs-slide-to="6" aria-label="Stardew Valley"></button>
+            <button type="button" data-bs-target="#carouselGZone" data-bs-slide-to="7" aria-label="Celeste"></button>
           </div>
 
           <div className="carousel-inner rounded-4 shadow-lg overflow-hidden">
+            
             <div className="carousel-item active position-relative">
               <Link to="/producto/1" className="d-block w-100 h-100">
                 <img 
@@ -257,6 +247,66 @@ function Inicio() {
                 </div>
               </Link>
             </div>
+
+            <div className="carousel-item position-relative">
+              <Link to="/producto/46" className="d-block w-100 h-100">
+                <img 
+                  src="https://image.api.playstation.com/vulcan/ap/rnd/202312/0112/2n2n2n2n2n2n2n2n2n2n2n2n2n2n2n2n2n2n2n2n2n.png" 
+                  className="d-block w-100" 
+                  alt="Grand Theft Auto VI"
+                  style={{ height: '500px', objectFit: 'cover' }}
+                />
+                <div className="carousel-caption d-none d-md-block text-start">
+                  <h3 className="fw-bold mb-1">Grand Theft Auto VI</h3>
+                  <p className="mb-0">Regresa a Vice City en 2025</p>
+                </div>
+              </Link>
+            </div>
+
+            <div className="carousel-item position-relative">
+              <Link to="/producto/34" className="d-block w-100 h-100">
+                <img 
+                  src="https://cdn.cloudflare.steamstatic.com/steam/apps/730/capsule_616x353.jpg" 
+                  className="d-block w-100" 
+                  alt="Counter-Strike 2"
+                  style={{ height: '500px', objectFit: 'cover' }}
+                />
+                <div className="carousel-caption d-none d-md-block text-start">
+                  <h3 className="fw-bold mb-1">Counter-Strike 2</h3>
+                  <p className="mb-0">Shooter táctico competitivo</p>
+                </div>
+              </Link>
+            </div>
+
+            <div className="carousel-item position-relative">
+              <Link to="/producto/58" className="d-block w-100 h-100">
+                <img 
+                  src="https://cdn.cloudflare.steamstatic.com/steam/apps/413150/capsule_616x353.jpg" 
+                  className="d-block w-100" 
+                  alt="Stardew Valley"
+                  style={{ height: '500px', objectFit: 'cover' }}
+                />
+                <div className="carousel-caption d-none d-md-block text-start">
+                  <h3 className="fw-bold mb-1">Stardew Valley</h3>
+                  <p className="mb-0">Simulación relajante de vida rural</p>
+                </div>
+              </Link>
+            </div>
+
+            <div className="carousel-item position-relative">
+              <Link to="/producto/53" className="d-block w-100 h-100">
+                <img 
+                  src="https://image.api.playstation.com/vulcan/ap/rnd/202302/2323/8j8j8j8j8j8j8j8j8j8j8j8j8j8j8j8j8j8j8j8j8j.png" 
+                  className="d-block w-100" 
+                  alt="Celeste"
+                  style={{ height: '500px', objectFit: 'cover' }}
+                />
+                <div className="carousel-caption d-none d-md-block text-start">
+                  <h3 className="fw-bold mb-1">Celeste</h3>
+                  <p className="mb-0">Aventura de plataformas sobre superación</p>
+                </div>
+              </Link>
+            </div>
           </div>
 
           <button className="carousel-control-prev" type="button" data-bs-target="#carouselGZone" data-bs-slide="prev">
@@ -269,11 +319,13 @@ function Inicio() {
           </button>
         </div>
       </div>
-
-      <div className="container mt-4">
+      <div className="container mt-4 mt-md-5">
         <div className="row text-center mb-5">
-          <div className="col-md-4 mb-4">
-            <div className="feature-card">
+          <div className="col-12 col-md-4 mb-4">
+            <div 
+              className="feature-card clickable-card h-100"
+              onClick={() => window.location.href = '/catalogo'}
+            >
               <div className="feature-icon">
                 <i className="fas fa-gamepad fa-3x"></i>
               </div>
@@ -281,10 +333,19 @@ function Inicio() {
               <p className="feature-description">
                 Juegos para PS5, Xbox, Nintendo Switch y PC
               </p>
+              <div className="feature-link">
+                <small className="text-primary">
+                  Ver catálogo <i className="fas fa-arrow-right ms-1"></i>
+                </small>
+              </div>
             </div>
           </div>
-          <div className="col-md-4 mb-4">
-            <div className="feature-card">
+
+          <div className="col-12 col-md-4 mb-4">
+            <div 
+              className="feature-card clickable-card h-100"
+              onClick={() => window.location.href = '/catalogo'}
+            >
               <div className="feature-icon">
                 <i className="fas fa-tags fa-3x"></i>
               </div>
@@ -292,10 +353,19 @@ function Inicio() {
               <p className="feature-description">
                 Ofertas exclusivas y precios competitivos
               </p>
+              <div className="feature-link">
+                <small className="text-primary">
+                  Ver ofertas <i className="fas fa-arrow-right ms-1"></i>
+                </small>
+              </div>
             </div>
           </div>
-          <div className="col-md-4 mb-4">
-            <div className="feature-card">
+
+          <div className="col-12 col-md-4 mb-4">
+            <div 
+              className="feature-card clickable-card h-100"
+              onClick={() => window.location.href = '/centro-ayuda'}
+            >
               <div className="feature-icon">
                 <i className="fas fa-shipping-fast fa-3x"></i>
               </div>
@@ -303,63 +373,68 @@ function Inicio() {
               <p className="feature-description">
                 Recibe tus juegos en la puerta de tu casa
               </p>
+              <div className="feature-link">
+                <small className="text-primary">
+                  Más información <i className="fas fa-arrow-right ms-1"></i>
+                </small>
+              </div>
             </div>
           </div>
         </div>
       </div>
 
-      <section className="featured-products">
+      <section className="featured-products-responsive py-4 py-md-5">
         <div className="container">
-          <div className="section-header text-center mb-5">
-            <h2 className="section-title">
+          <div className="section-header text-center mb-4 mb-md-5">
+            <h2 className="section-title-responsive mb-2">
               <i className="fas fa-crown me-2 text-warning"></i>
               Productos Destacados
             </h2>
-            <p className="section-subtitle">Los títulos más populares de nuestra colección</p>
+            <p className="section-subtitle-responsive">Los títulos más populares de nuestra colección</p>
           </div>
           
-          <div className="row g-4">
+          <div className="row g-3 g-md-4">
             {productosDestacados.map(producto => (
-              <div key={producto.id} className="col-lg-3 col-md-6">
-                <div className="product-card">
-                  <div className="product-image-container">
+              <div key={producto.id} className="col-12 col-sm-6 col-lg-3">
+                <div className="product-card-responsive h-100">
+                  <div className="product-image-container-responsive">
                     <img 
                       src={producto.imagen} 
                       alt={producto.nombre}
-                      className="product-image"
+                      className="product-image-responsive"
                       onError={(e) => {
                         e.target.src = 'https://via.placeholder.com/300x200/64748b/ffffff?text=Imagen+No+Disponible';
                       }}
                     />
-                    <div className="product-platform">
+                    <div className="product-platform-responsive">
                       {producto.plataforma}
                     </div>
-                    <div className="product-badge">
+                    <div className="product-badge-responsive">
                       <i className="fas fa-star me-1"></i>
                       Destacado
                     </div>
                   </div>
                   
-                  <div className="product-content">
-                    <div className="product-category">{producto.categoria}</div>
-                    <h3 className="product-title">{producto.nombre}</h3>
-                    <p className="product-description">{producto.descripcion}</p>
+                  <div className="product-content-responsive">
+                    <div className="product-category-responsive">{producto.categoria}</div>
+                    <h3 className="product-title-responsive">{producto.nombre}</h3>
+                    <p className="product-description-responsive">{producto.descripcion}</p>
                     
-                    <div className="product-features">
+                    <div className="product-features-responsive">
                       {producto.caracteristicas.map((feature, index) => (
-                        <span key={index} className="feature-tag">
+                        <span key={index} className="feature-tag-responsive">
                           <i className="fas fa-check-circle me-1"></i>
                           {feature}
                         </span>
                       ))}
                     </div>
                     
-                    <div className="product-footer">
-                      <div className="product-price">
+                    <div className="product-footer-responsive">
+                      <div className="product-price-responsive">
                         <i className="fas fa-tag me-1"></i>
                         ${producto.precio}
                       </div>
-                      <div className="product-actions">
+                      <div className="product-actions-responsive">
                         <button 
                           id={`boton-carrito-${producto.id}`}
                           className="btn btn-primary btn-sm"
@@ -376,14 +451,14 @@ function Inicio() {
             ))}
           </div>
 
-          <div className="text-center mt-5">
-            <Link to="/catalogo" className="btn btn-primary btn-lg me-3">
+          <div className="text-center mt-4 mt-md-5">
+            <Link to="/catalogo" className="btn btn-primary btn-lg me-2 me-md-3 mb-2 mb-md-0">
               <i className="fas fa-th-list me-2"></i>
               Ver Todos los Productos
             </Link>
             <Link 
               to={isAuthenticated ? "/carrito" : "#"} 
-              className="btn btn-outline-primary btn-lg"
+              className="btn btn-outline-primary btn-lg mb-2 mb-md-0"
               onClick={handleVerCarritoClick}
             >
               <i className="fas fa-shopping-cart me-2"></i>

@@ -8,11 +8,10 @@ function Catalogo() {
   const [juegosFiltrados, setJuegosFiltrados] = useState([]);
   const [cargando, setCargando] = useState(true);
   const [error, setError] = useState(null);
-
   const [filtros, setFiltros] = useState({});
-  const [mostrarFiltros, setMostrarFiltros] = useState(true);
-  const [filtrosActivos, setFiltrosActivos] = useState(0);
   const [orden, setOrden] = useState('relevancia');
+  const [filtrosActivos, setFiltrosActivos] = useState(0);
+  const [mostrarFiltrosMobile, setMostrarFiltrosMobile] = useState(false);
 
   useEffect(() => {
     const cargarJuegos = async () => {
@@ -30,7 +29,7 @@ function Catalogo() {
     cargarJuegos();
   }, []);
 
-  // Aplicar filtros simplificados
+  // Aplicar filtros
   useEffect(() => {
     const {
       plataformas = [],
@@ -61,7 +60,7 @@ function Catalogo() {
       });
     }
 
-    // Filtrar por géneros (si existe la propiedad genero en los juegos)
+    // Filtrar por géneros
     if (Array.isArray(generos) && generos.length > 0) {
       resultados = resultados.filter(juego => {
         if (juego.genero) {
@@ -86,15 +85,11 @@ function Catalogo() {
         resultados.sort((a, b) => (a.nombre || '').localeCompare(b.nombre || ''));
         break;
       default:
-        // relevancia - mantener orden original
         break;
     }
 
     setJuegosFiltrados(resultados);
-
-    // Calcular filtros activos
-    const activos = calcularFiltrosActivos(filtros);
-    setFiltrosActivos(activos);
+    setFiltrosActivos(calcularFiltrosActivos(filtros));
   }, [filtros, juegos, orden]);
 
   const calcularFiltrosActivos = (filtros) => {
@@ -113,6 +108,7 @@ function Catalogo() {
   const handleLimpiarFiltros = () => {
     setFiltros({});
     setOrden('relevancia');
+    setMostrarFiltrosMobile(false);
   };
 
   if (cargando) {
@@ -142,98 +138,105 @@ function Catalogo() {
   }
 
   return (
-    <div className="container mt-4">
-      <div className="row mb-4">
-        <div className="col">
-          <h2 className="text-center section-title">
-            Catálogo de Juegos
-          </h2>
-          <p className="text-center text-muted">
-            Explora nuestra amplia selección con filtros
-          </p>
-        </div>
-      </div>
-
-      <div className="row">
-        {/* Columna de Filtros - Siempre visible */}
-        <div className="col-lg-3 mb-4">
-          <Filtros
-            onFiltrosChange={handleFiltrosChange}
-            filtrosActivos={filtrosActivos}
-            onLimpiarFiltros={handleLimpiarFiltros}
-          />
+    <div className="catalogo-container">
+      {/* Header del Catálogo */}
+      <div className="container mt-3 mt-md-4">
+        <div className="row mb-4">
+          <div className="col-12">
+            <h1 className="text-center catalogo-title mb-2">
+              Catálogo de Juegos
+            </h1>
+            <p className="text-center text-muted catalogo-subtitle">
+              Explora nuestra amplia selección de juegos
+            </p>
+          </div>
         </div>
 
-        {/* Columna de Juegos */}
-        <div className="col-lg-9">
-          {/* Barra de herramientas */}
-          <div className="d-flex justify-content-between align-items-center mb-4">
-            <div className="text-muted">
-              <small>
-                <i className="fas fa-gamepad me-1"></i>
-                Mostrando {juegosFiltrados.length} de {juegos.length} juegos
-              </small>
-            </div>
-            
-            <div className="d-flex align-items-center gap-3">
-              <span className="text-muted small">
-                <i className="fas fa-sort me-1"></i>
-                Ordenar por:
-              </span>
-              <select 
-                className="form-select form-select-sm"
-                value={orden}
-                onChange={(e) => setOrden(e.target.value)}
-                style={{ width: 'auto' }}
-              >
-                <option value="relevancia">
-                  <i className="fas fa-star me-1"></i>
-                  Relevancia
-                </option>
-                <option value="precio-asc">
-                  <i className="fas fa-sort-amount-down-alt me-1"></i>
-                  Precio: Menor a Mayor
-                </option>
-                <option value="precio-desc">
-                  <i className="fas fa-sort-amount-down me-1"></i>
-                  Precio: Mayor a Menor
-                </option>
-                <option value="nombre">
-                  <i className="fas fa-sort-alpha-down me-1"></i>
-                  Nombre
-                </option>
-              </select>
-            </div>
+        {/* Botón Filtros Mobile */}
+        <div className="row d-lg-none mb-3">
+          <div className="col-12">
+            <button
+              className="btn btn-outline-primary w-100 d-flex align-items-center justify-content-center"
+              onClick={() => setMostrarFiltrosMobile(!mostrarFiltrosMobile)}
+            >
+              <i className={`fas fa-${mostrarFiltrosMobile ? 'times' : 'filter'} me-2`}></i>
+              {mostrarFiltrosMobile ? 'Ocultar Filtros' : 'Mostrar Filtros'}
+              {filtrosActivos > 0 && (
+                <span className="badge bg-primary ms-2">{filtrosActivos}</span>
+              )}
+            </button>
+          </div>
+        </div>
+
+        <div className="row">
+          {/* Columna de Filtros */}
+          <div className={`col-lg-3 mb-4 ${mostrarFiltrosMobile ? 'd-block' : 'd-none d-lg-block'}`}>
+            <Filtros
+              onFiltrosChange={handleFiltrosChange}
+              filtrosActivos={filtrosActivos}
+              onLimpiarFiltros={handleLimpiarFiltros}
+            />
           </div>
 
-          {/* Grid de Juegos */}
-          <div className="row">
-            {juegosFiltrados.map(juego => (
-              <JuegoCard key={juego.id} juego={juego} />
-            ))}
-          </div>
-
-          {juegosFiltrados.length === 0 && (
-            <div className="text-center py-5">
-              <div className="mb-4">
-                <i className="fas fa-search display-1 text-muted"></i>
+          {/* Columna de Juegos */}
+          <div className="col-lg-9">
+            {/* Barra de Herramientas */}
+            <div className="d-flex flex-column flex-md-row justify-content-between align-items-start align-items-md-center gap-3 mb-4">
+              <div className="text-muted">
+                <small>
+                  <i className="fas fa-gamepad me-1"></i>
+                  Mostrando {juegosFiltrados.length} de {juegos.length} juegos
+                </small>
               </div>
-              <h4 className="text-muted">
-                <i className="fas fa-exclamation-circle me-2"></i>
-                No se encontraron juegos
-              </h4>
-              <p className="text-muted mb-4">
-                Intenta ajustar los filtros para ver más resultados
-              </p>
-              <button
-                className="btn btn-primary"
-                onClick={handleLimpiarFiltros}
-              >
-                <i className="fas fa-broom me-2"></i>
-                Limpiar Filtros
-              </button>
+              
+              <div className="d-flex align-items-center gap-3 flex-wrap">
+                <span className="text-muted small d-none d-sm-block">
+                  <i className="fas fa-sort me-1"></i>
+                  Ordenar por:
+                </span>
+                <select 
+                  className="form-select form-select-sm catalogo-sort"
+                  value={orden}
+                  onChange={(e) => setOrden(e.target.value)}
+                >
+                  <option value="relevancia">Relevancia</option>
+                  <option value="precio-asc">Precio: Menor a Mayor</option>
+                  <option value="precio-desc">Precio: Mayor a Menor</option>
+                  <option value="nombre">Nombre A-Z</option>
+                </select>
+              </div>
             </div>
-          )}
+
+            {/* Grid de Juegos */}
+            <div className="row g-3">
+              {juegosFiltrados.map(juego => (
+                <JuegoCard key={juego.id} juego={juego} />
+              ))}
+            </div>
+
+            {/* Estado Vacío */}
+            {juegosFiltrados.length === 0 && (
+              <div className="text-center py-5 empty-state">
+                <div className="mb-4">
+                  <i className="fas fa-search display-1 text-muted"></i>
+                </div>
+                <h4 className="text-muted mb-3">
+                  <i className="fas fa-exclamation-circle me-2"></i>
+                  No se encontraron juegos
+                </h4>
+                <p className="text-muted mb-4">
+                  Intenta ajustar los filtros para ver más resultados
+                </p>
+                <button
+                  className="btn btn-primary"
+                  onClick={handleLimpiarFiltros}
+                >
+                  <i className="fas fa-broom me-2"></i>
+                  Limpiar Filtros
+                </button>
+              </div>
+            )}
+          </div>
         </div>
       </div>
     </div>

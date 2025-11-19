@@ -2,7 +2,6 @@ import { useCarrito } from '../contexto/CarritoContext';
 import { useState } from 'react';
 import confetti from 'canvas-confetti';
 
-
 function Carrito() {
   const { 
     carrito, 
@@ -14,8 +13,6 @@ function Carrito() {
     realizarCompra
   } = useCarrito();
 
-  
-  
   const [mostrarConfirmacion, setMostrarConfirmacion] = useState(false);
   const [mostrarConfirmacionEliminar, setMostrarConfirmacionEliminar] = useState(false);
   const [mostrarConfirmacionVaciar, setMostrarConfirmacionVaciar] = useState(false);
@@ -23,7 +20,7 @@ function Carrito() {
   const [mensajeAlerta, setMensajeAlerta] = useState('');
   const [productoAEliminar, setProductoAEliminar] = useState(null);
   const [compraProcesada, setCompraProcesada] = useState(false);
-  const [totalCompra, setTotalCompra] = useState(0); // ✅ GUARDAR TOTAL DE LA COMPRA
+  const [totalCompra, setTotalCompra] = useState(0);
 
   const lanzarConfeti = () => {
     confetti({
@@ -74,24 +71,16 @@ function Carrito() {
     }, 3000);
   };
 
-  // ✅ FUNCIÓN CORREGIDA
   const handleProcederPago = async () => {
     try {
-      // GUARDAR EL TOTAL ANTES DE VACIAR EL CARRITO
       setTotalCompra(totalCarrito);
-      
-      // MOSTRAR MODAL Y CONFETI INMEDIATAMENTE
       setMostrarConfirmacion(true);
       lanzarConfeti();
-      
-      // MARCAR COMO PROCESADA INMEDIATAMENTE
       setCompraProcesada(true);
       
-      // PROCESAR COMPRA EN SEGUNDO PLANO
       const resultado = await realizarCompra();
       
       if (!resultado.success) {
-        // Si hay error, cerrar modal y mostrar alerta
         setMostrarConfirmacion(false);
         setCompraProcesada(false);
         mostrarAlertaTemporal('❌ Error: ' + resultado.message);
@@ -106,8 +95,8 @@ function Carrito() {
 
   const handleCerrarConfirmacion = () => {
     setMostrarConfirmacion(false);
-    setCompraProcesada(false); // Resetear estado
-    setTotalCompra(0); // Resetear total
+    setCompraProcesada(false);
+    setTotalCompra(0);
   };
 
   const handleEliminarProducto = (producto) => {
@@ -134,17 +123,53 @@ function Carrito() {
     mostrarAlertaTemporal('Carrito vaciado correctamente');
   };
 
-  // ✅ CONDICIÓN CORREGIDA: Solo mostrar "carrito vacío" si NO hay compra procesada
+  const impuestos = totalCarrito * 0.16;
+  const totalFinal = totalCarrito + impuestos;
+
   if (carrito.length === 0 && !compraProcesada) {
     return (
       <div className="container mt-5">
-        <div className="text-center">
-          <div className="alert alert-info" role="alert">
-            <h4 className="alert-heading">
-              <i className="fas fa-shopping-cart me-2"></i>
-              Tu carrito está vacío
-            </h4>
-            <p>¡Explora nuestro catálogo y descubre juegos increíbles!</p>
+        <div className="row justify-content-center">
+          <div className="col-md-6 text-center">
+            {/* ICONO GRANDE */}
+            <div className="mb-4">
+              <i className="fas fa-shopping-cart" 
+                 style={{ 
+                   fontSize: '8rem', 
+                   color: '#dee2e6',
+                   position: 'relative'
+                 }}>
+              </i>
+              <div style={{
+                position: 'relative',
+                top: '-80px',
+                left: '20px'
+              }}>
+                <i className="fas fa-times-circle text-danger" 
+                   style={{ fontSize: '3rem' }}>
+                </i>
+              </div>
+            </div>
+
+            {/* TEXTO */}
+            <h3 className="fw-bold mb-3">¡Su carrito está vacío ahora mismo!</h3>
+            <p className="text-muted mb-4">
+              ¿No sabes por dónde empezar?<br />
+              Explora nuestra tienda y descubre productos increíbles que te encantarán.
+            </p>
+
+            {/* BOTÓN */}
+            <a 
+              href="/catalogo" 
+              className="btn btn-lg fw-bold text-white px-5 py-3"
+              style={{ 
+                backgroundColor: '#ff5722',
+                border: 'none',
+                borderRadius: '8px'
+              }}
+            >
+              VOLVER A LA TIENDA
+            </a>
           </div>
         </div>
       </div>
@@ -152,8 +177,8 @@ function Carrito() {
   }
 
   return (
-    <div className="container mt-4">
-      {/* ✅ MODAL DE CONFIRMACIÓN */}
+    <div className="container mt-5">
+      {/* ✅ TODOS LOS MODALES SIN CAMBIOS */}
       {mostrarConfirmacion && (
         <div className="modal fade show d-block" style={{
           backgroundColor: 'rgba(0,0,0,0.6)', 
@@ -284,125 +309,137 @@ function Carrito() {
         </div>
       )}
 
+      {/* ✅ NUEVO DISEÑO - ESTRUCTURA MODERNA */}
       <div className="d-flex justify-content-between align-items-center mb-4">
-        <h2>
-          <i className="fas fa-shopping-cart me-2"></i>
-          Carrito de Compras
-        </h2>
+        <div>
+          <h2 className="fw-bold mb-0">Tu Carrito de Compra</h2>
+          <div style={{ width: '60px', height: '4px', backgroundColor: '#6c63ff', marginTop: '8px' }}></div>
+        </div>
         <button 
-          className="btn btn-outline-danger btn-sm"
+          className="btn btn-outline-danger"
           onClick={handleVaciarCarrito}
         >
-          <i className="fas fa-broom me-1"></i>
+          <i className="fas fa-trash-alt me-2"></i>
           Vaciar Carrito
         </button>
       </div>
 
-      <div className="table-responsive">
-        <table className="table table-hover">
-          <thead className="table-dark">
-            <tr>
-              <th>Juego</th>
-              <th>Precio Unitario</th>
-              <th>Cantidad</th>
-              <th>Subtotal</th>
-              <th>Acciones</th>
-            </tr>
-          </thead>
-          <tbody>
-            {carrito.map(item => (
-              <tr key={item.id}>
-                <td>
-                  <div className="d-flex align-items-center">
+      <div className="row">
+        {/* COLUMNA IZQUIERDA - PRODUCTOS */}
+        <div className="col-lg-8">
+          {carrito.map(item => (
+            <div key={item.id} className="card mb-3 shadow-sm border-0">
+              <div className="card-body">
+                <div className="row align-items-center">
+                  {/* IMAGEN */}
+                  <div className="col-md-2 text-center">
                     <img 
                       src={item.imagen} 
-                      alt={item.nombre} 
-                      className="rounded me-3"
-                      style={{ width: '60px', height: '60px', objectFit: 'cover' }}
+                      alt={item.nombre}
+                      className="img-fluid rounded"
+                      style={{ maxHeight: '80px', objectFit: 'cover' }}
                     />
-                    <div>
-                      <strong>{item.nombre}</strong>
-                      <br />
-                      <small className="text-muted">
-                        <i className="fas fa-gamepad me-1"></i>
-                        {item.plataforma} • {item.categoria}
-                      </small>
+                  </div>
+
+                  {/* NOMBRE Y PLATAFORMA */}
+                  <div className="col-md-4">
+                    <h6 className="mb-1 fw-bold">{item.nombre}</h6>
+                    <small className="text-muted">{item.plataforma}</small>
+                  </div>
+
+                  {/* PRECIO */}
+                  <div className="col-md-2 text-center">
+                    <p className="mb-0 fw-bold">${item.precio}</p>
+                  </div>
+
+                  {/* CANTIDAD */}
+                  <div className="col-md-2 text-center">
+                    <div className="btn-group btn-group-sm" role="group">
+                      <button 
+                        className="btn btn-outline-secondary"
+                        onClick={() => quitarDelCarrito(item.id)}
+                      >
+                        <i className="fas fa-minus"></i>
+                      </button>
+                      <span className="btn btn-outline-secondary disabled" style={{ minWidth: '45px' }}>
+                        {item.cantidad}
+                      </span>
+                      <button 
+                        className="btn btn-outline-secondary"
+                        onClick={() => agregarAlCarrito(item)}
+                      >
+                        <i className="fas fa-plus"></i>
+                      </button>
                     </div>
                   </div>
-                </td>
-                <td className="align-middle">
-                  <i className="fas fa-tag me-1 text-muted"></i>
-                  ${item.precio}
-                </td>
-                <td className="align-middle">
-                  <div className="btn-group btn-group-sm" role="group">
+
+                  {/* ELIMINAR */}
+                  <div className="col-md-2 text-center">
                     <button 
-                      className="btn btn-outline-secondary"
-                      onClick={() => quitarDelCarrito(item.id)}
+                      className="btn btn-outline-danger btn-sm"
+                      onClick={() => handleEliminarProducto(item)}
                     >
-                      <i className="fas fa-minus"></i>
-                    </button>
-                    <span className="btn btn-outline-secondary disabled">
-                      {item.cantidad}
-                    </span>
-                    <button 
-                      className="btn btn-outline-secondary"
-                      onClick={() => agregarAlCarrito(item)}
-                    >
-                      <i className="fas fa-plus"></i>
+                      <i className="fas fa-trash"></i>
                     </button>
                   </div>
-                </td>
-                <td className="align-middle">
-                  <strong>
-                    <i className="fas fa-dollar-sign me-1 text-success"></i>
-                    {(item.precio * item.cantidad).toFixed(2)}
-                  </strong>
-                </td>
-                <td className="align-middle">
-                  <button 
-                    className="btn btn-danger btn-sm"
-                    onClick={() => handleEliminarProducto(item)}
-                  >
-                    <i className="fas fa-trash me-1"></i>
-                    Eliminar
-                  </button>
-                </td>
-              </tr>
-            ))}
-          </tbody>
-          <tfoot className="table-active">
-            <tr>
-              <td colSpan="3" className="text-end">
-                <strong>
-                  <i className="fas fa-receipt me-1"></i>
-                  Total del Carrito:
-                </strong>
-              </td>
-              <td colSpan="2">
-                <strong className="h5 text-success">
-                  <i className="fas fa-dollar-sign me-1"></i>
-                  {totalCarrito.toFixed(2)}
-                </strong>
-              </td>
-            </tr>
-          </tfoot>
-        </table>
-      </div>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
 
-      <div className="d-flex justify-content-between mt-4">
-        <a href="/catalogo" className="btn btn-outline-primary">
-          <i className="fas fa-arrow-left me-1"></i>
-          Seguir Comprando
-        </a>
-        <button 
-          className="btn btn-success btn-lg px-4 fw-bold"
-          onClick={handleProcederPago}
-        >
-          <i className="fas fa-credit-card me-2"></i>
-          Proceder al Pago
-          <i className="fas fa-gift ms-2"></i>
-        </button>
+        {/* COLUMNA DERECHA - RESUMEN */}
+        <div className="col-lg-4">
+          <div className="card shadow-sm border-0 sticky-top" style={{ top: '20px' }}>
+            <div className="card-body">
+              <h5 className="fw-bold mb-4">Resumen del Pedido</h5>
+
+              {/* SUBTOTAL */}
+              <div className="d-flex justify-content-between mb-2">
+                <span>Subtotal</span>
+                <span className="fw-bold">${totalCarrito.toFixed(2)}</span>
+              </div>
+
+              {/* IMPUESTOS */}
+              <div className="d-flex justify-content-between mb-2">
+                <span>Impuestos (16%)</span>
+                <span className="fw-bold">${impuestos.toFixed(2)}</span>
+              </div>
+
+              {/* ENVÍO */}
+              <div className="d-flex justify-content-between mb-3">
+                <span>Envío</span>
+                <span className="text-success fw-bold">Gratis</span>
+              </div>
+
+              <hr />
+
+              {/* TOTAL */}
+              <div className="d-flex justify-content-between mb-4">
+                <h5 className="fw-bold">Total</h5>
+                <h5 className="fw-bold">${totalFinal.toFixed(2)}</h5>
+              </div>
+
+              {/* BOTÓN CHECKOUT */}
+              <button 
+                className="btn btn-primary w-100 py-3 fw-bold mb-3"
+                onClick={handleProcederPago}
+                style={{ backgroundColor: '#6c63ff', border: 'none' }}
+              >
+                Proceder al Pago
+              </button>
+
+              {/* BOTÓN CONTINUAR */}
+              <a 
+                href="/catalogo" 
+                className="btn btn-outline-primary w-100"
+              >
+                <i className="fas fa-arrow-left me-2"></i>
+                Continuar Comprando
+              </a>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   );
