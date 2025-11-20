@@ -171,7 +171,7 @@ function Inicio() {
           id="carouselGZone" 
           className="carousel slide carousel-fade" 
           data-bs-ride="carousel" 
-          data-bs-interval="5000"
+          data-bs-interval="3000"
           data-bs-pause="false"
         >
           
@@ -191,7 +191,7 @@ function Inicio() {
             <div className="carousel-item active position-relative">
               <Link to="/producto/1" className="d-block w-100 h-100">
                 <img 
-                  src="https://gmedia.playstation.com/is/image/SIEPDC/god-of-war-ragnarok-watermark-screenshot-12-en-08sep21?$1600px$" 
+                  src="https://image.api.playstation.com/vulcan/ap/rnd/202503/2016/1f4bf1ee42276b3841e71ebb812510493ce78bfc307d3296.jpg?w=5000&thumb=false" 
                   className="d-block w-100" 
                   alt="God of War Ragnarök"
                   style={{ height: '500px', objectFit: 'cover' }}
@@ -251,7 +251,7 @@ function Inicio() {
             <div className="carousel-item position-relative">
               <Link to="/producto/46" className="d-block w-100 h-100">
                 <img 
-                  src="https://image.api.playstation.com/vulcan/ap/rnd/202312/0112/2n2n2n2n2n2n2n2n2n2n2n2n2n2n2n2n2n2n2n2n2n.png" 
+                  src="https://image.api.playstation.com/vulcan/ap/rnd/202505/0616/4c09a11c959eb85b6e1850fb544a3a568e8a4f0ea84413e3.jpg?w=5000&thumb=false" 
                   className="d-block w-100" 
                   alt="Grand Theft Auto VI"
                   style={{ height: '500px', objectFit: 'cover' }}
@@ -266,7 +266,7 @@ function Inicio() {
             <div className="carousel-item position-relative">
               <Link to="/producto/34" className="d-block w-100 h-100">
                 <img 
-                  src="https://cdn.cloudflare.steamstatic.com/steam/apps/730/capsule_616x353.jpg" 
+                  src="https://image.api.playstation.com/vulcan/ap/rnd/202509/3008/353fba7b67041019a476b36dca0b613baebd2eaedbdbef2b.png?w=5000&thumb=false" 
                   className="d-block w-100" 
                   alt="Counter-Strike 2"
                   style={{ height: '500px', objectFit: 'cover' }}
@@ -279,9 +279,9 @@ function Inicio() {
             </div>
 
             <div className="carousel-item position-relative">
-              <Link to="/producto/58" className="d-block w-100 h-100">
+              <Link to="/producto/57" className="d-block w-100 h-100">
                 <img 
-                  src="https://cdn.cloudflare.steamstatic.com/steam/apps/413150/capsule_616x353.jpg" 
+                  src="https://image.api.playstation.com/vulcan/img/rnd/202010/1520/yPmlPNe9extT2AVsv90hOKmn.png?w=5000&thumb=false" 
                   className="d-block w-100" 
                   alt="Stardew Valley"
                   style={{ height: '500px', objectFit: 'cover' }}
@@ -294,9 +294,9 @@ function Inicio() {
             </div>
 
             <div className="carousel-item position-relative">
-              <Link to="/producto/53" className="d-block w-100 h-100">
+              <Link to="/producto/54" className="d-block w-100 h-100">
                 <img 
-                  src="https://image.api.playstation.com/vulcan/ap/rnd/202302/2323/8j8j8j8j8j8j8j8j8j8j8j8j8j8j8j8j8j8j8j8j8j.png" 
+                  src="https://image.api.playstation.com/cdn/UP2120/CUSA11302_00/hgqlI1LTcsd6zuL7YWVLQ8d00jkBmtCg.jpg?w=5000&thumb=false" 
                   className="d-block w-100" 
                   alt="Celeste"
                   style={{ height: '500px', objectFit: 'cover' }}

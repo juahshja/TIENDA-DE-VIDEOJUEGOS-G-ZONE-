@@ -1,4 +1,3 @@
-// En src/servicios/juegosService.js - REEMPLAZAR todo el contenido con:
 
 // Lista de juegos COMPLETA con todos los campos ampliados
 const juegos = [
@@ -6,11 +5,12 @@ const juegos = [
     id: 1,
     nombre: "God of War Ragnarök",
     precio: 59.99,
+    video: "F3jePdO9_jc",
     imagenes: [
-      "https://image.api.playstation.com/vulcan/ap/rnd/202207/1210/4xJ8XB3bi888QTLZYdl7Oi0s.png",
-      "https://example.com/gow-2.jpg",
-      "https://example.com/gow-3.jpg",
-      "https://example.com/gow-4.jpg"
+      "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2322010/ss_974a7b998c0c14da7fe52a342cf36c98850a57ac.1920x1080.jpg?t=1750909504",  
+      "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2322010/ss_78350297511e81f287b4bc361935efbc3016f6db.1920x1080.jpg?t=1750909504",
+      "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2322010/ss_7cbcd6847cac4d2d42f496954d0df715c6af0b3a.1920x1080.jpg?t=1750909504",
+      "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2322010/ss_7c59382e67eadf779e0e15c3837ee91158237f11.1920x1080.jpg?t=1750909504"
     ],
     imagen: "https://image.api.playstation.com/vulcan/ap/rnd/202207/1210/4xJ8XB3bi888QTLZYdl7Oi0s.png",
     categoria: "Acción-Aventura",
@@ -25,7 +25,7 @@ const juegos = [
     lanzamiento: "2022",
     fechaLanzamiento: "2022-11-09",
     descripcion: "Una épica aventura nórdica con Kratos y Atreus",
-    descripcionCompleta: "En God of War Ragnarök, acompaña a Kratos y Atreus en una épica travesía por los Nueve Reinos mientras el fin del mundo se aproxima. La relación entre padre e hijo se verá puesta a prueba frente a poderosos dioses, criaturas legendarias y decisiones que marcarán su destino.",
+    descripcionCompleta: "En God of War Ragnarök, acompaña a Kratos y Atreus en una épica travesía por los Nueve Reinos mientras el fin del mundo se aproxima. La relación entre padre e hijo se ve más desafiada que nunca, enfrentándose a dilemas que marcarán su destino y el de todo el cosmos nórdico. Cada reino ofrece nuevos paisajes, enemigos míticos y secretos que enriquecen el viaje. Kratos, más maduro y consciente de su pasado, lucha por proteger a su hijo mientras enfrenta a poderosos dioses como Thor y Odín. Atreus, ahora más independiente, busca descubrir su papel en la profecía del Ragnarök. Con un sistema de combate renovado, habilidades mejoradas, bosses impresionantes y una narrativa cinematográfica cargada de emoción, esta entrega combina acción intensa, exploración profunda y una historia humana que trasciende la mitología. God of War Ragnarök es una experiencia inmersiva que redefine la saga y se convierte en uno de los títulos más memorables de PlayStation.",
     genero: "Acción-Aventura"
   },
   {
@@ -34,8 +34,10 @@ const juegos = [
     precio: 69.99,
     video: "sjxLF4IYnJc",
     imagenes: [
-      "https://i.redd.it/4rkflsjclf0b1.png",
-      "https://example.com/zelda-2.jpg"
+      "https://assets.nintendo.com/image/upload/ar_16:9,b_auto:border,c_lpad/b_white/f_auto/q_auto/dpr_1.5/c_scale,w_700/store/software/switch/70010000063714/05b3d8e8c74beaa43a7714c275a7ad06018ed069bd6bd3f923442b9ac16fdc49",
+      "https://assets.nintendo.com/image/upload/ar_16:9,b_auto:border,c_lpad/b_white/f_auto/q_auto/dpr_1.5/c_scale,w_700/store/software/switch/70010000063714/490ccb15d914eabada74b34de895e9061c7917d7f75782bc934a528fb77ea4be",
+      "https://assets.nintendo.com/image/upload/ar_16:9,b_auto:border,c_lpad/b_white/f_auto/q_auto/dpr_1.5/c_scale,w_700/store/software/switch/70010000063714/54e87e1c41d21f32e74c61ad9c18c0a2688800e939d9d5ab97182304b9c37591",
+      "https://assets.nintendo.com/image/upload/ar_16:9,b_auto:border,c_lpad/b_white/f_auto/q_auto/dpr_1.5/c_scale,w_700/store/software/switch/70010000063714/1c786a296ab9c1f28ff509723f621311b7525d0c773ae314622b02c03bf27b5b"
     ],
     imagen: "https://i.redd.it/4rkflsjclf0b1.png",
     categoria: "Aventura",
@@ -50,13 +52,20 @@ const juegos = [
     lanzamiento: "2023",
     fechaLanzamiento: "2023-05-12",
     descripcion: "Explora los cielos y las profundidades de Hyrule",
-    descripcionCompleta: "Viaja por los cielos y descubre los secretos del reino de Hyrule en esta secuela del aclamado Breath of the Wild. Construye, crea y resuelve puzzles de formas nunca antes vistas.",
+    descripcionCompleta: "En The Legend of Zelda: Tears of the Kingdom, emprende una aventura monumental que expande por completo el mundo de Hyrule. Explora no solo su vasto territorio, sino también islas flotantes en los cielos y misteriosas profundidades subterráneas llenas de enemigos, ruinas ancestrales y secretos ocultos. Como Link, deberás desentrañar el origen de una nueva amenaza que pone en peligro al reino, mientras descubres el destino de Zelda y el significado de antiguas leyendas. Esta secuela eleva la fórmula de Breath of the Wild con un innovador sistema de construcción, habilidades que transforman la física del entorno y una libertad creativa sin precedentes para resolver desafíos. Con una narrativa envolvente, un mundo vivo, enemigos poderosos y más de 120 horas de exploración, Tears of the Kingdom ofrece una experiencia épica que redefine la aventura en Nintendo Switch.",
     genero: "Aventura"
   },
   {
     id: 3,
     nombre: "Cyberpunk 2077",
     precio: 49.99,
+    video: "8X2kIfS6fb8",
+    imagenes: [ 
+      "https://assets.nintendo.com/image/upload/ar_16:9,b_auto:border,c_lpad/b_white/f_auto/q_auto/dpr_1.5/c_scale,w_700/store/software/switch2/70010000095547/6bb015d3b722dac0da85da21c34594b5980e33816fe8cbd4c912984e2eb57799",
+      "https://assets.nintendo.com/image/upload/ar_16:9,b_auto:border,c_lpad/b_white/f_auto/q_auto/dpr_1.5/c_scale,w_700/store/software/switch2/70010000095547/6ad6f9081aa3b7ca6971b924dfe19a9c1565ec077f64d0e59aaac6b383e7c485",
+      "https://assets.nintendo.com/image/upload/ar_16:9,b_auto:border,c_lpad/b_white/f_auto/q_auto/dpr_1.5/c_scale,w_700/store/software/switch2/70010000095547/3cae14b3a994822fe0a6f5bb8db70280d4001e32fda797aa2bccf5c9490bd9cd",
+      "https://assets.nintendo.com/image/upload/ar_16:9,b_auto:border,c_lpad/b_white/f_auto/q_auto/dpr_1.5/c_scale,w_700/store/software/switch2/70010000095547/5627a888e0c156b9444e4597f68a8a18235f13695a5b253955edcb6867cdc634"
+    ],
     imagen: "https://press.cdprojektred.com/_next/image?url=https%3A%2F%2Fpress.cdn.cdpr.app%2Fnews%2F6fdf182c4be4a018da07e1703f3a21aefb6d5833525d8ec1.png&w=1920&q=75",
     categoria: "RPG",
     plataforma: "PC",
@@ -70,13 +79,20 @@ const juegos = [
     lanzamiento: "2020",
     fechaLanzamiento: "2020-12-10",
     descripcion: "Un RPG de mundo abierto en Night City",
-    descripcionCompleta: "Sumérgete en el mundo distópico de Night City, una metrópolis obsesionada con el poder, la moda y las modificaciones corporales. Tu personaje, V, busca un implante único que es la clave para la inmortalidad.",
+   descripcionCompleta: "Sumérgete en la caótica y deslumbrante Night City, una metrópolis futurista donde la ambición, el poder y las modificaciones cibernéticas dictan el destino de sus habitantes. En la piel de V, un mercenario en ascenso, te verás envuelto en una conspiración que gira en torno a un implante legendario capaz de otorgar la inmortalidad. Explora un mundo abierto vibrante, lleno de pandillas, corporaciones despiadadas y personajes inolvidables que reaccionan a tus decisiones. Con una narrativa no lineal, combates intensos, una personalización profunda y efectos visuales potenciados por ray tracing, Cyberpunk 2077 ofrece una experiencia inmersiva que mezcla acción, libertad y un estilo único que refleja el corazón del género cyberpunk.",
     genero: "RPG"
   },
   {
     id: 4,
     nombre: "FIFA 24",
     precio: 69.99,
+    video: "XhP3Xh4LMA8",
+     imagenes: [
+      "https://media.rawg.io/media/resize/420/-/screenshots/213/213efa85df1dcf39fd8c8b5f1989175f_Iq0hdc1.jpg",  
+      "https://media.rawg.io/media/resize/420/-/screenshots/34f/34fe8518d443bb8dfa5b4eb40d3fb69c.jpg",
+      "https://media.rawg.io/media/resize/420/-/screenshots/631/631b803155496416588199a0934c493f.jpg",
+      "https://media.rawg.io/media/resize/420/-/screenshots/b06/b06be4edd5a403f55b36619f0254bee2.jpg"
+    ],
     imagen: "https://cdn2.unrealengine.com/hero-image-1920x1086-7c2bd7ea7c42.jpg",
     categoria: "Deportes",
     plataforma: "PS5",
@@ -90,13 +106,20 @@ const juegos = [
     lanzamiento: "2023",
     fechaLanzamiento: "2023-09-29",
     descripcion: "El mejor juego de fútbol del mundo",
-    descripcionCompleta: "La experiencia de fútbol más auténtica con HyperMotion2, Cross-Play y todas las ligas oficiales. Vive la emoción del deporte rey con gráficos de última generación.",
+   descripcionCompleta: "FIFA 24 ofrece la experiencia de fútbol más completa y realista hasta la fecha, combinando tecnología de última generación y las licencias oficiales de las ligas más importantes del mundo. Gracias a HyperMotion2, las animaciones son más fluidas y naturales, llevando cada partido a un nuevo nivel de autenticidad. Disfruta del modo Ultimate Team con nuevas formas de construir tu plantilla, compite en línea con Cross-Play completo entre plataformas y vive un Modo Carrera renovado que te permite gestionar cada detalle de tu club o jugador. Con estadios recreados con gran fidelidad, mejoras en la inteligencia artificial y una jugabilidad más dinámica, FIFA 24 captura toda la emoción, intensidad y pasión del deporte rey.",
     genero: "Deportes"
   },
   {
     id: 5,
     nombre: "Halo Infinite",
     precio: 54.99,
+    video: "PyMlV5_HRWk",
+      imagenes: [
+      "https://media.rawg.io/media/resize/420/-/screenshots/36a/36a9550af95879ae39a48f80e106d5ed.jpg",  
+      "https://media.rawg.io/media/resize/420/-/screenshots/884/8842afada8446980b4505431d728a122.jpg",
+      "https://media.rawg.io/media/resize/420/-/screenshots/6bb/6bb5d30829ca80d70c764bbf77ecea8b.jpg",
+      "https://media.rawg.io/media/resize/420/-/screenshots/268/268a25ed5ef5a72a0d73c83b22b4a0e3.jpg"
+    ],
     imagen: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRr2KPhjfZ9PQRWN8YyBRRb6x6BK5FisSwDrA&s",
     categoria: "Shooter",
     plataforma: "Xbox Series X",
@@ -110,13 +133,20 @@ const juegos = [
     lanzamiento: "2021",
     fechaLanzamiento: "2021-12-08",
     descripcion: "La legendaria franquicia de shooter regresa",
-    descripcionCompleta: "El Jefe Maestro regresa en la aventura más grande de Halo hasta la fecha. Explora el anillo Halo en mundo abierto y disfruta del multijugador gratuito.",
+   descripcionCompleta: "El Jefe Maestro regresa en la entrega más ambiciosa de la saga Halo, combinando una historia emocional con un mundo abierto lleno de desafíos, secretos y batallas legendarias. Explora libremente el icónico anillo Halo, enfrentándote a nuevas facciones enemigas mientras descubres pistas sobre el destino de la humanidad y de Cortana. La campaña ofrece combates tácticos, un arsenal clásico mejorado y una libertad de movimiento nunca antes vista en la franquicia. Además, el modo multijugador gratuito eleva la experiencia competitiva con mapas dinámicos, progresión renovada y un ADN fiel al Halo clásico. Con gráficos en 4K, un diseño sonoro espectacular y una jugabilidad refinada, Halo Infinite representa un renacer para la serie y una experiencia imprescindible para los fans del shooter.",
     genero: "Shooter"
   },
   {
     id: 6,
     nombre: "Super Mario Odyssey",
     precio: 49.99,
+    video: "wGQHQc_3ycE",
+      imagenes: [
+      "https://assets.nintendo.com/image/upload/ar_16:9,b_auto:border,c_lpad/b_white/f_auto/q_auto/dpr_1.5/c_scale,w_700/store/software/switch/70010000001130/ab713d841b0f0d9bbce38b589d75dd3bba2aef005418e59d3f0fd95389ae7016",  
+      "https://assets.nintendo.com/image/upload/ar_16:9,b_auto:border,c_lpad/b_white/f_auto/q_auto/dpr_1.5/c_scale,w_700/store/software/switch/70010000001130/abcf9708cc28ef5b7ab412aa17fafe4ad181f0b957456ffd9b83de2561d9f62a",
+      "https://assets.nintendo.com/image/upload/ar_16:9,b_auto:border,c_lpad/b_white/f_auto/q_auto/dpr_1.5/c_scale,w_700/store/software/switch/70010000001130/7db70ecd883f94d935f65b9f4454b8151b6f8be7c4be95543e87488e48e5a6b9",
+      "https://assets.nintendo.com/image/upload/ar_16:9,b_auto:border,c_lpad/b_white/f_auto/q_auto/dpr_1.5/c_scale,w_700/store/software/switch/70010000001130/1839d571921e3fb19ef48da64c145cb8ce573b07d7390c6350f15291b3905048"
+    ],
     imagen: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS4-9bFb82p4QTFbgB22CXva8GCFDhZR4QZWg&s",
     categoria: "Aventura",
     plataforma: "Nintendo Switch",
@@ -130,13 +160,20 @@ const juegos = [
     lanzamiento: "2017",
     fechaLanzamiento: "2017-10-27",
     descripcion: "Únete a Mario en una aventura alrededor del mundo",
-    descripcionCompleta: "Acompaña a Mario y Cappy en un viaje alrededor del globo para rescatar a la Princesa Peach de Bowser. Lanza tu sombrero para poseer personajes y objetos.",
+   descripcionCompleta: "Acompaña a Mario y Cappy en una aventura vibrante y llena de creatividad que te llevará a recorrer varios reinos inspirados en culturas y estilos únicos alrededor del mundo. Usa las habilidades de Cappy para poseer enemigos, objetos y criaturas, desbloqueando mecánicas innovadoras que transforman cada nivel en una experiencia distinta. Explora mapas amplios con total libertad, resuelve desafíos ingeniosos, descubre lunas ocultas y disfruta de una de las aventuras más carismáticas y rejugables de Nintendo. Con un estilo artístico encantador y una jugabilidad pulida, Super Mario Odyssey representa uno de los títulos más completos y memorables de la franquicia.",
     genero: "Aventura"
   },
   {
     id: 7,
     nombre: "Elden Ring",
     precio: 59.99,
+    video: "9SOnJrVPHJo",
+    imagenes: [
+      "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1245620/ss_dcdac9e4b26ac0ee5248bfd2967d764fd00cdb42.1920x1080.jpg?t=1748630546",  
+      "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1245620/ss_3c41384a24d86dddd58a8f61db77f9dc0bfda8b5.1920x1080.jpg?t=1748630546",
+      "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1245620/ss_e0316c76f8197405c1312d072b84331dd735d60b.1920x1080.jpg?t=1748630546",
+      "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1245620/ss_fa6b881ef7c30522012ab2b2b83001e79baee093.1920x1080.jpg?t=1748630546"
+    ],
     imagen: "https://image.api.playstation.com/vulcan/ap/rnd/202110/2000/phvVT0qZfcRms5qDAk0SI3CM.png",
     categoria: "RPG",
     plataforma: "Multiplataforma",
@@ -150,13 +187,20 @@ const juegos = [
     lanzamiento: "2022",
     fechaLanzamiento: "2022-02-25",
     descripcion: "Un épico RPG de mundo abierto",
-    descripcionCompleta: "Un RPG de mundo abierto creado por FromSoftware y George R.R. Martin. Explora las Tierras Intermedias, descubre secretos y enfréntate a jefes colosales.",
+   descripcionCompleta: "Elden Ring es un épico RPG de mundo abierto creado por FromSoftware en colaboración con George R.R. Martin, que da vida a un universo oscuro, misterioso y lleno de mitología. Explora las vastas Tierras Intermedias a tu propio ritmo, enfrentándote a criaturas imponentes, mazmorras ocultas y jefes colosales que pondrán a prueba tu habilidad. Personaliza tu estilo de combate, descubre armas legendarias y crea tu propio camino en una narrativa que se fragmenta según tus decisiones. Con un diseño de mundo profundo, libertad total y uno de los mejores combates de la industria, Elden Ring redefine el género y ofrece una experiencia desafiante y memorable.",
     genero: "RPG"
   },
   {
     id: 8,
     nombre: "Spider-Man 2",
     precio: 69.99,
+    video: "rCIV0y8jNy4",
+    imagenes: [
+      "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2651280/ss_f4140ba12158b812d9c1adc86c484d8e84b92e92.1920x1080.jpg?t=1763569811",  
+      "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2651280/ss_7ef8bc176702470fdc73f62f8e537c3912e70444.1920x1080.jpg?t=1763569811",
+      "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2651280/ss_474a7ffe98998719c22025cc99da1f45dfca025e.1920x1080.jpg?t=1763569811",
+      "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2651280/ss_2fb76f7e76dbddf87715d18ae1bcb5cd1dda5747.1920x1080.jpg?t=1763569811"
+    ],
     imagen: "https://i.blogs.es/9cb3ad/marvel-s-spider-man/1366_2000.png",
     categoria: "Acción-Aventura",
     plataforma: "PS5",
@@ -170,14 +214,21 @@ const juegos = [
     lanzamiento: "2023",
     fechaLanzamiento: "2023-10-20",
     descripcion: "Vive la aventura de Peter Parker y Miles Morales",
-    descripcionCompleta: "Juega como ambos Spider-Men mientras protegen la Nueva York Marvel de nuevos y peligrosos villanos. Nuevas habilidades, trajes y una historia emocionante.",
+   descripcionCompleta: "Vive una historia cinematográfica y llena de acción junto a Peter Parker y Miles Morales mientras patrullan una versión expandida de Nueva York. Alterna entre ambos Spider-Men, cada uno con habilidades y estilos únicos, mientras enfrentas a villanos icónicos como Venom, Kraven y el Lagarto. Disfruta de nuevas mecánicas de balanceo, combates más dinámicos, trajes clásicos y una narrativa llena de emociones que profundiza en el peso de ser un héroe. Con gráficos espectaculares, velocidad instantánea gracias al SSD y secuencias épicas, Spider-Man 2 es una de las experiencias más impresionantes disponibles en PS5.",
     genero: "Acción-Aventura"
   },
   {
     id: 9,
     nombre: "Starfield",
     precio: 69.99,
-    imagen: "https://image.api.playstation.com/vulcan/ap/rnd/202202/2322/4Q0sBjeaMk2Wb6pEy8RchXhX.png",
+    video: "kfYEiTdsyas",
+     imagenes: [
+      "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1716740/ss_4887dc140a637684ddcfca518458668409f946dc.1920x1080.jpg?t=1749757928",  
+      "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1716740/ss_aae99c177004bb5ec653d2fcb65a5d30489ec7b8.1920x1080.jpg?t=1749757928",
+      "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1716740/ss_2288919a390c0147b7d2226354a61452016fd087.1920x1080.jpg?t=1749757928",
+      "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1716740/ss_177d2492278d3ccc5b1c58bc96dcb63aacddb1a5.1920x1080.jpg?t=1749757928"
+    ],
+    imagen: "https://img.pccomponentes.com/pcblog/7368/starfield.jpg",
     categoria: "RPG",
     plataforma: "Xbox Series X/PC",
     plataformas: ["Xbox Series X", "PC"],
@@ -190,14 +241,14 @@ const juegos = [
     lanzamiento: "2023",
     fechaLanzamiento: "2023-09-06",
     descripcion: "Explora la galaxia en este masivo RPG espacial",
-    descripcionCompleta: "El próximo gran RPG de los creadores de Skyrim y Fallout. Explora más de 1000 planetas, personaliza tu nave y descubre los secretos del universo.",
+   descripcionCompleta: "Embárcate en una aventura espacial masiva creada por Bethesda Game Studios, los responsables de Skyrim y Fallout. Explora más de 1000 planetas generados con detalle, cada uno con su propia fauna, recursos y misterios por descubrir. Personaliza tu nave, construye bases, mejora tus habilidades y únete a facciones que moldearán tu historia. Starfield ofrece una narrativa no lineal llena de decisiones importantes, un universo profundo con tecnología futurista y un modo foto perfecto para capturar tus viajes entre estrellas. Es la experiencia espacial definitiva para los amantes del RPG.",
     genero: "RPG"
   },
   {
     id: 10,
     nombre: "Baldur's Gate 3",
     precio: 59.99,
-    imagen: "https://image.api.playstation.com/vulcan/ap/rnd/202302/2321/8b99a2ac74f52e3d59e03eb31c3b7b6d2eea0d8d3b2a6d9f.png",
+    imagen: "https://image.api.playstation.com/vulcan/ap/rnd/202308/3103/70c864f97f52f9b632d1f519a0364a5d0e2b98dc5501f058.jpg?w=780&thumb=false",
     categoria: "RPG",
     plataforma: "PC/PS5",
     plataformas: ["PC", "PS5", "Xbox Series X"],
@@ -210,14 +261,14 @@ const juegos = [
     lanzamiento: "2023",
     fechaLanzamiento: "2023-08-03",
     descripcion: "RPG galardonado con combate por turnos",
-    descripcionCompleta: "Un RPG basado en D&D con combate por turnos, narrativa profunda y decisiones que importan. Reúne a tu party y enfréntate a dioses y demonios.",
+   descripcionCompleta: "Baldur's Gate 3 es un RPG inspirado en las reglas de Dungeons & Dragons que combina combate por turnos, exploración profunda y una narrativa flexible donde cada decisión tiene consecuencias reales. Forma tu propio grupo de héroes, cada uno con personalidades únicas, historias complejas y habilidades personalizables. Enfréntate a dioses, demonios y criaturas sobrenaturales mientras descubres el origen del parásito que amenaza con consumir tu mente. Con cientos de opciones de diálogo, romances, elecciones morales y múltiples finales, Baldur’s Gate 3 es una de las experiencias de rol más completas, premiadas e influyentes de los últimos años.",
     genero: "RPG"
   },
   {
     id: 11,
     nombre: "Call of Duty: Modern Warfare III",
     precio: 69.99,
-    imagen: "https://image.api.playstation.com/vulcan/ap/rnd/202308/1020/1d85c3ed6a5e7389cbf7f7b6f6c6f6c6a1b2c3d4e5f6a7b8.png",
+    imagen: "https://image.api.playstation.com/vulcan/ap/rnd/202308/1415/a43f7a9e28b0ff81d82f9a83bc85d5d5fe59b6f7bdd6828f.jpg?w=780&thumb=false",
     categoria: "Shooter",
     plataforma: "Multiplataforma",
     plataformas: ["PS5", "Xbox Series X", "PC"],
@@ -230,14 +281,14 @@ const juegos = [
     lanzamiento: "2023",
     fechaLanzamiento: "2023-11-10",
     descripcion: "La entrega más reciente de la saga de shooter",
-    descripcionCompleta: "Regresa Task Force 141 en la secuela directa de Modern Warfare II. Campaña emocionante, multijugador mejorado y el regreso de todos los mapas de MW2 original.",
+   descripcionCompleta: "La Task Force 141 regresa en una entrega intensa que continúa directamente los eventos de Modern Warfare II. Enfréntate a una campaña cinematográfica con misiones llenas de tensión, combates tácticos y decisiones que impactan el desarrollo de la historia. El multijugador revive mapas clásicos del MW2 original totalmente reconstruidos con mejoras modernas, además de modos 6v6 más rápidos y pulidos. La experiencia Zombies también evoluciona, trayendo un mapa abierto cooperativo donde podrás completar misiones, mejorar tu equipo y sobrevivir a hordas cada vez más peligrosas. Con Warzone integrado y mejoras gráficas de nueva generación, MWIII ofrece la experiencia más completa de la saga en años.",
     genero: "Shooter"
   },
   {
     id: 12,
     nombre: "Animal Crossing: New Horizons",
     precio: 54.99,
-    imagen: "https://assets.nintendo.com/image/upload/ar_16:9,c_lpad,w_656/b_white/f_auto/q_auto/ncom/software/switch/70010000027669/32b85837beeefdbfbfe3b2b1d8c6bdf5b1d5c2d3e4f5a6b7c8",
+    imagen: "https://media.rawg.io/media/resize/640/-/screenshots/6ab/6ab0d117dd7a78e2cd5f99732900fcd0.jpg",
     categoria: "Simulación",
     plataforma: "Nintendo Switch",
     plataformas: ["Nintendo Switch"],
@@ -250,14 +301,14 @@ const juegos = [
     lanzamiento: "2020",
     fechaLanzamiento: "2020-03-20",
     descripcion: "Crea tu paraíso personal en una isla desierta",
-    descripcionCompleta: "Personaliza tu isla, haz amigos animales y crea el paraíso de tus sueños. Pesca, caza insectos, decora tu casa y disfruta de la vida tranquila.",
+   descripcionCompleta: "Construye tu propio paraíso en una isla desierta que puedes transformar por completo según tu estilo. Interactúa con adorables vecinos animales, recolecta materiales, crea muebles, personaliza tu hogar y diseña caminos, jardines y playas a tu gusto. Participa en eventos estacionales, visita islas misteriosas, comercia con amigos y descubre nuevas actividades cada día. Con un ambiente relajante, música acogedora y un estilo artístico encantador, Animal Crossing: New Horizons es una experiencia social y creativa donde puedes escapar del estrés y construir un mundo hecho a tu medida.",
     genero: "Simulación"
   },
   {
     id: 13,
     nombre: "Resident Evil 4 Remake",
     precio: 59.99,
-    imagen: "https://image.api.playstation.com/vulcan/ap/rnd/202210/0706/2f5e5e5e5e5e5e5e5e5e5e5e5e5e5e5e5e5e5e5e5e.png",
+    imagen: "https://image.api.playstation.com/vulcan/ap/rnd/202401/2906/df8c296e89570961418f21078c1f2a347e1919c334f38ace.jpg?w=780&thumb=false",
     categoria: "Survival Horror",
     plataforma: "Multiplataforma",
     plataformas: ["PS5", "Xbox Series X", "PC"],
@@ -270,14 +321,14 @@ const juegos = [
     lanzamiento: "2023",
     fechaLanzamiento: "2023-03-24",
     descripcion: "Reimaginación del clásico de terror",
-    descripcionCompleta: "Leon S. Kennedy regresa en esta reimaginación del clásico de 2005. Gráficos modernos, jugabilidad actualizada y nueva historia.",
+   descripcionCompleta: "Resident Evil 4 regresa completamente reimaginado con gráficos de nueva generación, animaciones realistas y una jugabilidad refinada que mejora la experiencia del clásico de 2005. Acompaña a Leon S. Kennedy en su misión para rescatar a la hija del presidente mientras se enfrenta a la secta Los Iluminados y a criaturas perturbadoras. El combate ha sido modernizado, la IA mejorada y la historia ampliada con detalles más profundos. Incluye modos como Mercenarios, soporte VR y una ambientación más oscura y aterradora, convirtiéndolo en una de las mejores reinvenciones dentro del género Survival Horror.",
     genero: "Survival Horror"
   },
   {
     id: 14,
     nombre: "Forza Horizon 5",
     precio: 59.99,
-    imagen: "https://image.api.playstation.com/vulcan/ap/rnd/202108/0420/5e5e5e5e5e5e5e5e5e5e5e5e5e5e5e5e5e5e5e5e5e.png",
+    imagen: "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1551360/header.jpg?t=1746471508",
     categoria: "Carreras",
     plataforma: "Xbox Series X/PC",
     plataformas: ["Xbox Series X", "PC"],
@@ -290,14 +341,14 @@ const juegos = [
     lanzamiento: "2021",
     fechaLanzamiento: "2021-11-09",
     descripcion: "Explora los vibrantes paisajes de México",
-    descripcionCompleta: "El festival de coches abierto más grande llega a México. Conduce cientos de coches a través de desiertos, junglas y ciudades.",
+    descripcionCompleta: "Descubre el festival automovilístico más grande y vibrante ambientado en una recreación espectacular de México. Conduce más de 500 coches entre desiertos, playas, volcanes, selvas y ciudades llenas de vida. Participa en campañas, desafíos dinámicos y eventos comunitarios, o explora el enorme mundo abierto a tu propio ritmo. El clima dinámico, las estaciones y las tormentas hacen que cada carrera sea distinta. Su modo multijugador te permite competir o cooperar con otros jugadores, creando experiencias únicas. Forza Horizon 5 destaca por su libertad, su impacto visual y su conducción accesible pero profunda.",
     genero: "Carreras"
   },
   {
     id: 15,
     nombre: "Minecraft Legends",
     precio: 39.99,
-    imagen: "https://image.api.playstation.com/vulcan/ap/rnd/202302/2323/4d4d4d4d4d4d4d4d4d4d4d4d4d4d4d4d4d4d4d4d4d.png",
+    imagen: "https://image.api.playstation.com/vulcan/ap/rnd/202303/0620/ae51f38c9a136685841d9c6ecb6faa866fe5e01cc83cdb6c.jpg?w=780&thumb=false",
     categoria: "Estrategia",
     plataforma: "Multiplataforma",
     plataformas: ["PS5", "Xbox Series X", "Nintendo Switch", "PC"],
@@ -310,14 +361,14 @@ const juegos = [
     lanzamiento: "2023",
     fechaLanzamiento: "2023-04-18",
     descripcion: "Acción y estrategia en el universo de Minecraft",
-    descripcionCompleta: "Un nuevo tipo de aventura en el universo de Minecraft. Lidera a tus aliados en batallas estratégicas contra los piglins.",
+   descripcionCompleta: "En Minecraft Legends, el universo clásico da un giro hacia la estrategia en tiempo real, combinando exploración con batallas tácticas. Lidera a tus aliados para defender el Overworld de la invasión de los piglins provenientes del Nether. Construye defensas, reúne recursos, dirige unidades y participa en épicas batallas cooperativas o competitivas. Con un estilo artístico familiar pero renovado, este título ofrece una experiencia fresca basada en estrategia, acción y trabajo en equipo dentro del mundo de Minecraft.",
     genero: "Estrategia"
   },
   {
     id: 16,
     nombre: "Street Fighter 6",
     precio: 59.99,
-    imagen: "https://image.api.playstation.com/vulcan/ap/rnd/202209/2323/23232323232323232323232323232323232323232323.png",
+    imagen: "https://image.api.playstation.com/vulcan/ap/rnd/202211/1408/l3bg7nmfPpPzam5jOVlaUFww.jpg?w=780&thumb=false",
     categoria: "Lucha",
     plataforma: "Multiplataforma",
     plataformas: ["PS5", "Xbox Series X", "PC"],
@@ -330,14 +381,14 @@ const juegos = [
     lanzamiento: "2023",
     fechaLanzamiento: "2023-06-02",
     descripcion: "La nueva entrega de la saga de lucha",
-    descripcionCompleta: "El regreso de la legendaria saga de lucha con nuevos personajes, modos de juego innovadores y gráficos de última generación.",
+   descripcionCompleta: "Street Fighter 6 reinventa la legendaria saga con un nuevo motor gráfico, animaciones fluidas y una jugabilidad más accesible pero profunda. Explora el Modo Mundo, un modo historia donde tu propio avatar recorre ciudades, aprende técnicas de maestros icónicos y se enfrenta a rivales. El multijugador presenta combates intensos con netcode mejorado, lobbies sociales y un elenco de personajes clásicos y nuevos con estilos completamente renovados. Con gráficos impresionantes, narrativas frescas y mecánicas modernizadas, SF6 se convierte en una de las entregas más completas y pulidas de la franquicia.",
     genero: "Lucha"
   },
   {
     id: 17,
     nombre: "The Witcher 3: Wild Hunt",
     precio: 39.99,
-    imagen: "https://image.api.playstation.com/vulcan/ap/rnd/202211/0711/2e2e2e2e2e2e2e2e2e2e2e2e2e2e2e2e2e2e2e2e2e.png",
+    imagen: "https://image.api.playstation.com/vulcan/ap/rnd/202212/0814/9uU0gBq02jmXHtDsm82AV722.jpg?w=780&thumb=false",
     categoria: "RPG",
     plataforma: "Multiplataforma",
     plataformas: ["PS5", "Xbox Series X", "Nintendo Switch", "PC"],
@@ -350,14 +401,14 @@ const juegos = [
     lanzamiento: "2015",
     fechaLanzamiento: "2015-05-19",
     descripcion: "Embárcate en una épica aventura como Geralt",
-    descripcionCompleta: "Geralt de Rivia, cazador de monstruos, busca a su hija adoptiva en un mundo devastado por la guerra. Decisiones que cambian la historia.",
+   descripcionCompleta: "Acompaña a Geralt de Rivia, un brujo cazador de monstruos, en una búsqueda épica para encontrar a su hija adoptiva mientras el mundo es arrasado por la guerra. Explora un inmenso mundo abierto lleno de ciudades vivas, bosques peligrosos, criaturas legendarias y decisiones que pueden alterar el curso de la historia. Con más de 100 horas de contenido, misiones secundarias memorables y dos expansiones galardonadas incluidas, The Witcher 3 es considerado uno de los mejores RPG de todos los tiempos por su narrativa madura, su profundidad y su libertad de exploración.",
     genero: "RPG"
   },
   {
     id: 18,
     nombre: "Dead Space Remake",
     precio: 59.99,
-    imagen: "https://image.api.playstation.com/vulcan/ap/rnd/202210/0706/1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a.png",
+    imagen: "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1693980/header.jpg?t=1749125590",
     categoria: "Survival Horror",
     plataforma: "PS5/Xbox Series X/PC",
     plataformas: ["PS5", "Xbox Series X", "PC"],
@@ -370,14 +421,14 @@ const juegos = [
     lanzamiento: "2023",
     fechaLanzamiento: "2023-01-27",
     descripcion: "Terror espacial reimaginado",
-    descripcionCompleta: "El clásico de terror espacial regresa con gráficos de última generación, audio 3D y jugabilidad mejorada. Enfréntate a los necromorfos en la nave Ishimura.",
+    descripcionCompleta: "Dead Space regresa reinventado con gráficos de última generación, iluminación atmosférica y un diseño de sonido envolvente que intensifica el terror espacial. Controla a Isaac Clarke mientras explora la nave minera Ishimura, infestada por criaturas horripilantes llamadas necromorfos. El remake mejora el combate, permite apuntar con más precisión a las extremidades, añade nuevos diálogos y recupera la tensión psicológica del original. Con mejoras jugables, más detalles narrativos y una ambientación opresiva, esta versión ofrece la experiencia definitiva del icónico Survival Horror de ciencia ficción.",
     genero: "Survival Horror"
   },
   {
     id: 19,
     nombre: "Sekiro: Shadows Die Twice",
     precio: 49.99,
-    imagen: "https://image.api.playstation.com/vulcan/ap/rnd/202302/2323/3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c.png",
+    imagen: "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/814380/header.jpg?t=1762888662",
     categoria: "Acción",
     plataforma: "Multiplataforma",
     plataformas: ["PS5", "Xbox Series X", "PC"],
@@ -390,14 +441,14 @@ const juegos = [
     lanzamiento: "2019",
     fechaLanzamiento: "2019-03-22",
     descripcion: "Desafia la muerte en el Japón feudal",
-    descripcionCompleta: "Un shinobi desfigurado busca venganza en el Japón feudal del período Sengoku. Combate de espadas intenso y mundo vertical.",
+   descripcionCompleta: "Sekiro: Shadows Die Twice te sitúa en el Japón del período Sengoku, una era de guerra y caos. Controlas al Lobo, un shinobi marcado por cicatrices y movido por un juramento de proteger a su joven señor. Tras perder su brazo y fallar en su misión, emprende un camino de venganza donde la muerte es solo un obstáculo más. Su combate está basado en reflejos, postura y precisión, ofreciendo duelos de espada intensos y memorables. Explora escenarios verticales, templos, castillos y bosques donde cada enemigo representa un desafío real. Con una narrativa sutil, dificultad desafiante y una dirección artística impecable, Sekiro redefine la acción samurái moderna.",
     genero: "Acción"
   },
   {
     id: 20,
     nombre: "Persona 5 Royal",
     precio: 54.99,
-    imagen: "https://image.api.playstation.com/vulcan/ap/rnd/202302/2323/5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a.png",
+    imagen: "https://image.api.playstation.com/vulcan/img/cfn/11307WJ4TkwLDkBEJni04tu81UlL-PCQsfaFYBDLvZaC_STUeyp_1A7wJfHHj_XDoedOwpH3zh_JuU7HEiy63dDA31I4ymKb.png?w=440&thumb=false",
     categoria: "RPG",
     plataforma: "Multiplataforma",
     plataformas: ["PS5", "Xbox Series X", "Nintendo Switch", "PC"],
@@ -410,14 +461,14 @@ const juegos = [
     lanzamiento: "2020",
     fechaLanzamiento: "2020-03-31",
     descripcion: "Vive la vida de estudiante y lucha contra la corrupción",
-    descripcionCompleta: "Un grupo de estudiantes forma los Phantom Thieves para cambiar los corazones de adultos corruptos. Combina vida escolar y aventuras sobrenaturales.",
+    descripcionCompleta: "Persona 5 Royal expande el universo original con nuevos personajes, zonas, historias y mecánicas que enriquecen la experiencia. Sigues la vida de un estudiante que, al descubrir su habilidad para invocar Personas, forma junto a sus amigos los Phantom Thieves, un grupo secreto dedicado a reformar los corazones de adultos corruptos. Alterna entre clases, exámenes, amistades y actividades diarias mientras te adentras en Palacios sobrenaturales llenos de enemigos, trampas y jefes únicos. Con un estilo visual icónico, música inolvidable y más de 100 horas de contenido, Royal es considerado uno de los JRPG más completos, estilizados y narrativos de la historia.",
     genero: "RPG"
   },
   {
     id: 21,
     nombre: "Gran Turismo 7",
     precio: 69.99,
-    imagen: "https://image.api.playstation.com/vulcan/ap/rnd/202302/2323/6b6b6b6b6b6b6b6b6b6b6b6b6b6b6b6b6b6b6b6b6b.png",
+    imagen: "https://image.api.playstation.com/vulcan/ap/rnd/202511/0707/c0c7682cdba5bbfc1adacb65a149e44238b24ff6e00d4c88.jpg?w=780&thumb=false",
     categoria: "Carreras",
     plataforma: "PS5",
     plataformas: ["PS5"],
@@ -430,14 +481,14 @@ const juegos = [
     lanzamiento: "2022",
     fechaLanzamiento: "2022-03-04",
     descripcion: "La experiencia de conducción definitiva",
-    descripcionCompleta: "El simulador de conducción más realista con cientos de coches, circuitos reales y física avanzada. Modo campaña y multijugador competitivo.",
+   descripcionCompleta: "Gran Turismo 7 combina fidelidad visual, simulación avanzada y contenido extenso para ofrecer la experiencia de conducción más realista creada por Polyphony Digital. Con más de 400 autos meticulosamente recreados y circuitos reales de todo el mundo, cada carrera se siente auténtica gracias a su física detallada, comportamiento real del clima y ciclos de día y noche. Su modo campaña te guía desde los inicios como piloto hasta competiciones más exigentes, mientras que el multijugador competitivo permite medir tus habilidades frente a jugadores expertos. Compatible con PlayStation VR2, ofrece una inmersión total que convierte cada vuelta en una experiencia impactante.",
     genero: "Carreras"
   },
   {
     id: 22,
     nombre: "Hades",
     precio: 24.99,
-    imagen: "https://image.api.playstation.com/vulcan/ap/rnd/202302/2323/7c7c7c7c7c7c7c7c7c7c7c7c7c7c7c7c7c7c7c7c7c.png",
+    imagen: "https://image.api.playstation.com/vulcan/ap/rnd/202104/0517/9AcM3vy5t77zPiJyKHwRfnNT.png?w=440&thumb=false",
     categoria: "Roguelike",
     plataforma: "Multiplataforma",
     plataformas: ["PS5", "Xbox Series X", "Nintendo Switch", "PC"],
@@ -450,14 +501,14 @@ const juegos = [
     lanzamiento: "2020",
     fechaLanzamiento: "2020-09-17",
     descripcion: "Roguelike de acción en el Inframundo",
-    descripcionCompleta: "Desafía al dios de los muertos en este roguelike de acción. Escapa del Inframundo griego mientras descubres una historia profunda.",
+   descripcionCompleta: "Hades es un roguelike de acción que combina combates rápidos, narrativa profunda y un estilo artístico único. Interpretas a Zagreus, el hijo del dios de los muertos, que intenta escapar del Inframundo enfrentándose a criaturas mitológicas y a los propios desafíos de su padre. Cada intento de escape ofrece bendiciones distintas de los dioses del Olimpo, lo que hace que cada partida sea única. La historia avanza incluso cuando fallas, revelando nuevas interacciones, diálogos y motivaciones de los personajes. Con su jugabilidad fluida, música sobresaliente y una narrativa que se integra de forma natural con el género, Hades se ha convertido en un referente moderno del roguelike.",
     genero: "Roguelike"
   },
   {
     id: 23,
     nombre: "Final Fantasy XVI",
     precio: 69.99,
-    imagen: "https://image.api.playstation.com/vulcan/ap/rnd/202302/2323/8d8d8d8d8d8d8d8d8d8d8d8d8d8d8d8d8d8d8d8d8d.png",
+    imagen: "https://image.api.playstation.com/vulcan/ap/rnd/202211/3007/lgFVhRm5BfoX02pRUt3lSmLV.png?w=440&thumb=false",
     categoria: "RPG",
     plataforma: "PS5",
     plataformas: ["PS5"],
@@ -470,14 +521,14 @@ const juegos = [
     lanzamiento: "2023",
     fechaLanzamiento: "2023-06-22",
     descripcion: "Una nueva y oscura fantasía épica",
-    descripcionCompleta: "Una historia oscura y madura en el universo de Final Fantasy. Combate en tiempo real, invocaciones épicas y mundo de alta fantasía.",
+   descripcionCompleta: "Final Fantasy XVI presenta una historia madura ambientada en Valisthea, un mundo dividido por reinos que dependen del poder de los Cristales Madre. Sigues la vida de Clive Rosfield, un guerrero marcado por la tragedia que se ve envuelto en una guerra devastadora y en el misterio de los Eikons, poderosas invocaciones capaces de destruir naciones enteras. El combate abandona el sistema tradicional por turnos para adoptar un estilo totalmente en tiempo real, rápido y cinematográfico. Con secuencias épicas, personajes complejos y una ambientación oscura llena de intrigas políticas, FFXVI ofrece una de las historias más impactantes que ha tenido la saga.",
     genero: "RPG"
   },
   {
     id: 24,
     nombre: "Metroid Dread",
     precio: 59.99,
-    imagen: "https://assets.nintendo.com/image/upload/ar_16:9,c_lpad,w_656/b_white/f_auto/q_auto/ncom/software/switch/70010000035867/9e9e9e9e9e9e9e9e9e9e9e9e9e9e9e9e9e9e9e9e9e",
+    imagen: "https://assets.nintendo.com/image/upload/ar_16:9,c_lpad,w_930/b_white/f_auto/q_auto/store/software/switch/70010000042924/4f2c683f0196210ec212a2ab8bf6952223c0b88e827b820953407a2ba61c9cb2",
     categoria: "Metroidvania",
     plataforma: "Nintendo Switch",
     plataformas: ["Nintendo Switch"],
@@ -490,14 +541,14 @@ const juegos = [
     lanzamiento: "2021",
     fechaLanzamiento: "2021-10-08",
     descripcion: "Samus Aran regresa en una aventura de acción",
-    descripcionCompleta: "Samus enfrenta su misión más peligrosa contra los EMMI, robots de caza implacables. Exploración 2D y acción intensa.",
+   descripcionCompleta: "Metroid Dread marca el retorno de Samus Aran al estilo clásico en 2D, revitalizado con animaciones modernas, controles precisos y una ambientación tensa llena de misterio. Samus investiga un planeta hostil donde los EMMI, robots de exploración convertidos en máquinas asesinas, la persiguen sin descanso. La exploración interconectada, los nuevos poderes y los secretos ocultos hacen que cada zona tenga su propio ritmo y desafío. Con un enfoque en la tensión, la movilidad y la sensación de estar siendo cazado, Metroid Dread se posiciona como una de las mejores entregas de la saga y un referente del género metroidvania moderno.",
     genero: "Metroidvania"
   },
   {
     id: 25,
     nombre: "Stray",
     precio: 29.99,
-    imagen: "https://image.api.playstation.com/vulcan/ap/rnd/202302/2323/9e9e9e9e9e9e9e9e9e9e9e9e9e9e9e9e9e9e9e9e9e.png",
+    imagen: "https://image.api.playstation.com/vulcan/ap/rnd/202206/0300/E2vZwVaDJbhLZpJo7Q10IyYo.png?w=440&thumb=false",
     categoria: "Aventura",
     plataforma: "PS5/PC",
     plataformas: ["PS5", "PC"],
@@ -510,14 +561,14 @@ const juegos = [
     lanzamiento: "2022",
     fechaLanzamiento: "2022-07-19",
     descripcion: "Juega como un gato en una ciudad cyberpunk",
-    descripcionCompleta: "Un gato callejero perdido en una ciudad de robots debe resolver un antiguo misterio para escapar. Perspectiva única y mundo detallado.",
+    ddescripcionCompleta: "Stray te pone en la piel de un gato callejero que se separa de su familia y queda atrapado en una ciudad subterránea habitada por robots. A lo largo de tu viaje deberás resolver acertijos, explorar callejones llenos de neón y colaborar con un pequeño dron llamado B-12 para desvelar los secretos de este mundo olvidado. Su perspectiva felina ofrece una jugabilidad única que mezcla exploración, sigilo y narrativa emocional. Con un ambiente cyberpunk detallado, música atmosférica y una historia que conecta desde el primer momento, Stray destaca como una experiencia íntima y distinta dentro del género de aventura.",
     genero: "Aventura"
   },
   {
     id: 26,
     nombre: "Tekken 8",
     precio: 69.99,
-    imagen: "https://image.api.playstation.com/vulcan/ap/rnd/202302/2323/0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a.png",
+    imagen: "https://image.api.playstation.com/vulcan/ap/rnd/202308/0312/aff71a0ced271048f5079b1fcf715bcb45110efc13e9704a.png?w=440&thumb=false",
     categoria: "Lucha",
     plataforma: "Multiplataforma",
     plataformas: ["PS5", "Xbox Series X", "PC"],
@@ -530,14 +581,14 @@ const juegos = [
     lanzamiento: "2024",
     fechaLanzamiento: "2024-01-26",
     descripcion: "La nueva entrega de la saga de lucha",
-    descripcionCompleta: "El torneo del rey del puño de hierro continúa con gráficos revolucionarios, nuevo sistema de combate y personajes clásicos.",
+   descripcionCompleta: "Tekken 8 eleva la intensidad de la saga con un sistema de combate renovado centrado en el modo Heat, que impulsa una jugabilidad más agresiva, fluida y explosiva. Con gráficos desarrollados en Unreal Engine 5, cada personaje luce más detallado que nunca, mostrando expresiones, efectos y animaciones impresionantes. La historia continúa el conflicto entre Jin Kazama y Kazuya Mishima, llevando la rivalidad a un nuevo nivel con cinemáticas espectaculares. Incluye modos offline, un robusto online competitivo, personalización avanzada y un elenco de luchadores clásicos y nuevos. Es la entrega más ambiciosa y cinematográfica de la franquicia.",
     genero: "Lucha"
   },
   {
     id: 27,
     nombre: "Hogwarts Legacy",
     precio: 59.99,
-    imagen: "https://image.api.playstation.com/vulcan/ap/rnd/202302/2323/1b1b1b1b1b1b1b1b1b1b1b1b1b1b1b1b1b1b1b1b1b.png",
+    imagen: "https://image.api.playstation.com/vulcan/ap/rnd/202301/1223/BkUrjN41mnpcaeTlo7mYL51W.png?w=440&thumb=false",
     categoria: "RPG",
     plataforma: "Multiplataforma",
     plataformas: ["PS5", "Xbox Series X", "Nintendo Switch", "PC"],
@@ -550,14 +601,21 @@ const juegos = [
     lanzamiento: "2023",
     fechaLanzamiento: "2023-02-10",
     descripcion: "Vive tu aventura en el mundo mágico",
-    descripcionCompleta: "Un RPG de mundo abierto en el universo de Harry Potter del siglo XIX. Asiste a clases de magia, domina hechizos y explora Hogwarts.",
+    descripcionCompleta: "Hogwarts Legacy te permite vivir tu propia historia dentro del mundo mágico ambientado en el siglo XIX. Juegas como un estudiante con una rara habilidad para manejar magia ancestral mientras asistes a clases, dominas hechizos, preparas pociones y descubres criaturas fantásticas. El castillo de Hogwarts, el Bosque Prohibido y Hogsmeade están recreados con un nivel de detalle impresionante. El sistema de combate combina varitas, habilidades especiales y combinaciones mágicas, mientras avanzas por una trama llena de misterios y decisiones que afectan el desarrollo del personaje. Un RPG inmersivo, enorme y lleno de libertad para explorar.",
     genero: "RPG"
   },
   {
     id: 28,
     nombre: "Returnal",
     precio: 69.99,
-    imagen: "https://image.api.playstation.com/vulcan/ap/rnd/202302/2323/2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c.png",
+    video: "ov4fJmGCsZM",
+    imagenes: [
+      "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1649240/ss_ea2f5b9dd34cd18e05970343edfb36ed0dade475.1920x1080.jpg?t=1750956860",  
+      "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1649240/ss_7ba021e0dd34bdcfff04a6e600323858acdbec4e.1920x1080.jpg?t=1750956860",
+      "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1649240/ss_e16d48bbc96569c6d1bb77e7f252bd8c4d7724c2.1920x1080.jpg?t=1750956860",
+      "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1649240/ss_e15da2a195556b773ba8a982051f55de50d79a75.1920x1080.jpg?t=1750956860"
+    ],
+    imagen: "https://image.api.playstation.com/vulcan/ap/rnd/202011/1621/fYZQHZ42eXXUt7c6D5YjLrq5.png?w=440&thumb=false",
     categoria: "Roguelike",
     plataforma: "PS5/PC",
     plataformas: ["PS5", "PC"],
@@ -570,13 +628,20 @@ const juegos = [
     lanzamiento: "2021",
     fechaLanzamiento: "2021-04-30",
     descripcion: "Shooter roguelike en un planeta alienígena",
-    descripcionCompleta: "Una astronauta atrapada en un ciclo temporal en un planeta alienígena. Cada muerte la reinicia, pero el mundo cambia constantemente.",
+    descripcionCompleta: "Returnal combina elementos de roguelike y shooter en tercera persona para ofrecer una experiencia intensa y atmosférica. Selene, una astronauta atrapada en un ciclo temporal, despierta una y otra vez en un planeta alienígena hostil donde cada muerte cambia la estructura del mundo. El juego mezcla exploración, acción rápida, efectos visuales sorprendentes y una narrativa profunda que se revela de manera fragmentada. Cada loop desbloquea nuevas armas, biomas y secretos mientras te enfrentas a criaturas desafiantes y escenarios llenos de tensión. Con el DualSense, la experiencia se vuelve aún más inmersiva gracias a su retroalimentación háptica.",
     genero: "Roguelike"
   },
   {
     id: 29,
     nombre: "Kirby and the Forgotten Land",
     precio: 54.99,
+    video: "H3LAkr0ANgw",
+     imagenes: [
+      "https://assets.nintendo.com/image/upload/ar_16:9,b_auto:border,c_lpad/b_white/f_auto/q_auto/dpr_1.5/c_scale,w_700/store/software/switch2/70010000096829/b3dc113c05fe9e09566a675cef8208243e82a1dc4ea11a745015b51dfb0a4787",  
+      "https://assets.nintendo.com/image/upload/ar_16:9,b_auto:border,c_lpad/b_white/f_auto/q_auto/dpr_1.5/c_scale,w_700/store/software/switch2/70010000096829/502393855cfed72444accf5bc624670e4d4b0eb5c001205877bf3afcf5d4fffc",
+      "https://assets.nintendo.com/image/upload/ar_16:9,b_auto:border,c_lpad/b_white/f_auto/q_auto/dpr_1.5/c_scale,w_700/store/software/switch2/70010000096829/b0f89c425fe61f8063ad98a8e04201448a711e2e70d49ed96a06efe712980ad5",
+      "https://assets.nintendo.com/image/upload/ar_16:9,b_auto:border,c_lpad/b_white/f_auto/q_auto/dpr_1.5/c_scale,w_700/store/software/switch2/70010000096829/acb1cb2c734e8bd1fc56b657045c0cc3a262e708d197eb153d469c73b4b4b1e5"
+    ],
     imagen: "	https://media.rawg.io/media/resize/1920/-/screenshots/371/371b7bf344d3f2a76f7a7b6a6b4323c8.jpg",
     categoria: "Plataformas",
     plataforma: "Nintendo Switch",
@@ -590,14 +655,21 @@ const juegos = [
     lanzamiento: "2022",
     fechaLanzamiento: "2022-03-25",
     descripcion: "La primera aventura 3D de Kirby",
-    descripcionCompleta: "Kirby explora un mundo misterioso en 3D. Absorbe objetos y adquiere nuevas habilidades para rescatar a los Waddle Dees.",
+ descripcionCompleta: "Kirby and the Forgotten Land marca el salto de la franquicia al 3D con un mundo lleno de color y personalidad. Kirby explora un reino misterioso donde deberá rescatar a los Waddle Dees mientras se enfrenta a nuevos enemigos y jefes. Su habilidad de copiar poderes evoluciona con el Modo Trago, permitiéndole absorber objetos grandes para transformarse en nuevas y creativas formas. El diseño de niveles combina aventura, plataformas y acertijos ligeros, todo acompañado de música alegre y gráficos encantadores. Con modo cooperativo, es una experiencia divertida, accesible y llena de imaginación.",
     genero: "Plataformas"
   },
   {
     id: 30,
     nombre: "Diablo IV",
+    video: "Ro26B394ZBM",
     precio: 69.99,
-    imagen: "https://image.api.playstation.com/vulcan/ap/rnd/202302/2323/4e4e4e4e4e4e4e4e4e4e4e4e4e4e4e4e4e4e4e4e4e.png",
+    imagenes: [
+      "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2344520/7905f91c07b2cb828d0036389bc783300350fb74/ss_7905f91c07b2cb828d0036389bc783300350fb74.1920x1080.jpg?t=1758649357",  
+      "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2344520/73d3413a15dcde01592a1e8e3c998ec128ef9676/ss_73d3413a15dcde01592a1e8e3c998ec128ef9676.1920x1080.jpg?t=1758649357",
+      "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2344520/14880a1527241507d9a2d26f439f83fac20c4246/ss_14880a1527241507d9a2d26f439f83fac20c4246.1920x1080.jpg?t=1758649357",
+      "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2344520/11d4a9be127719b22681d823b83b0c6b4798bf1f/ss_11d4a9be127719b22681d823b83b0c6b4798bf1f.1920x1080.jpg?t=1758649357"
+    ],
+    imagen: "https://image.api.playstation.com/vulcan/ap/rnd/202307/3122/a6ffdd3ffe6cd81a5045370175018b658eb2b620e4b615f1.png?w=440&thumb=false",
     categoria: "ARPG",
     plataforma: "Multiplataforma",
     plataformas: ["PS5", "Xbox Series X", "PC"],
@@ -610,14 +682,21 @@ const juegos = [
     lanzamiento: "2023",
     fechaLanzamiento: "2023-06-06",
     descripcion: "Regresa a Santuario en este oscuro RPG",
-    descripcionCompleta: "El regreso de la saga de ARPG con mundo abierto, clases nuevas y la oscura historia de Santuario. Multijugador y endgame extenso.",
+    descripcionCompleta: "Diablo IV regresa a un tono oscuro y brutal, ambientado en un Santuario devastado tras el regreso de Lilith. El mundo abierto está dividido en regiones vastas y conectadas donde puedes explorar libremente, enfrentarte a hordas demoníacas, completar mazmorras, eventos y participar en actividades cooperativas o PvP. Con cinco clases totalmente personalizables, cada una con árboles de habilidades profundos, la construcción de personaje es más compleja y variada. El endgame incluye pesadillas, jefes de mundo, progresión continua y actividades para cientos de horas. Diablo IV mezcla narrativa impactante, combate visceral y exploración sin límites.",
     genero: "ARPG"
   },
   {
     id: 31,
     nombre: "Grand Theft Auto V",
-    precio: 29.99,
-    imagen: "https://image.api.playstation.com/vulcan/ap/rnd/202202/2323/5f5f5f5f5f5f5f5f5f5f5f5f5f5f5f5f5f5f5f5f5f.png",
+    precio: 79.99,
+    video: "hvoD7ehZPcM",
+     imagenes: [
+      "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3240220/8340fd391012e12be7e4c02e65801a2648a6b60e/ss_8340fd391012e12be7e4c02e65801a2648a6b60e.1920x1080.jpg?t=1753974947",  
+      "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3240220/f2e70b5823510daa062293ff0b03821e1dee2d37/ss_f2e70b5823510daa062293ff0b03821e1dee2d37.1920x1080.jpg?t=1753974947",
+      "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3240220/6959cc5d64cce82cb68a27457cfa46fb4d50f897/ss_6959cc5d64cce82cb68a27457cfa46fb4d50f897.1920x1080.jpg?t=1753974947",
+      "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3240220/0231bf16835cd4f6d83523d76aa8d91cb2dfef9b/ss_0231bf16835cd4f6d83523d76aa8d91cb2dfef9b.1920x1080.jpg?t=1753974947"
+    ],
+    imagen: "https://image.api.playstation.com/cdn/UP1004/CUSA00419_00/bTNSe7ok8eFVGeQByA5qSzBQoKAAY32R.png?w=440&thumb=false",
     categoria: "Acción-Aventura",
     plataforma: "Multiplataforma",
     plataformas: ["PS5", "Xbox Series X", "PC"],
@@ -630,7 +709,7 @@ const juegos = [
     lanzamiento: "2013",
     fechaLanzamiento: "2013-09-17",
     descripcion: "Vive las historias de Michael, Franklin y Trevor",
-    descripcionCompleta: "Tres criminales con diferentes habilidades se unen para realizar atracos épicos en la ciudad de Los Santos. Mundo abierto y GTA Online.",
+    descripcionCompleta: "GTA V presenta una historia vibrante protagonizada por Michael, Franklin y Trevor, tres personajes cuyas vidas se cruzan para ejecutar algunos de los atracos más ambiciosos jamás vistos. Los Santos es un mundo abierto enorme, lleno de actividades, vehículos, armas y secretos. La experiencia se expande con GTA Online, que añade misiones, negocios, golpes, roles y eventos constantes que mantienen el juego vivo más de una década después de su lanzamiento. Con humor, acción, libertad total y una narrativa memorable, GTA V sigue siendo uno de los videojuegos más influyentes de la historia.",
     genero: "Acción-Aventura"
   },
   {
@@ -638,6 +717,12 @@ const juegos = [
     nombre: "Grand Theft Auto: San Andreas",
     precio: 14.99,
     video: "vvmfbN2KrqI",
+    imagenes: [
+      "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1547000/ss_1a8e1aff75d059f19e3bf673ff2183344bbadbb4.1920x1080.jpg?t=1741117455",  
+      "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1547000/ss_a274e6069b8a242ea37cfdd37b7a2fb01fae9315.1920x1080.jpg?t=1741117455",
+      "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1547000/ss_5632eb13385bedc68823e8db8813fddf54acb40d.1920x1080.jpg?t=1741117455",
+      "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1547000/ss_89224e9f19e2caee31985f62c6e39e9e67b4f2a4.1920x1080.jpg?t=1741117455"
+    ],
     imagen: "https://i.pinimg.com/736x/a4/e6/fa/a4e6fa3e10463e110e455b59843f8231.jpg",
     categoria: "Acción-Aventura",
     plataforma: "Multiplataforma",
@@ -651,15 +736,21 @@ const juegos = [
     lanzamiento: "2004",
     fechaLanzamiento: "2004-10-26",
     descripcion: "Sigue la historia de Carl Johnson en los 90",
-    descripcionCompleta: "Carl 'CJ' Johnson regresa a Los Santos en los años 90 para enfrentar corrupción, pandillas y construir un imperio criminal.",
+    descripcionCompleta: "GTA: San Andreas sigue a Carl 'CJ' Johnson al regresar a su hogar en los años 90 tras la muerte de su madre. Envuelto en traiciones, corrupción policial y disputas de pandillas, CJ deberá reconstruir su barrio, ganar territorio y ascender dentro del crimen organizado. El juego introduce mecánicas icónicas como personalización de personaje, habilidades, restaurantes, gimnasios, corte de pelo y territorios de pandillas. San Andreas ofrece un enorme mapa con tres ciudades principales, misiones variadas y una historia que marcó a toda una generación. Un clásico del mundo abierto que sigue siendo inolvidable.",
     genero: "Acción-Aventura"
   },
   {
     id: 33,
     nombre: "Grand Theft Auto IV",
     precio: 19.99,
-    video: "hvoD7ehZPcM",
-    imagen: "https://image.api.playstation.com/vulcan/ap/rnd/202302/2323/7b7b7b7b7b7b7b7b7b7b7b7b7b7b7b7b7b7b7b7b7b.png",
+    video: "M80K51DosFo",
+    imagenes: [
+      "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/12210/0000006363.1920x1080.jpg?t=1721061564",  
+      "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/12210/0000006364.1920x1080.jpg?t=1721061564",
+      "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/12210/0000006365.1920x1080.jpg?t=1721061564",
+      "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/12210/0000006366.1920x1080.jpg?t=1721061564"
+    ],
+    imagen: "https://icon2.cleanpng.com/20180902/sft/kisspng-t-shirt-grand-theft-auto-iv-xbox-36-hoodie-should-playground-ru-1713945028553.webp",
     categoria: "Acción-Aventura",
     plataforma: "Multiplataforma",
     plataformas: ["PS5", "Xbox Series X", "PC"],
@@ -672,13 +763,20 @@ const juegos = [
     lanzamiento: "2008",
     fechaLanzamiento: "2008-04-29",
     descripcion: "La historia de Niko Bellic en Liberty City",
-    descripcionCompleta: "Niko Bellic, un inmigrante de Europa del Este, busca el sueño americano en Liberty City mientras enfrenta su pasado.",
+    descripcionCompleta: "Grand Theft Auto IV presenta una narrativa madura centrada en Niko Bellic, un inmigrante de Europa del Este que llega a Liberty City buscando una nueva vida. Sin embargo, pronto se ve arrastrado a un mundo de violencia, traiciones y decisiones que marcarán su futuro. La ciudad es un reflejo vivo de la corrupción y el sueño americano distorsionado, llena de personajes memorables, misiones intensas y una ambientación que marcó un antes y un después en la saga. Con diálogos profundos, física realista y un tono más serio que sus predecesores, GTA IV se mantiene como una de las historias más impactantes de Rockstar.",
     genero: "Acción-Aventura"
   },
   {
     id: 34,
     nombre: "Counter-Strike 2",
-    precio: 0.00,
+    precio: 34.00,
+    video: "c80dVYcL69E",
+    imagenes: [
+      "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/730/ss_d830cfd0550fbb64d80e803e93c929c3abb02056.1920x1080.jpg?t=1749053861",  
+      "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/730/ss_13bb35638c0267759276f511ee97064773b37a51.1920x1080.jpg?t=1749053861",
+      "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/730/ss_0f8cf82d019c614760fd20801f2bb4001da7ea77.1920x1080.jpg?t=1749053861",
+      "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/730/ss_ef82850f036dac5772cb07dbc2d1116ea13eb163.1920x1080.jpg?t=1749053861"
+    ],
     imagen: "https://cdn.cloudflare.steamstatic.com/steam/apps/730/capsule_616x353.jpg",
     categoria: "Shooter",
     plataforma: "PC",
@@ -692,13 +790,20 @@ const juegos = [
     lanzamiento: "2023",
     fechaLanzamiento: "2023-09-27",
     descripcion: "El shooter táctico competitivo más popular del mundo",
-    descripcionCompleta: "Counter-Strike 2 representa la mayor evolución técnica en la historia de la saga. Construido sobre el motor Source 2, ofrece renderizado moderno, servidores de subtick y herramientas comunitarias actualizadas.",
+    descripcionCompleta: "Counter-Strike 2 es la evolución más grande en la historia del shooter táctico de Valve. Construido desde cero con el motor Source 2, introduce mejoras gráficas significativas, iluminación avanzada y un rendimiento mucho más estable. Su nuevo sistema de servidores subtick permite que cada acción del jugador —movimiento, disparo o utilidad— se registre con precisión casi instantánea. El juego mantiene el clásico formato 5v5 competitivo, pero incorpora físicas renovadas, granadas de humo dinámicas y herramientas de creación actualizadas para la comunidad. CS2 representa la culminación de años de esports, estrategia y competencia al más alto nivel.",
     genero: "Shooter Táctico"
   },
   {
     id: 35,
     nombre: "Left 4 Dead 2",
     precio: 9.99,
+    video: "OqUUfwSN-MY",
+    imagenes: [
+      "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/550/ss_2eae29fbdfe8e5e8999b96d8bb28c5db70507968.1920x1080.jpg?t=1745368562",  
+      "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/550/ss_29b3b4f2a3994c889f6fc12e0781d9d4726ef33f.1920x1080.jpg?t=1745368562",
+      "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/550/ss_73ad69168a263ce585e4823d9607d901719ca3c5.1920x1080.jpg?t=1745368562",
+      "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/550/ss_ba2ea2eda245f89626277457ae2ab76ba997f46a.1920x1080.jpg?t=1745368562"
+    ],
     imagen: "https://cdn.cloudflare.steamstatic.com/steam/apps/550/capsule_616x353.jpg",
     categoria: "Shooter",
     plataforma: "PC",
@@ -712,13 +817,20 @@ const juegos = [
     lanzamiento: "2009",
     fechaLanzamiento: "2009-11-17",
     descripcion: "Cooperativo zombie con tus amigos",
-    descripcionCompleta: "Este shooter de acción cooperativo te lleva por el sur de EE.UU. cinco años después de la apocalipsis zombie. Juega con hasta 3 amigos contra hordas de infectados.",
+    descripcionCompleta: "Left 4 Dead 2 lleva la acción cooperativa a un nuevo nivel con una campaña intensa ambientada en el sur de Estados Unidos tras un devastador brote zombie. Los jugadores deben colaborar para sobrevivir a hordas de infectados, cada uno con comportamientos distintos, y a los peligrosos infectados especiales que pueden cambiar por completo el ritmo del combate. Con armas mejoradas, nuevos modos de juego, campañas memorables y una comunidad activa que sigue creando mods, es considerado uno de los mejores juegos cooperativos de la historia. Su ritmo frenético y su atmósfera apocalíptica ofrecen diversión interminable junto a amigos.",
     genero: "Survival Horror"
   },
   {
     id: 36,
     nombre: "Fortnite",
-    precio: 0.00,
+    precio: 89.90,
+    video: "DgwUyD5RtpM",
+    imagenes: [
+      "https://cdn2.unrealengine.com/es-es-fnfigment-37-00-c1s6-egs-launcher-keyart-carousel-pdp-2560x1440-logo-2560x1440-c178d9d137d9.jpg",  
+      "https://cdn2.unrealengine.com/fnfigment-37-00-c1s6-corruptedareas-3840x2160-3840x2160-11c1e5519211.png",
+      "https://cdn2.unrealengine.com/fnfigment-37-00-c1s6-floatingisland-3840x2160-3840x2160-c86edd3b5660.png",
+      "https://cdn2.unrealengine.com/fnfigment-37-00-c1s6-hauntedcastle-3840x2160-3840x2160-5eb88cf08d89.png"
+    ],
     imagen: "https://cdn2.unrealengine.com/14br-consoles-1920x1080-wlogo-1920x1080-432974386.jpg",
     categoria: "Battle Royale",
     plataforma: "Multiplataforma",
@@ -732,14 +844,21 @@ const juegos = [
     lanzamiento: "2017",
     fechaLanzamiento: "2017-07-25",
     descripcion: "Battle Royale gratuito con construcción",
-    descripcionCompleta: "Lucha por ser el último en pie en Battle Royale gratis de Fortnite. Construye, dispara y sobrevive en una experiencia en constante evolución con nuevos contenidos cada temporada.",
+    descripcionCompleta: "Fortnite es un Battle Royale gratuito que combina construcción, disparos y un estilo visual vibrante. Cada partida reúne a 100 jugadores que deben buscar armas, recursos y sobrevivir mientras la tormenta reduce el área jugable. Su mecánica de construcción permite crear estructuras defensivas, rutas de escape o ventajas tácticas en segundos, dando un toque único al combate. El juego se encuentra en constante cambio gracias a temporadas temáticas, eventos en vivo, colaboraciones con franquicias famosas y modos creativos donde los jugadores pueden construir mundos propios. Es uno de los fenómenos culturales más grandes de la última década.",
     genero: "Battle Royale"
   },
   {
     id: 37,
     nombre: "Grand Theft Auto: Vice City",
-    precio: 14.99,
-    imagen: "https://w7.pngwing.com/pngs/357/365/png-transparent-gta-san-andreas-police-grand-theft-auto-san-andreas-samuel-l-jackson-grand-theft-auto-v-grand-theft-auto-iv-gta-san-andreas-background-video-game-fictional-character-arm.png",
+    precio: 64.99,
+    video: "m8oQllwqw_I",
+    imagenes: [
+      "https://media.rawg.io/media/resize/420/-/screenshots/c8a/c8a8aa777e489194373d2683fd1d2a93.jpg",  
+      "https://media.rawg.io/media/resize/420/-/screenshots/f7c/f7cd2a6434a0b390a1f88a9b73cdc8b9.jpg",
+      "https://media.rawg.io/media/resize/420/-/screenshots/015/015ce233eacd66d52a3cdd5ce4803018.jpg",
+      "https://media.rawg.io/media/resize/420/-/screenshots/e45/e451c7be453f081d99143d2301d86f79.jpeg"
+    ],
+    imagen: "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1546990/header.jpg?t=1741117543",
     categoria: "Acción-Aventura",
     plataforma: "Multiplataforma",
     plataformas: ["PC", "PS5", "Xbox Series X", "Mobile"],
@@ -752,14 +871,15 @@ const juegos = [
     lanzamiento: "2002",
     fechaLanzamiento: "2002-10-27",
     descripcion: "Crimen en los vibrantes años 80",
-    descripcionCompleta: "Ambientado en los años 80, Vice City sigue la historia de Tommy Vercetti mientras construye un imperio criminal en la ciudad inspirada en Miami. Con una banda sonora icónica y ambiente único.",
+    descripcionCompleta: "GTA: Vice City nos transporta a una recreación estilizada de Miami en los años 80, llena de neones, música icónica y una estética inolvidable. La historia sigue a Tommy Vercetti, un exconvicto que, tras ser traicionado, decide construir su propio imperio criminal. A medida que asciende, enfrenta traiciones, mafias rivales y situaciones que mezclan humor, acción y drama. Con un mapa vibrante, variedad de vehículos, armas clásicas y una ambientación que captura perfectamente la década, Vice City es uno de los títulos más queridos de Rockstar y un referente del mundo abierto.",
     genero: "Acción-Aventura"
   },
   {
     id: 38,
     nombre: "Resident Evil 2 Remake",
     precio: 39.99,
-    imagen: "https://image.api.playstation.com/vulcan/ap/rnd/202210/0706/9a9a9a9a9a9a9a9a9a9a9a9a9a9a9a9a9a9a9a9a9a.png",
+    video: "u3wS-Q2KBpk",
+    imagen: "https://image.api.playstation.com/vulcan/ap/rnd/202409/2609/0734555a3b8c4eb6a0f922a5565e098ff728518d05d958a6.png?w=440&thumb=false",
     categoria: "Survival Horror",
     plataforma: "Multiplataforma",
     plataformas: ["PC", "PS5", "Xbox Series X"],
@@ -772,7 +892,7 @@ const juegos = [
     lanzamiento: "2019",
     fechaLanzamiento: "2019-01-25",
     descripcion: "Terror de supervivencia en Raccoon City",
-    descripcionCompleta: "Revive el clásico de terror con gráficos de última generación. Juega como Leon Kennedy o Claire Redfield mientras intentan sobrevivir al brote zombie en Raccoon City.",
+    descripcionCompleta: "Resident Evil 2 Remake revitaliza el clásico de 1998 con gráficos impresionantes gracias al RE Engine, una atmósfera mucho más oscura y un enfoque cinematográfico moderno. La historia se divide entre dos protagonistas: Leon S. Kennedy, un policía novato, y Claire Redfield, en busca de su hermano. Ambos deberán sobrevivir al caos desatado en Raccoon City mientras enfrentan zombies, criaturas mutadas y al implacable Tyrant. El juego combina exploración, puzzles clásicos, tensión constante y un diseño de sonido excepcional que amplifica el terror. Es uno de los remakes más aclamados y un referente del survival horror.",
     genero: "Survival Horror"
   },
   {
@@ -792,14 +912,14 @@ const juegos = [
     lanzamiento: "2022",
     fechaLanzamiento: "2022-09-02",
     descripcion: "Historia emocional en un mundo post-apocalíptico",
-    descripcionCompleta: "Joel, un superviviente endurecido, es contratado para sacar de contrabando a Ellie, una niña de 14 años, de una zona de cuarentena opresiva. Lo que comienza como un pequeño trabajo pronto se transforma en un viaje brutal.",
+   descripcionCompleta: "The Last of Us Part I es una versión totalmente reconstruida del clásico, con gráficos de última generación, animaciones realistas y un detalle visual impresionante. La historia sigue a Joel y Ellie en un mundo devastado por un brote de infección fúngica que ha llevado a la sociedad al colapso. Durante su viaje, ambos desarrollan un vínculo profundo marcado por la pérdida, el sacrificio y la esperanza. El combate mezcla sigilo y acción tensa, mientras que la narrativa mantiene su fuerza emocional intacta. Es una experiencia impactante que redefine cómo se cuentan historias en los videojuegos.",
     genero: "Survival Horror"
   },
   {
     id: 40,
     nombre: "Silent Hill 2",
     precio: 49.99,
-    imagen: "https://image.api.playstation.com/vulcan/ap/rnd/202210/0706/b1b1b1b1b1b1b1b1b1b1b1b1b1b1b1b1b1b1b1b1b1.png",
+    imagen: "https://image.api.playstation.com/vulcan/ap/rnd/202210/2000/IgwsFz9BiBrFvyV7pIWpoVgd.png?w=440&thumb=false",
     categoria: "Survival Horror",
     plataforma: "Multiplataforma",
     plataformas: ["PC", "PS5", "Xbox Series X"],
@@ -812,7 +932,7 @@ const juegos = [
     lanzamiento: "2024",
     fechaLanzamiento: "2024-10-08",
     descripcion: "Terror psicológico en la ciudad de Silent Hill",
-    descripcionCompleta: "James Sunderland recibe una carta de su esposa fallecida, diciéndole que lo espera en su 'lugar especial' en Silent Hill. Al llegar, descubre una ciudad envuelta en niebla y habitada por criaturas grotescas.",
+    descripcionCompleta: "Silent Hill 2 es una obra maestra del terror psicológico que sigue a James Sunderland tras recibir una misteriosa carta de su esposa fallecida. En ella, le pide que vaya a su 'lugar especial' en Silent Hill. Al llegar, James se encuentra con una ciudad envuelta en niebla, plagada de criaturas simbólicas y situaciones que reflejan su propia culpa y tormento emocional. El juego destaca por su atmósfera opresiva, narrativa profunda y finales múltiples que dependen de las decisiones del jugador. Es uno de los títulos de terror más influyentes de la historia y un viaje inquietante hacia la mente humana.",
     genero: "Survival Horror"
   },
   {
@@ -832,7 +952,7 @@ const juegos = [
     lanzamiento: "2013",
     fechaLanzamiento: "2013-09-04",
     descripcion: "Terror de supervivencia en un manicomio",
-    descripcionCompleta: "Eres Miles Upshur, un periodista independiente que investiga el Hospital Mount Massive. Armado solo con tu cámara, debes sobrevivir a los horrores dentro del manicomio abandonado.",
+   descripcionCompleta: "Outlast ofrece una experiencia de terror extremo ambientada en el Hospital Psiquiátrico Mount Massive, un lugar abandonado donde se esconden experimentos inhumanos. El periodista Miles Upshur entra con la intención de investigar, pero pronto queda atrapado en medio de horrores indescriptibles. Sin armas para defenderse, solo puede correr, esconderse o usar su cámara con visión nocturna para navegar en la oscuridad total. Su atmósfera claustrofóbica, persecuciones tensas y sonido perturbador convierten a Outlast en uno de los juegos más aterradores de la última década.",
     genero: "Survival Horror"
   },
   {
@@ -852,14 +972,15 @@ const juegos = [
     lanzamiento: "2019",
     fechaLanzamiento: "2019-02-04",
     descripcion: "Battle Royale con héroes y habilidades únicas",
-    descripcionCompleta: "Apex Legends es un Battle Royale gratuito donde competidores con habilidades legendarias se enfrentan por la fama y la fortuna en los límites de la Frontera.",
+    descripcionCompleta: "Apex Legends es un Battle Royale dinámico donde equipos de tres jugadores compiten utilizando Leyendas, cada una con habilidades únicas que cambian por completo la estrategia del combate. Su jugabilidad destaca por el movimiento fluido, tirolesas, deslizamientos y un sistema de ping revolucionario que facilita la comunicación incluso sin micrófono. El mapa evoluciona con el tiempo gracias a temporadas frecuentes que introducen personajes, armas y eventos. Con combate rápido, variedad de estilos de juego y una comunidad competitiva en constante crecimiento, Apex es uno de los Battle Royale más pulidos y estratégicos disponibles.",
     genero: "Battle Royale"
   },
   {
     id: 43,
     nombre: "Red Dead Redemption 2",
-    precio: 59.99,
-    imagen: "https://image.api.playstation.com/vulcan/ap/rnd/202010/0222/7e5R5wq9cQbBauY7RS9VgO7C.png",
+    precio: 79.99,
+    video: "MyaYlbizpvs",
+    imagen: "https://image.api.playstation.com/cdn/UP1004/CUSA03041_00/Hpl5MtwQgOVF9vJqlfui6SDB5Jl4oBSq.png?w=440&thumb=false",
     categoria: "Acción-Aventura",
     plataforma: "Multiplataforma",
     plataformas: ["PC", "PS5", "Xbox Series X"],
@@ -872,14 +993,14 @@ const juegos = [
     lanzamiento: "2018",
     fechaLanzamiento: "2018-10-26",
     descripcion: "Épica western en la América de 1899",
-    descripcionCompleta: "América, 1899. Arthur Morgan y la banda de Van der Linde son forajidos en fuga. Con agentes federales y los mejores cazarrecompensas pisándoles los talones, la banda deberá robar, luchar y abrirse camino por el implacable corazón de América.",
+   descripcionCompleta: "Red Dead Redemption 2 te sumerge en los últimos días del Salvaje Oeste a través de la mirada de Arthur Morgan, un forajido obligado a decidir entre su lealtad a la banda y sus propios ideales. Explora un mundo abierto vasto y profundamente vivo, lleno de pueblos, campamentos, cazarrecompensas, animales salvajes y encuentros impredecibles. Cada decisión deja una huella en la historia y en las personas que te rodean. Vive la caída de la banda Van der Linde mientras recorres paisajes impresionantes, participas en tiroteos intensos y experimentas una narrativa rica y emocionalmente resonante. Un logro monumental en diseño de juegos y narrativa interactiva.",
     genero: "Acción-Aventura"
   },
   {
     id: 44,
     nombre: "Overwatch 2",
     precio: 0.00,
-    imagen: "https://image.api.playstation.com/vulcan/ap/rnd/202210/0706/c1c1c1c1c1c1c1c1c1c1c1c1c1c1c1c1c1c1c1c1c1.png",
+    imagen: "https://image.api.playstation.com/vulcan/ap/rnd/202308/0101/47a99cee6b9c2241602590142aa105dc66554e0843b4e8e8.png?w=440&thumb=false",
     categoria: "Shooter",
     plataforma: "Multiplataforma",
     plataformas: ["PC", "PS5", "Xbox Series X", "Nintendo Switch"],
@@ -892,7 +1013,7 @@ const juegos = [
     lanzamiento: "2022",
     fechaLanzamiento: "2022-10-04",
     descripcion: "Shooter por equipos con héroes únicos",
-    descripcionCompleta: "Reúne a tu equipo y disputa batallas en lugares de todo el mundo. Elige entre un diverso elenco de héroes, forma equipos y lucha en combates 5v5 en este shooter de acción por equipos.",
+   descripcionCompleta: "Overwatch 2 ofrece un shooter por equipos donde la coordinación y las habilidades individuales son clave para la victoria. Enfréntate a partidas 5v5 llenas de acción mientras eliges entre un elenco de héroes únicos, cada uno con habilidades, roles y estilos de juego completamente distintos. Recorre mapas ambientados en distintas partes del mundo, participa en modos competitivos, eventos temporales y disfruta de actualizaciones constantes que mantienen la experiencia fresca. Ya sea como tanque, daño o soporte, siempre tendrás un rol importante en el campo de batalla. Un juego dinámico y accesible que combina estrategia, personalidad y acción frenética.",
     genero: "Shooter"
   },
   {
@@ -912,14 +1033,21 @@ const juegos = [
     lanzamiento: "2014",
     fechaLanzamiento: "2014-10-07",
     descripcion: "Supervivencia contra el xenomorfo perfecto",
-    descripcionCompleta: "Descubre la verdadera terror de estar solo cuando un xenomorfo perfecto te caza en una estación espacial abandonada. Sin armas, solo tu ingenio te mantendrá con vida.",
+    descripcionCompleta: "Alien: Isolation te coloca en la piel de Amanda Ripley mientras exploras una estación espacial abandonada perseguida por un xenomorfo imparable. Sin armas que puedan matarlo, cada paso es una apuesta por la supervivencia. Debes esconderte, improvisar herramientas y mantener la calma mientras la criatura aprende de tus movimientos y adapta su comportamiento. Con una ambientación retro-futurista fiel a la película original, el juego crea una sensación constante de tensión y vulnerabilidad. Cada pasillo oscuro, cada sonido metálico y cada sombra pueden ser lo último que veas. Una experiencia de horror puro centrada en el sigilo y la inteligencia.",
     genero: "Survival Horror"
   },  
   {
     id: 46,
     nombre: "Grand Theft Auto VI",
-    precio: 79.99,
-    imagen: "https://image.api.playstation.com/vulcan/ap/rnd/202312/0112/1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a.png",
+    precio: 100,
+    video: "VQRLujxTm3c",
+    imagenes: [
+      "https://media.rawg.io/media/resize/640/-/screenshots/d11/d119bf3a0e7473ac0fe86648c4841859.jpg",  
+      "https://media.rawg.io/media/resize/640/-/screenshots/4c4/4c47d5e898bda3ce131a8e73db6fe505.jpg",
+      "https://media.rawg.io/media/resize/640/-/screenshots/db2/db2c206e7896ddc846c60f5d315ecfc3.jpg",
+      "https://media.rawg.io/media/resize/640/-/screenshots/384/384241113cb4510774289415d7d6dba1.jpg"
+    ],
+    imagen: "https://preview.redd.it/high-res-artwork-v0-qzj98t4gfi4c1.jpeg?auto=webp&s=05066c9b85677276f0ae3445dc095f862c7bb5d9",
     categoria: "Acción-Aventura",
     plataforma: "Multiplataforma",
     plataformas: ["PS5", "Xbox Series X", "PC"],
@@ -932,14 +1060,14 @@ const juegos = [
     lanzamiento: "2025",
     fechaLanzamiento: "2025-09-17",
     descripcion: "La entrega más esperada de la saga GTA",
-    descripcionCompleta: "Grand Theft Auto VI te lleva de regreso a Vice City en la entrega más ambiciosa de la saga. Explora un mundo abierto masivo lleno de crimen, acción y posibilidades infinitas en el paraíso criminal de Leonida con los protagonistas Lucia y Jason.",
+    descripcionCompleta: "Grand Theft Auto VI lleva a los jugadores de vuelta a Vice City con una recreación moderna y expansiva de la icónica ciudad. Con dos protagonistas jugables, una narrativa entrelazada y un mundo abierto masivo lleno de vida, actividades y secretos, GTA VI promete redefinir la experiencia de mundo abierto. La integración total con el modo online ofrece una experiencia fluida entre la campaña y el multijugador, permitiendo a los jugadores explorar, competir y colaborar en un entorno dinámico. Con gráficos de última generación, mecánicas mejoradas y una historia profunda, GTA VI es la culminación de años de innovación en la serie.",
     genero: "Acción-Aventura"
   },
   {
     id: 47,
     nombre: "Star Wars Jedi: Survivor",
     precio: 69.99,
-    imagen: "https://image.api.playstation.com/vulcan/ap/rnd/202302/2323/2d2d2d2d2d2d2d2d2d2d2d2d2d2d2d2d2d2d2d2d2d.png",
+    imagen: "https://image.api.playstation.com/vulcan/ap/rnd/202304/1016/47becbe467e18575f71429abbaec9af707865744b825f34d.png?w=440&thumb=false",
     categoria: "Acción-Aventura",
     plataforma: "Multiplataforma",
     plataformas: ["PS5", "Xbox Series X", "PC"],
@@ -952,14 +1080,14 @@ const juegos = [
     lanzamiento: "2023",
     fechaLanzamiento: "2023-04-28",
     descripcion: "Continúa la historia de Cal Kestis",
-    descripcionCompleta: "La historia de Cal Kestis continúa en esta secuela de Star Wars Jedi: Fallen Order. Cal debe mantenerse un paso por delante del Imperio en una galaxia cada vez más oscura.",
+    descripcionCompleta: "Star Wars Jedi: Survivor sigue a Cal Kestis cinco años después de los eventos de Fallen Order, enfrentándose a nuevas amenazas del Imperio mientras busca sobrevivir y reconstruir la Orden Jedi. Explora planetas icónicos y nuevos, domina el combate con sables de luz y habilidades de la Fuerza en un mundo abierto lleno de secretos, enemigos desafiantes y aliados inesperados. Con una narrativa profunda que expande el canon de Star Wars, gráficos impresionantes y una jugabilidad refinada, Jedi: Survivor ofrece una experiencia inmersiva para los fans de la saga y los amantes de la acción-aventura.",
     genero: "Acción-Aventura"
   },
   {
     id: 48,
     nombre: "Mortal Kombat 1",
     precio: 69.99,
-    imagen: "https://image.api.playstation.com/vulcan/ap/rnd/202306/0220/3e3e3e3e3e3e3e3e3e3e3e3e3e3e3e3e3e3e3e3e3e.png",
+    imagen: "https://image.api.playstation.com/vulcan/ap/rnd/202305/1515/1cc63f4f4b2c9a9852fabefba4ca7eea936b1ef7867811a5.png?w=440&thumb=false",
     categoria: "Lucha",
     plataforma: "Multiplataforma",
     plataformas: ["PS5", "Xbox Series X", "PC", "Nintendo Switch"],
@@ -972,14 +1100,14 @@ const juegos = [
     lanzamiento: "2023",
     fechaLanzamiento: "2023-09-19",
     descripcion: "Reinicio de la saga de lucha mortal",
-    descripcionCompleta: "Liu Kang ha recreado el universo en su imagen, dando inicio a una nueva era para Mortal Kombat. Descubre un mundo renacido con personajes clásicos reinventados.",
+    descripcionCompleta: "Mortal Kombat 1 reinicia la icónica saga de lucha con una nueva línea temporal creada por Raiden para evitar la destrucción del universo. Con un elenco renovado de personajes clásicos y nuevos, el juego ofrece combates intensos, movimientos especiales y las brutales fatalities que definen la serie. La inclusión de Kameo Fighters permite a los jugadores invocar aliados durante las peleas para obtener ventajas estratégicas. Con modos de juego variados, desde historia hasta competitivo en línea, Mortal Kombat 1 combina nostalgia con innovación para ofrecer una experiencia de lucha definitiva.",
     genero: "Lucha"
   },
   {
     id: 49,
     nombre: "Armored Core VI: Fires of Rubicon",
     precio: 59.99,
-    imagen: "https://image.api.playstation.com/vulcan/ap/rnd/202302/2323/4f4f4f4f4f4f4f4f4f4f4f4f4f4f4f4f4f4f4f4f4f.png",
+    imagen: "https://image.api.playstation.com/vulcan/ap/rnd/202304/2800/028dc00001bdd99d6ca4357abf66a476a121e86bf7d80d88.png?w=440&thumb=false",
     categoria: "Mecha",
     plataforma: "Multiplataforma",
     plataformas: ["PS5", "Xbox Series X", "PC"],
@@ -992,14 +1120,14 @@ const juegos = [
     lanzamiento: "2023",
     fechaLanzamiento: "2023-08-25",
     descripcion: "Acción mecha de los creadores de Dark Souls",
-    descripcionCompleta: "Pilota tu mecha y sumérgete en combates vertiginosos en este regreso de la saga Armored Core. Personaliza tu AC y domina el campo de batalla.",
+    descripcionCompleta: "Armored Core VI: Fires of Rubicon marca el regreso de la icónica serie de mechas de FromSoftware. En un planeta azotado por recursos valiosos y conflictos, los jugadores asumen el papel de pilotos de mechas personalizables llamados Armored Cores. Con un enfoque en el combate rápido y táctico, los jugadores pueden modificar sus mechas con una amplia variedad de armas, armaduras y sistemas para adaptarse a diferentes estilos de juego. Las misiones desafiantes y la narrativa inmersiva ofrecen una experiencia profunda para los fans del género mecha y los seguidores de FromSoftware.",
     genero: "Mecha"
   },
   {
     id: 50,
     nombre: "Lies of P",
     precio: 49.99,
-    imagen: "https://image.api.playstation.com/vulcan/ap/rnd/202302/2323/5g5g5g5g5g5g5g5g5g5g5g5g5g5g5g5g5g5g5g5g5g.png",
+    imagen: "https://image.api.playstation.com/vulcan/ap/rnd/202305/2308/06b354c8015b3c71e54f43aa883aab4641285d4a91734681.png?w=440&thumb=false",
     categoria: "Soulslike",
     plataforma: "Multiplataforma",
     plataformas: ["PS5", "Xbox Series X", "PC"],
@@ -1012,34 +1140,42 @@ const juegos = [
     lanzamiento: "2023",
     fechaLanzamiento: "2023-09-19",
     descripcion: "Un oscuro cuento de Pinocchio al estilo Souls",
-    descripcionCompleta: "Inspirado en el clásico cuento de Pinocho, Lies of P es un soulslike de acción que cuenta la historia de P, un muñeco que debe encontrar a Geppetto en la ciudad desolada de Krat.",
+    descripcionCompleta: "Lies of P reimagina el clásico cuento de Pinocchio en un mundo oscuro y retorcido, combinando elementos de acción RPG con la desafiante jugabilidad soulslike. Los jugadores controlan a P, un autómata que busca convertirse en humano mientras navega por una ciudad decadente llena de enemigos implacables y jefes formidables. Con un sistema de combate profundo, armas personalizables y una narrativa que explora temas de identidad y moralidad, Lies of P ofrece una experiencia única para los fans del género y aquellos que buscan una historia intrigante.",
     genero: "Soulslike"
   },
-   {
-    id: 50,
-    nombre: "Grand Theft Auto: Vice City",
-    precio: 14.99,
-    imagen: "https://i.pinimg.com/736x/a4/e6/fa/a4e6fa3e10463e110e455b59843f8231.jpg",
-    categoria: "Acción-Aventura",
-    plataforma: "Multiplataforma",
-    plataformas: ["PC", "PS5", "Xbox Series X", "Mobile"],
-    calificacion: 4.8,
-    reseñas: 3200,
-    disponibilidad: "En stock",
-    stock: 25,
-    caracteristicas: ["Años 80", "Banda Sonora Icónica", "Mundo Abierto", "Historia Criminal"],
-    desarrollador: "Rockstar Games",
-    lanzamiento: "2002",
-    fechaLanzamiento: "2002-10-27",
-    descripcion: "Crimen en los vibrantes años 80",
-    descripcionCompleta: "Ambientado en los años 80, Vice City sigue la historia de Tommy Vercetti mientras construye un imperio criminal en la ciudad inspirada en Miami. Con una banda sonora icónica y ambiente único.",
-    genero: "Acción-Aventura"
-  },
+    {
+  id: 51,
+  nombre: "DOTA 2",
+  precio: 50.00,
+  video: "-cSFPIwMEq4",
+  imagenes: [
+      "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/570/ss_c9118375a2400278590f29a3537769c986ef6e39.1920x1080.jpg?t=1762820658",  
+      "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/570/ss_f9ebafedaf2d5cfb80ef1f74baa18eb08cad6494.1920x1080.jpg?t=1762820658",
+      "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/570/ss_27b6345f22243bd6b885cc64c5cda74e4bd9c3e8.1920x1080.jpg?t=1762820658",
+      "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/570/ss_1f3b5f5ccf8b159294914c3fe028128a787304b6.1920x1080.jpg?t=1762820658"
+    ],
+  imagen: "https://cdn.cloudflare.steamstatic.com/steam/apps/570/capsule_616x353.jpg",
+  categoria: "MOBA",
+  plataforma: "PC",
+  plataformas: ["PC"],
+  calificacion: 4.9,
+  reseñas: 1850000,
+  disponibilidad: "En stock",
+  stock: 9999,
+  caracteristicas: ["Gratuito", "Competitivo", "Heroes Únicos", "eSports"],
+  desarrollador: "Valve Corporation",
+  lanzamiento: "2013",
+  fechaLanzamiento: "2013-07-09",
+  descripcion: "MOBA competitivo gratuito",
+  descripcionCompleta: "DOTA 2 es un MOBA (Multiplayer Online Battle Arena) gratuito desarrollado por Valve Corporation. Enfrenta a dos equipos de cinco jugadores en partidas estratégicas donde cada jugador controla a un héroe con habilidades únicas. El objetivo es destruir la base del equipo contrario mientras defiendes la tuya. Con una comunidad activa, actualizaciones constantes y un ecosistema de eSports vibrante, DOTA 2 ofrece una experiencia competitiva profunda y desafiante para jugadores de todos los niveles.",
+  genero: "MOBA"
+},
   {
-    id: 51,
+    id: 52,
     nombre: "It Takes Two",
     precio: 39.99,
-    imagen: "https://image.api.playstation.com/vulcan/ap/rnd/202302/2323/6h6h6h6h6h6h6h6h6h6h6h6h6h6h6h6h6h6h6h6h6h.png",
+    video: "GAWHzGNcTEw",
+    imagen: "https://image.api.playstation.com/vulcan/ap/rnd/202012/0815/7CRynuLSAb0vysSC4TmZy5e4.png?w=440&thumb=false",
     categoria: "Aventura",
     plataforma: "Multiplataforma",
     plataformas: ["PS5", "Xbox Series X", "PC", "Nintendo Switch"],
@@ -1052,14 +1188,15 @@ const juegos = [
     lanzamiento: "2021",
     fechaLanzamiento: "2021-03-26",
     descripcion: "Aventura cooperativa única para dos jugadores",
-    descripcionCompleta: "Una aventura cooperativa única donde dos jugadores controlan a Cody y May, una pareja en crisis transformada en muñecos. Deben trabajar juntos para superar desafíos y salvar su relación.",
+    descripcionCompleta: "It Takes Two es una aventura cooperativa diseñada exclusivamente para dos jugadores, donde cada uno controla a uno de los protagonistas, Cody y May, que han sido transformados en muñecos. A lo largo del juego, los jugadores deben colaborar para superar una variedad de desafíos y mecánicas de juego innovadoras que cambian constantemente. La narrativa emocional explora temas de amor, comunicación y reconciliación, todo envuelto en un mundo vibrante y lleno de humor. Ganador de múltiples premios al Juego del Año, It Takes Two ofrece una experiencia inolvidable que celebra la cooperación y la conexión humana.",
     genero: "Aventura Cooperativa"
   },
   {
-    id: 52,
+    id: 53,
     nombre: "Sea of Thieves",
     precio: 39.99,
-    imagen: "https://image.api.playstation.com/vulcan/ap/rnd/202302/2323/7i7i7i7i7i7i7i7i7i7i7i7i7i7i7i7i7i7i7i7i7i.png",
+    video: "vFKacfeTMwc",
+    imagen: "https://image.api.playstation.com/vulcan/ap/rnd/202502/1814/287f0e07924e34bf117d3442f3c17e8cb96e00f674efea2e.png?w=440&thumb=false",
     categoria: "Aventura",
     plataforma: "Multiplataforma",
     plataformas: ["Xbox Series X", "PC", "PS5"],
@@ -1072,14 +1209,21 @@ const juegos = [
     lanzamiento: "2018",
     fechaLanzamiento: "2018-03-20",
     descripcion: "Aventura pirata en mundo compartido",
-    descripcionCompleta: "Sea of Thieves ofrece la experiencia pirata definitiva, desde navegación y combate hasta exploración y saqueo. Todo en un mundo compartido y persistente.",
+    descripcionCompleta: "Sea of Thieves es una aventura pirata en un mundo abierto compartido donde los jugadores pueden explorar islas, buscar tesoros y enfrentarse a otros piratas en alta mar. Con un enfoque en la cooperación, los jugadores forman tripulaciones para navegar, combatir y completar misiones juntos. El juego ofrece un entorno dinámico con eventos en vivo, cambios climáticos y una comunidad activa que mantiene la experiencia fresca. Con gráficos vibrantes y una banda sonora épica, Sea of Thieves captura la esencia de la vida pirata en una experiencia multijugador única.",
     genero: "Aventura Multijugador"
   },
   {
-    id: 53,
+    id: 54,
     nombre: "Celeste",
     precio: 19.99,
-    imagen: "https://image.api.playstation.com/vulcan/ap/rnd/202302/2323/8j8j8j8j8j8j8j8j8j8j8j8j8j8j8j8j8j8j8j8j8j.png",
+    video: "iofYDsA2yqg",
+    imagenes: [
+      "https://assets.nintendo.com/image/upload/ar_16:9,b_auto:border,c_lpad/b_white/f_auto/q_auto/dpr_1.5/c_scale,w_700/store/software/switch/70010000006442/4f74fbbab423aba0acc28f954643f112946a9c9318e9543fd1ddea4f863fea81",  
+      "https://assets.nintendo.com/image/upload/ar_16:9,b_auto:border,c_lpad/b_white/f_auto/q_auto/dpr_1.5/c_scale,w_700/store/software/switch/70010000006442/dd649ca9811831baff09db2e1adbab93f9ac2bbe058d76759c1aef8a2b20b2a6",
+      "https://assets.nintendo.com/image/upload/ar_16:9,b_auto:border,c_lpad/b_white/f_auto/q_auto/dpr_1.5/c_scale,w_700/store/software/switch/70010000006442/1e79086b6e592aced95d11da2481212b9819d7b51df315d16b577bd1236e1f4a",
+      "https://assets.nintendo.com/image/upload/ar_16:9,b_auto:border,c_lpad/b_white/f_auto/q_auto/dpr_1.5/c_scale,w_700/store/software/switch/70010000006442/5427aef20c3e611418739fa0f497eb1196f599b7cf03b07b13bc4bc8c41f8569"
+    ],
+    imagen: "https://image.api.playstation.com/cdn/UP2120/CUSA11302_00/qHx7zoFGNn6BUHUOk2jSfBck2Zzbjulw.png?w=440&thumb=false",
     categoria: "Plataformas",
     plataforma: "Multiplataforma",
     plataformas: ["PS5", "Xbox Series X", "Nintendo Switch", "PC"],
@@ -1092,14 +1236,15 @@ const juegos = [
     lanzamiento: "2018",
     fechaLanzamiento: "2018-01-25",
     descripcion: "Aventura de plataformas sobre superación personal",
-    descripcionCompleta: "Ayuda a Madeline a escalar la Montaña Celeste en este plataformas desafiante sobre superar tus demonios internos. Controles precisos y una historia conmovedora.",
+    descripcionCompleta: "Celeste es un juego de plataformas desafiante que sigue la historia de Madeline mientras escala la montaña Celeste, enfrentándose a obstáculos físicos y emocionales. Con controles precisos y niveles diseñados meticulosamente, el juego ofrece una experiencia gratificante para los amantes del género. La narrativa aborda temas de ansiedad, depresión y autoaceptación, complementada por una banda sonora emotiva que realza cada momento. Además, el modo Assist permite a los jugadores ajustar la dificultad para disfrutar de la historia sin frustraciones. Celeste es una obra maestra indie que combina jugabilidad exigente con una historia profundamente humana.",
     genero: "Plataformas"
   },
   {
-    id: 54,
+    id: 55,
     nombre: "Monster Hunter: World",
     precio: 29.99,
-    imagen: "https://image.api.playstation.com/vulcan/ap/rnd/202302/2323/9k9k9k9k9k9k9k9k9k9k9k9k9k9k9k9k9k9k9k9k9k.png",
+    video: "OotQrKEqe94",
+    imagen: "https://image.api.playstation.com/vulcan/ap/rnd/202507/3004/ae416e3ce779b403fd2c901187d93c0f19f0472820e0f84f.png?w=440&thumb=false",
     categoria: "Acción-RPG",
     plataforma: "Multiplataforma",
     plataformas: ["PS5", "Xbox Series X", "PC"],
@@ -1112,14 +1257,21 @@ const juegos = [
     lanzamiento: "2018",
     fechaLanzamiento: "2018-01-26",
     descripcion: "Caza monstruos épicos en un mundo vivo",
-    descripcionCompleta: "Caza monstruos gigantescos en paisajes vibrantes como cazador en un mundo vivo y que respira. Mejora tu equipo cazando monstruos cada vez más peligrosos.",
+    descripcionCompleta: "Monster Hunter: World lleva a los jugadores a un vasto y vibrante ecosistema donde deben cazar y derrotar monstruos gigantescos utilizando una variedad de armas, armaduras y estrategias. El juego destaca por su mundo abierto lleno de vida, donde cada criatura interactúa con su entorno de manera realista. Los jugadores pueden formar equipos de hasta cuatro cazadores para enfrentar desafíos juntos, compartir recursos y crear equipo a partir de las partes de los monstruos derrotados. Con misiones variadas, eventos especiales y una comunidad activa, Monster Hunter: World ofrece una experiencia profunda y gratificante para los fans del género acción-RPG.",
     genero: "Acción-RPG"
   },
     {
-    id: 55,
+    id: 56,
     nombre: "Fall Guys: Ultimate Knockout",
-    precio: 0.00,
-    imagen: "https://image.api.playstation.com/vulcan/ap/rnd/202302/2323/1m1m1m1m1m1m1m1m1m1m1m1m1m1m1m1m1m1m1m1m1m.png",
+    precio: 23.00,
+    video: "2CT7eZ1ydPs",
+    imagenes: [
+      "https://assets.nintendo.com/image/upload/ar_16:9,b_auto:border,c_lpad/b_white/f_auto/q_auto/dpr_1.5/c_scale,w_700/store/software/switch/70010000042975/af43b35968ca4891f0ca1ef840db80cfb6bd9f0a556b4984d9ff758d6eec9e4f",  
+      "https://assets.nintendo.com/image/upload/ar_16:9,b_auto:border,c_lpad/b_white/f_auto/q_auto/dpr_1.5/c_scale,w_700/store/software/switch/70010000042975/3dc88ad82234136a532c112f6aa4e630da7c8e3a520401ad0d2e426eba265093",
+      "https://assets.nintendo.com/image/upload/ar_16:9,b_auto:border,c_lpad/b_white/f_auto/q_auto/dpr_1.5/c_scale,w_700/store/software/switch/70010000042975/92a3ff6780adfff6cca1ef40fc8ec9d745d1552b3807cbeb18d734d789e2e1b9",
+      "https://assets.nintendo.com/image/upload/ar_16:9,b_auto:border,c_lpad/b_white/f_auto/q_auto/dpr_1.5/c_scale,w_700/store/software/switch/70010000042975/459ad432e5cd0ae88072b9b436773f7c4cee03696b2ecc793bf106c253260c69"
+    ],
+    imagen: "https://image.api.playstation.com/vulcan/ap/rnd/202408/2122/182b2ebece8462eaecf19935d1bdf379a13aa17e6ed17196.png?w=440&thumb=false",
     categoria: "Battle Royale",
     plataforma: "Multiplataforma",
     plataformas: ["PS5", "Xbox Series X", "Nintendo Switch", "PC"],
@@ -1132,13 +1284,20 @@ const juegos = [
     lanzamiento: "2020",
     fechaLanzamiento: "2020-08-04",
     descripcion: "Battle royale caótico y divertido",
-    descripcionCompleta: "Fall Guys es un battle royale gratuito donde compites contra hasta 59 jugadores online en una carrera de obstáculos salvajes hasta la victoria.",
+    descripcionCompleta: "Fall Guys: Ultimate Knockout es un battle royale único que combina elementos de juegos de plataformas y minijuegos en un formato caótico y colorido. Hasta 60 jugadores compiten en una serie de rondas llenas de obstáculos, desafíos y pruebas de habilidad, donde solo uno puede salir victorioso. Con controles simples y una jugabilidad accesible, Fall Guys ofrece diversión para jugadores de todas las edades. La personalización de personajes con disfraces extravagantes y la introducción constante de nuevos niveles y eventos mantienen la experiencia fresca y entretenida. Es una celebración del caos y la diversión en el género battle royale.",
     genero: "Battle Royale"
   },
     {
-    id: 56,
+    id: 57,
     nombre: "Stardew Valley",
     precio: 14.99,
+    video: "ot7uXNQskhs",
+      imagenes: [
+      "https://assets.nintendo.com/image/upload/ar_16:9,b_auto:border,c_lpad/b_white/f_auto/q_auto/dpr_1.5/c_scale,w_700/store/software/switch/70010000001801/dcd6f1feda032d04e7220e97e24d93d1f9c963285c88bd8e81e06a20d193054c",  
+      "https://assets.nintendo.com/image/upload/ar_16:9,b_auto:border,c_lpad/b_white/f_auto/q_auto/dpr_1.5/c_scale,w_700/store/software/switch/70010000001801/767ac7ae1903bc92ab31b2e131d422c0f8dc9912fd52ce51afc984b6b6974e83",
+      "https://assets.nintendo.com/image/upload/ar_16:9,b_auto:border,c_lpad/b_white/f_auto/q_auto/dpr_1.5/c_scale,w_700/store/software/switch/70010000001801/a14b2ba7d7d59e9ab25a74871d4d41f83527cba7485cd024bbc518c1433932c0",
+      "https://assets.nintendo.com/image/upload/ar_16:9,b_auto:border,c_lpad/b_white/f_auto/q_auto/dpr_1.5/c_scale,w_700/store/software/switch/70010000001801/d76a54c456854df9c9a5059eac394d744aa73fe1d7f391cf79b8a4b73bd7298b"
+    ],
     imagen: "https://cdn.cloudflare.steamstatic.com/steam/apps/413150/capsule_616x353.jpg",
     categoria: "Simulación",
     plataforma: "Multiplataforma",
@@ -1152,7 +1311,7 @@ const juegos = [
     lanzamiento: "2016",
     fechaLanzamiento: "2016-02-26",
     descripcion: "Simulación relajante de vida rural",
-    descripcionCompleta: "Hereda la vieja granja de tu abuelo en Stardew Valley. Armado con herramientas de segunda mano y algunas monedas, comienzas tu nueva vida. ¿Podrás aprender a vivir de la tierra y convertir estos campos descuidados en un hogar próspero?",
+    descripcionCompleta: "Stardew Valley es un juego de simulación de vida rural donde los jugadores heredan una granja abandonada y deben restaurarla a su antigua gloria. Cultiva cultivos, cría animales, pesca, explora minas y construye relaciones con los habitantes del pueblo. Con un enfoque en la personalización, los jugadores pueden diseñar su granja a su gusto, participar en festivales locales y descubrir secretos ocultos. El juego también ofrece un modo multijugador cooperativo, permitiendo a los amigos unirse para gestionar la granja juntos. Con su estilo pixel art encantador y una banda sonora relajante, Stardew Valley es una experiencia acogedora que celebra la vida sencilla y la comunidad.",
     genero: "Simulación"
   }
 ];
