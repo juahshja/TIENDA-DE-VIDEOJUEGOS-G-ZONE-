@@ -11,7 +11,7 @@ function Navbar() {
   const { cantidadWishlist } = useWishlist();
   const [showLoginModal, setShowLoginModal] = useState(false);
 
-  //INICIALIZAR DROPDOWNS DE BOOTSTRAP
+  //INICIALIZA DROPDOWNS DE BOOTSTRAP
   useEffect(() => {
     if (isAuthenticated && typeof window !== 'undefined' && window.bootstrap) {
       const dropdownElementList = document.querySelectorAll('.dropdown-toggle');

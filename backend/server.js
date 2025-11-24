@@ -22,7 +22,7 @@ app.use('/api/auth', authRoutes);
 app.use('/api/wishlist', wishlistRoutes);
 app.use('/api/reviews', require('./routes/reviewRoutes'));
 app.use('/api/orders', require('./routes/orderRoutes'));
-app.use('/api/tickets', require('./routes/ticketRoutes')); // ← AGREGAR ESTA LÍNEA
+app.use('/api/tickets', require('./routes/ticketRoutes')); 
 
 
 
@@ -35,8 +35,8 @@ app.get('/', (req, res) => {
       auth: '/api/auth',
       wishlist: '/api/wishlist',
       reviews: '/api/reviews',
-      orders: '/api/orders' , // ← AGREGAR ESTA LÍNEA
-      tickets: '/api/tickets'  // ← AGREGAR ESTA LÍNEA
+      orders: '/api/orders' , 
+      tickets: '/api/tickets'  
 
 
     }

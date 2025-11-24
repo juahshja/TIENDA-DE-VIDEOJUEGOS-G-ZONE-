@@ -15,7 +15,7 @@ export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
   const [modalLoginOpen, setModalLoginOpen] = useState(false);
-  const [loggingOut, setLoggingOut] = useState(false); // ✅ NUEVO ESTADO
+  const [loggingOut, setLoggingOut] = useState(false);
 
   useEffect(() => {
     // Verificar si hay un usuario en localStorage al cargar
@@ -46,7 +46,6 @@ export const AuthProvider = ({ children }) => {
     }
   };
 
-  // ✅ FUNCIÓN LOGOUT MEJORADA
   const logout = async () => {
     setLoggingOut(true); // Activar estado de carga
     
@@ -80,7 +79,7 @@ export const AuthProvider = ({ children }) => {
         logout,
         isAuthenticated,
         loading,
-        loggingOut, // ✅ EXPORTAR NUEVO ESTADO
+        loggingOut, 
         modalLoginOpen,
         abrirModalLogin,
         cerrarModalLogin

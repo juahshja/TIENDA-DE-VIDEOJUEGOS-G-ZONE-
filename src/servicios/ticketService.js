@@ -1,4 +1,4 @@
-import api from './api';  // ← SIN LLAVES { }
+import api from './api';  
 
 export const ticketService = {
   // Crear nuevo ticket

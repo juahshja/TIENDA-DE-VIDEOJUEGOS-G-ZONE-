@@ -86,7 +86,6 @@ export const CarritoProvider = ({ children }) => {
     agregarNotificacion('Carrito vaciado correctamente', 'danger');
   };
 
-  // ✅ ESTO DEBE ESTAR AQUÍ, FUERA DE realizarCompra
   const totalCarrito = carrito.reduce((total, item) => total + (item.precio * item.cantidad), 0);
   const cantidadTotal = carrito.reduce((total, item) => total + item.cantidad, 0);
 
@@ -108,7 +107,6 @@ export const CarritoProvider = ({ children }) => {
       // Limpiar carrito después de compra exitosa
       setCarrito([]);
       
-      // ✅ AGREGAR NOTIFICACIÓN DE ÉXITO
       agregarNotificacion('✅ Compra realizada exitosamente', 'success');
       
       return { 
@@ -119,7 +117,6 @@ export const CarritoProvider = ({ children }) => {
     } catch (error) {
       console.error('Error realizando compra:', error);
       
-      // ✅ AGREGAR NOTIFICACIÓN DE ERROR
       agregarNotificacion('❌ Error al realizar la compra', 'danger');
       
       return { 

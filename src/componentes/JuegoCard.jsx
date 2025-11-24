@@ -1,16 +1,16 @@
 import { useCarrito } from "../contexto/CarritoContext";
-import { useAuth } from "../contexto/AuthContext"; // ✅ AGREGAR
-import { useState } from "react"; // ✅ AGREGAR
+import { useAuth } from "../contexto/AuthContext";
+import { useState } from "react"; 
 import { Link } from "react-router-dom";
 import BotonWishlist from "./BotonWishlist";
-import ModalLogin from "./ModalLogin"; // ✅ AGREGAR
+import ModalLogin from "./ModalLogin"; 
 
 function JuegoCard({ juego }) {
   const { agregarAlCarrito } = useCarrito();
-  const { isAuthenticated } = useAuth(); // ✅ AGREGAR
-  const [showLoginModal, setShowLoginModal] = useState(false); // ✅ AGREGAR
+  const { isAuthenticated } = useAuth(); 
+  const [showLoginModal, setShowLoginModal] = useState(false); 
 
-  // ✅ FUNCIÓN NUEVA: Manejar agregar al carrito con verificación
+  //  agregar al carrito con verificación
   const handleAgregarCarritoProtegido = (e) => {
     e.preventDefault();
     e.stopPropagation();
@@ -26,7 +26,7 @@ function JuegoCard({ juego }) {
 
   return (
     <div className="col-md-6 col-lg-4 mb-4">
-      {/* ✅ MODAL DE LOGIN */}
+      {/* MODAL DE LOGIN */}
       <ModalLogin 
         show={showLoginModal} 
         onClose={() => setShowLoginModal(false)} 
@@ -80,12 +80,12 @@ function JuegoCard({ juego }) {
                 Ver Detalles
               </Link>
               
-              {/* ✅ MODIFICADO: Botón de carrito con protección */}
+              {}
               <button
                 className="btn btn-primary btn-sm"
-                onClick={handleAgregarCarritoProtegido} // ✅ CAMBIAR función
+                onClick={handleAgregarCarritoProtegido} 
               >
-                🛒
+             <i className="fas fa-shopping-cart me-2"></i>
               </button>
             </div>
           </div>

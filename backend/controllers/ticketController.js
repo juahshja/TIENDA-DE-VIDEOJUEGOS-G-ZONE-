@@ -53,7 +53,7 @@ exports.obtenerTicketsUsuario = async (req, res) => {
     
     // Buscar SOLO por ID de usuario (sin email)
     const tickets = await Ticket.find({ 
-      usuario: req.userId  // ← ✅ SOLO esto
+      usuario: req.userId  
     }).sort({ createdAt: -1 });
 
     console.log('🔍 Tickets encontrados:', tickets.length);

@@ -90,7 +90,7 @@ function MiniCarrusel({ imagenes }) {
           <span style={{ fontSize: '1.2rem', fontWeight: 'bold' }}>‹</span>
         </button>
 
-        {/* BOTÓN SIGUIENTE (→) */}
+        {}
         <button 
           className="btn btn-light position-absolute top-50 end-0 translate-middle-y rounded-circle shadow-sm border-0"
           onClick={siguienteImagen}
@@ -104,7 +104,7 @@ function MiniCarrusel({ imagenes }) {
           <span style={{ fontSize: '1.2rem', fontWeight: 'bold' }}>›</span>
         </button>
 
-        {/* INDICADOR DE POSICIÓN (1/4) */}
+        {}
         <div className="position-absolute bottom-0 start-50 translate-middle-x mb-3">
           <span className="badge bg-dark bg-opacity-75 px-3 py-2">
             {imagenActual + 1} / {imagenes.length}
@@ -112,7 +112,7 @@ function MiniCarrusel({ imagenes }) {
         </div>
       </div>
 
-      {/* FILA DE MINIATURAS */}
+      {}
       <div className="miniaturas d-flex justify-content-center gap-2 flex-wrap">
         {imagenes.map((imagen, index) => (
           <div 
@@ -136,7 +136,7 @@ function MiniCarrusel({ imagenes }) {
                 e.target.src = 'https://via.placeholder.com/70x70/64748b/ffffff?text=X';
               }}
             />
-            {/* Indicador de miniatura activa */}
+            {}
             {index === imagenActual && (
               <div className="position-absolute top-0 start-50 translate-middle-x mt-1">
                 <div className="bg-primary rounded-circle" style={{ width: '6px', height: '6px' }}></div>

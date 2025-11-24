@@ -178,7 +178,7 @@ function Carrito() {
 
   return (
     <div className="container mt-5">
-      {/* ✅ TODOS LOS MODALES SIN CAMBIOS */}
+      {}
       {mostrarConfirmacion && (
         <div className="modal fade show d-block" style={{
           backgroundColor: 'rgba(0,0,0,0.6)', 
@@ -309,7 +309,7 @@ function Carrito() {
         </div>
       )}
 
-      {/* ✅ NUEVO DISEÑO - ESTRUCTURA MODERNA */}
+      {}
       <div className="d-flex justify-content-between align-items-center mb-4">
         <div>
           <h2 className="fw-bold mb-0">Tu Carrito de Compra</h2>
