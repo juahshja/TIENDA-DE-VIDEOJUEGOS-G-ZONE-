@@ -528,6 +528,13 @@ const juegos = [
     id: 24,
     nombre: "Metroid Dread",
     precio: 59.99,
+    video: "8NjCICl7dDo",
+    imagenes: [
+      "https://assets.nintendo.com/image/upload/ar_16:9,b_auto:border,c_lpad/b_white/f_auto/q_auto/dpr_1.5/c_scale,w_700/store/software/switch/70010000042924/d455074ebe87ba989306dc1c66135374cbe299ef6dc05da90dccb2dfd08e8e35",  
+      "https://assets.nintendo.com/image/upload/ar_16:9,b_auto:border,c_lpad/b_white/f_auto/q_auto/dpr_1.5/c_scale,w_700/store/software/switch/70010000042924/bdc2640a9a0f85bb3fc730e3c26cf97bcb0890b009eab91a0b39ce7ebb672f9d",
+      "https://assets.nintendo.com/image/upload/ar_16:9,b_auto:border,c_lpad/b_white/f_auto/q_auto/dpr_1.5/c_scale,w_700/store/software/switch/70010000042924/e7cbc2ef35d7d782f0570c9a506c6432eaac258187cb4fa539b155d1fe54f00e",
+      "https://assets.nintendo.com/image/upload/ar_16:9,b_auto:border,c_lpad/b_white/f_auto/q_auto/dpr_1.5/c_scale,w_700/store/software/switch/70010000042924/4ffb6e6db4487a1b4c923993b6e16d1d07674c95f0d84036b3415dd1c61adf49"
+    ],
     imagen: "https://assets.nintendo.com/image/upload/ar_16:9,c_lpad,w_930/b_white/f_auto/q_auto/store/software/switch/70010000042924/4f2c683f0196210ec212a2ab8bf6952223c0b88e827b820953407a2ba61c9cb2",
     categoria: "Metroidvania",
     plataforma: "Nintendo Switch",
